@@ -1,0 +1,1530 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Simulacros UMH C1 Informática (Aplicaciones) - 80 + 40</title>
+    <style>
+        :root {
+            --w: 980px;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            margin: 0;
+            background: #f6f7fb;
+            color: #111;
+        }
+
+        header {
+            background: #101828;
+            color: #fff;
+            padding: 16px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 650;
+        }
+
+        header p {
+            margin: 6px 0 0;
+            opacity: .85;
+            font-size: 13px;
+        }
+
+        main {
+            max-width: var(--w);
+            margin: 18px auto;
+            padding: 0 14px 40px;
+        }
+
+        .row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 14px;
+            box-shadow: 0 1px 2px rgba(16, 24, 40, .06);
+        }
+
+        .card h2 {
+            margin: 0 0 10px;
+            font-size: 16px;
+        }
+
+        .muted {
+            color: #667085;
+            font-size: 13px;
+        }
+
+        button,
+        select {
+            border: 1px solid #d0d5dd;
+            background: #fff;
+            padding: 10px 12px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        button.primary {
+            background: #155eef;
+            color: #fff;
+            border-color: #155eef;
+        }
+
+        button.danger {
+            background: #b42318;
+            color: #fff;
+            border-color: #b42318;
+        }
+
+        button:disabled {
+            opacity: .5;
+            cursor: not-allowed;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid #e5e7eb;
+            background: #fff;
+        }
+
+        .qhead {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            align-items: baseline;
+        }
+
+        .qnum {
+            font-weight: 800;
+        }
+
+        .qtext {
+            margin: 10px 0 12px;
+            line-height: 1.35;
+        }
+
+        .opts {
+            display: grid;
+            gap: 10px;
+        }
+
+        .opt {
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 10px 12px;
+            background: #fff;
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .opt input {
+            margin-top: 3px;
+        }
+
+        .opt.correct {
+            border-color: #12b76a;
+            background: #ecfdf3;
+        }
+
+        .opt.wrong {
+            border-color: #f04438;
+            background: #fffbfa;
+        }
+
+        .explain {
+            margin-top: 12px;
+            padding: 10px 12px;
+            border-radius: 12px;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+        }
+
+        .nav {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-top: 12px;
+        }
+
+        .progress {
+            height: 10px;
+            background: #eaecf0;
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .progress>div {
+            height: 100%;
+            background: #155eef;
+            width: 0%;
+        }
+
+        .grid2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        @media (min-width: 900px) {
+            .grid2 {
+                grid-template-columns: 1.15fr .85fr;
+            }
+        }
+
+        .kpi {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .kpi .box {
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 10px 12px;
+            background: #fff;
+        }
+
+        .kpi .big {
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        .kpi .lbl {
+            font-size: 12px;
+            color: #667085;
+        }
+
+        .small {
+            font-size: 12px;
+            color: #667085;
+        }
+
+        .footer-note {
+            margin-top: 14px;
+            font-size: 12px;
+            color: #667085;
+        }
+
+        .tag {
+            font-size: 12px;
+            border: 1px solid #e5e7eb;
+            padding: 4px 8px;
+            border-radius: 999px;
+            background: #fff;
+            color: #344054;
+        }
+
+        .topicline {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 6px;
+        }
+
+        .sep {
+            height: 1px;
+            background: #eaecf0;
+            margin: 12px 0;
+        }
+
+        .toggle {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .toggle label {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            font-size: 13px;
+            color: #344054;
+        }
+
+        .review {
+            display: grid;
+            gap: 10px;
+        }
+
+        .review a {
+            color: #155eef;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        /* Mejor tapping en móvil */
+        button,
+        select {
+            width: 100%;
+        }
+
+        .toggle label {
+            width: 100%;
+        }
+
+        /* Opciones con mejor lectura */
+        .opt {
+            align-items: flex-start;
+        }
+
+        .opt input {
+            transform: scale(1.2);
+        }
+
+        /* En móvil, deja resultados debajo y sin “doble card” visual */
+        @media (max-width: 899px) {
+            header {
+                position: sticky;
+                top: 0;
+                z-index: 10;
+            }
+
+            main {
+                margin-top: 10px;
+            }
+
+            .nav button {
+                flex: 1;
+            }
+
+            /* Anterior/Siguiente ocupan ancho */
+        }
+
+        /* En escritorio mantiene tu layout */
+        @media (min-width: 900px) {
+
+            button,
+            select {
+                width: auto;
+            }
+
+            .toggle label {
+                width: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Simulacros UMH C1 Informática (Aplicaciones) — 80 + 40 (sin temario jurídico general)</h1>
+        <p>Un solo HTML. Selecciona examen, responde y al enviar verás corrección con opción correcta y explicación
+            breve.</p>
+    </header>
+
+    <main class="grid2">
+        <section class="card">
+            <div class="row" style="justify-content:space-between;">
+                <div>
+                    <h2>Configuración</h2>
+                    <div class="muted">He evitado preguntas del temario jurídico general (Constitución, 39/40, etc.).
+                    </div>
+                    <div class="topicline">
+                        <span class="tag">Oracle 19c SQL/PLSQL</span>
+                        <span class="tag">MongoDB</span>
+                        <span class="tag">Scrum</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Angular</span>
+                        <span class="tag">.NET 6 + EF Core + MediatR</span>
+                        <span class="tag">Jenkins + Git</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Orbeon</span>
+                        <span class="tag">HTML/CSS/Bootstrap</span>
+                        <span class="tag">ENS</span>
+                        <span class="tag">WCAG 2.1</span>
+                    </div>
+                </div>
+                <div class="pill">
+                    <span id="statusText" class="small">Listo</span>
+                </div>
+            </div>
+
+            <div class="sep"></div>
+
+            <div class="row">
+                <label class="muted" style="font-weight:700;">Examen:</label>
+                <select id="examSelect">
+                    <option value="E80_V1">Parte 1 V1 — 80 preguntas</option>
+                    <option value="E80_V2">Parte 1 V2 — 80 preguntas</option>
+                    <option value="E40_V1">Parte 2 V1 — 40 preguntas</option>
+                    <option value="E40_V2">Parte 2 V2 — 40 preguntas</option>
+                    <option value="E80_V3">Parte 1 V3 — 80 preguntas</option>
+                    <option value="E40_V3">Parte 2 V3 — 40 preguntas</option>
+                    <option value="E80_V4">Parte 1 V4 — 80 preguntas</option>
+                    <option value="E40_V4">Parte 2 V4 — 40 preguntas</option>
+                </select>
+
+
+                <div class="toggle">
+                    <label><input type="checkbox" id="shuffleQ" checked> Barajar preguntas</label>
+                    <label><input type="checkbox" id="shuffleO" checked> Barajar opciones</label>
+                    <label><input type="checkbox" id="instantFeedback"> Mostrar corrección al seleccionar (modo
+                        estudio)</label>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 10px;">
+                <button class="primary" id="startBtn">Empezar</button>
+                <button id="resetBtn">Reiniciar</button>
+                <button class="danger" id="submitBtn" disabled>Enviar y corregir</button>
+            </div>
+
+            <div style="margin-top: 12px;">
+                <div class="progress">
+                    <div id="progBar"></div>
+                </div>
+                <div class="row" style="justify-content:space-between; margin-top: 8px;">
+                    <div class="small">Progreso: <span id="progText">0/0</span></div>
+                    <div class="small">Pregunta: <span id="idxText">-</span></div>
+                </div>
+            </div>
+
+            <div class="sep"></div>
+
+            <div id="questionArea"></div>
+
+            <div class="nav">
+                <button id="prevBtn" disabled>Anterior</button>
+                <button id="nextBtn" disabled>Siguiente</button>
+                <button id="jumpBtn" disabled>Ir a…</button>
+                <span class="small" id="navHint"></span>
+            </div>
+
+            <div class="footer-note">
+                Nota: este simulacro no pretende replicar un examen oficial literal; está diseñado para nivel C1 y
+                temario UMH, con foco en aplicaciones.
+            </div>
+        </section>
+
+        <aside class="card">
+            <h2>Resultados</h2>
+            <div class="kpi">
+                <div class="box">
+                    <div class="big" id="kpiAnswered">0</div>
+                    <div class="lbl">Respondidas</div>
+                </div>
+                <div class="box">
+                    <div class="big" id="kpiCorrect">0</div>
+                    <div class="lbl">Correctas</div>
+                </div>
+                <div class="box">
+                    <div class="big" id="kpiWrong">0</div>
+                    <div class="lbl">Fallos</div>
+                </div>
+                <div class="box">
+                    <div class="big" id="kpiScore">0.00</div>
+                    <div class="lbl">Puntuación (A - E/(d-1))</div>
+                </div>
+            </div>
+
+            <div class="sep"></div>
+
+            <div class="muted">
+                Corrección: al enviar, se marcará en verde la opción correcta y en rojo tu elección incorrecta (si
+                aplica), con explicación breve.
+            </div>
+
+            <div class="sep"></div>
+
+            <h2>Revisión rápida</h2>
+            <div class="muted">Tras corregir, aparecen enlaces a preguntas falladas/omisas.</div>
+            <div class="review" id="reviewLinks"></div>
+        </aside>
+    </main>
+
+    <script>
+        /* =========================
+           Banco de preguntas (sin jurídico general)
+           Formato:
+           { id, topic, q, options: [..], a: indexCorrect, exp }
+           ========================= */
+
+        const BANK = {
+            E80_V1: [
+                // ORACLE SQL / TRANSACCIONES / DDL-DML
+                { id: "80-01", topic: "Oracle SQL", q: "¿Qué sentencia confirma definitivamente una transacción en Oracle?", options: ["SAVEPOINT", "COMMIT", "ROLLBACK", "CHECKPOINT"], a: 1, exp: "COMMIT hace permanentes los cambios de la transacción." },
+                { id: "80-02", topic: "Oracle SQL", q: "¿Cuál es el efecto de ROLLBACK TO savepoint en Oracle?", options: ["Deshace toda la transacción", "Deshace hasta el punto de guardado, manteniendo la transacción activa", "Confirma hasta el punto de guardado", "Cierra la sesión"], a: 1, exp: "ROLLBACK TO vuelve al SAVEPOINT sin finalizar la transacción." },
+                { id: "80-03", topic: "Oracle SQL", q: "¿Qué cláusula limita filas en Oracle 12c+ de forma estándar?", options: ["TOP", "LIMIT", "FETCH FIRST n ROWS ONLY", "ROWLIMIT"], a: 2, exp: "Oracle soporta FETCH FIRST n ROWS ONLY (y OFFSET)." },
+                { id: "80-04", topic: "Oracle SQL", q: "En una FK, ¿qué opción permite borrar el padre y poner a NULL la FK en los hijos?", options: ["ON DELETE CASCADE", "ON UPDATE CASCADE", "ON DELETE SET NULL", "DEFERRABLE"], a: 2, exp: "ON DELETE SET NULL establece NULL en la FK al borrar el registro padre." },
+                { id: "80-05", topic: "Oracle SQL", q: "¿Qué objeto genera valores secuenciales reutilizables para claves?", options: ["INDEX", "SEQUENCE", "SYNONYM", "PROFILE"], a: 1, exp: "SEQUENCE es el generador típico para claves." },
+                { id: "80-06", topic: "Oracle SQL", q: "¿Qué aislamiento garantiza consistencia de lectura (consistent read) típica en Oracle?", options: ["READ UNCOMMITTED", "READ COMMITTED", "REPEATABLE READ", "SERIALIZABLE siempre por defecto"], a: 1, exp: "El modo habitual es READ COMMITTED con consistent read." },
+                { id: "80-07", topic: "Oracle SQL", q: "¿Qué tipo de JOIN devuelve todas las filas de la tabla izquierda aunque no haya coincidencia?", options: ["INNER JOIN", "LEFT OUTER JOIN", "RIGHT OUTER JOIN", "CROSS JOIN"], a: 1, exp: "LEFT OUTER JOIN conserva todas las filas de la izquierda." },
+                { id: "80-08", topic: "Oracle SQL", q: "¿Qué hace MERGE en Oracle?", options: ["Inserta únicamente", "Actualiza únicamente", "Inserta/actualiza según coincidencia", "Borra duplicados"], a: 2, exp: "MERGE permite upsert: WHEN MATCHED THEN UPDATE, WHEN NOT MATCHED THEN INSERT." },
+                { id: "80-09", topic: "Oracle SQL", q: "¿Cuál es el propósito principal de un índice B-Tree?", options: ["Optimizar búsquedas por igualdad y rango", "Garantizar integridad referencial", "Evitar bloqueos", "Reemplazar tablas"], a: 0, exp: "B-Tree acelera equality y range scans." },
+                { id: "80-10", topic: "Oracle SQL", q: "¿Qué sentencia DDL elimina una tabla y sus datos?", options: ["DELETE TABLE", "TRUNCATE TABLE", "DROP TABLE", "REMOVE TABLE"], a: 2, exp: "DROP TABLE elimina la definición; TRUNCATE vacía pero mantiene la tabla." },
+                { id: "80-11", topic: "Oracle SQL", q: "TRUNCATE TABLE en Oracle es:", options: ["DML, registra undo completo", "DDL, hace commit implícito", "DCL, requiere GRANT", "Solo válido si hay FK siempre"], a: 1, exp: "TRUNCATE es DDL y hace commit implícito." },
+                { id: "80-12", topic: "Oracle SQL", q: "¿Qué función analítica asigna ranking con huecos (1,1,3...)?", options: ["DENSE_RANK()", "RANK()", "ROW_NUMBER()", "NTILE()"], a: 1, exp: "RANK deja huecos; DENSE_RANK no los deja." },
+                { id: "80-13", topic: "Oracle SQL", q: "¿Qué devuelve COUNT(columna) frente a COUNT(*)?", options: ["COUNT(col) cuenta también NULL", "COUNT(*) ignora NULL", "COUNT(col) ignora NULL", "Son siempre equivalentes"], a: 2, exp: "COUNT(col) ignora NULL; COUNT(*) cuenta filas." },
+                { id: "80-14", topic: "Oracle SQL", q: "¿Qué restricción asegura unicidad permitiendo un único NULL por columna en Oracle?", options: ["PRIMARY KEY", "UNIQUE", "CHECK", "NOT NULL"], a: 1, exp: "UNIQUE permite NULL (en Oracle, múltiples NULL pueden ser posibles según versión/índice; a nivel teórico UNIQUE no considera NULL igual)." },
+                { id: "80-15", topic: "Oracle SQL", q: "¿Qué ocurre si haces COMMIT dentro de un trigger en Oracle (trigger DML)?", options: ["Es obligatorio", "Suele estar prohibido y produce error", "Se ejecuta pero es recomendable", "Convierte el trigger en autónomo automáticamente"], a: 1, exp: "COMMIT/ROLLBACK en triggers DML está restringido (excepto transacción autónoma explícita)." },
+                // PL/SQL
+                { id: "80-16", topic: "PL/SQL", q: "¿Qué delimitador cierra un bloque anónimo PL/SQL?", options: ["END;", "/", "END/", "CLOSE;"], a: 0, exp: "El bloque termina con END; y suele ejecutarse con / en herramientas, pero el cierre del bloque es END;" },
+                { id: "80-17", topic: "PL/SQL", q: "¿Qué sección es obligatoria en un bloque PL/SQL?", options: ["DECLARE", "BEGIN...END", "EXCEPTION", "Ninguna"], a: 1, exp: "BEGIN...END es obligatoria; DECLARE y EXCEPTION son opcionales." },
+                { id: "80-18", topic: "PL/SQL", q: "¿Qué tipo de cursor se crea por defecto con 'FOR r IN (SELECT...) LOOP'?", options: ["Explícito con OPEN/FETCH/CLOSE manual", "Implícito gestionado por el motor", "Ref cursor", "Cursor estático inválido"], a: 1, exp: "Es un cursor implícito gestionado por Oracle." },
+                { id: "80-19", topic: "PL/SQL", q: "¿Qué sentencia lanza explícitamente una excepción definida por el usuario?", options: ["RAISE;", "THROW;", "SIGNAL;", "RAISE EXCEPTION;"], a: 0, exp: "RAISE; lanza la excepción (o RAISE nombre_excepcion)." },
+                { id: "80-20", topic: "PL/SQL", q: "¿Cuál es el uso de PRAGMA AUTONOMOUS_TRANSACTION?", options: ["Evitar locks en SELECT", "Permitir COMMIT/ROLLBACK independientes dentro del bloque", "Crear transacciones distribuidas", "Optimizar cursores"], a: 1, exp: "Crea una transacción autónoma separada." },
+                { id: "80-21", topic: "PL/SQL", q: "¿Qué estructura se usa para definir un tipo de colección indexada por clave en PL/SQL?", options: ["VARRAY", "Nested table", "Associative array (index-by table)", "Materialized view"], a: 2, exp: "Las associative arrays se indexan por PLS_INTEGER o VARCHAR2." },
+                { id: "80-22", topic: "PL/SQL", q: "¿Qué devuelve SQL%ROWCOUNT tras un UPDATE?", options: ["Número de columnas afectadas", "Número de filas afectadas", "Último ID insertado", "Siempre 1"], a: 1, exp: "SQL%ROWCOUNT indica filas afectadas por la última sentencia DML." },
+                { id: "80-23", topic: "PL/SQL", q: "¿Cuál es la diferencia principal entre PROCEDURE y FUNCTION?", options: ["Procedure siempre devuelve valor con RETURN", "Function puede usarse en SQL y devuelve valor", "Function no admite parámetros", "Procedure solo puede tener OUT"], a: 1, exp: "Una FUNCTION devuelve valor y puede usarse en expresiones SQL (con restricciones)." },
+                { id: "80-24", topic: "PL/SQL", q: "Un PACKAGE en PL/SQL se compone de:", options: ["Solo body", "Solo specification", "Specification y body (opcional el body si no hay implementación)", "Triggers y vistas"], a: 2, exp: "Se define interfaz (spec) y la implementación (body)." },
+                { id: "80-25", topic: "PL/SQL", q: "¿Qué trigger se ejecuta una vez por sentencia DML, no por fila?", options: ["BEFORE EACH ROW", "AFTER EACH ROW", "BEFORE STATEMENT", "INSTEAD OF"], a: 2, exp: "Los statement-level triggers son BEFORE/AFTER STATEMENT." },
+                { id: "80-26", topic: "PL/SQL", q: "¿Qué trigger se usa típicamente sobre una VIEW no actualizable para gestionar DML?", options: ["AFTER ROW", "BEFORE STATEMENT", "INSTEAD OF", "DATABASE trigger"], a: 2, exp: "INSTEAD OF triggers interceptan DML sobre vistas." },
+                { id: "80-27", topic: "PL/SQL", q: "¿Qué excepción se lanza al intentar SELECT ... INTO y no obtener filas?", options: ["TOO_MANY_ROWS", "NO_DATA_FOUND", "INVALID_NUMBER", "ZERO_DIVIDE"], a: 1, exp: "NO_DATA_FOUND cuando no hay filas; TOO_MANY_ROWS si hay más de una." },
+                { id: "80-28", topic: "PL/SQL", q: "¿Qué técnica evita 'mutating table' en triggers de fila al consultar la misma tabla?", options: ["Usar COMMIT", "Usar trigger de sentencia + colección (compound trigger)", "Deshabilitar constraints", "Usar CROSS JOIN"], a: 1, exp: "Compound trigger o acumulación en colección y tratar en AFTER STATEMENT." },
+                { id: "80-29", topic: "Oracle Objetos", q: "¿Qué es una vista materializada?", options: ["Una vista que siempre se calcula al vuelo", "Un objeto con datos almacenados físicamente y refrescables", "Un sinónimo de tabla", "Un índice especial"], a: 1, exp: "Materialized view almacena resultados y admite refresh." },
+                { id: "80-30", topic: "Oracle Forms/Reports", q: "En Oracle Reports, el objetivo principal es:", options: ["Modelar entidades", "Generar informes formateados a partir de consultas", "Gestionar transacciones", "Crear triggers DDL"], a: 1, exp: "Reports está orientado a reporting." },
+                // MongoDB
+                { id: "80-31", topic: "MongoDB", q: "En MongoDB, una 'collection' es equivalente aproximado a:", options: ["Un índice", "Una tabla", "Un procedimiento almacenado", "Un tablespace"], a: 1, exp: "Collection ≈ tabla; documento ≈ fila (con esquema flexible)." },
+                { id: "80-32", topic: "MongoDB", q: "¿Qué operador en una agregación agrupa documentos por un campo?", options: ["$match", "$project", "$group", "$sort"], a: 2, exp: "$group agrupa y permite acumuladores ($sum, $avg...)." },
+                { id: "80-33", topic: "MongoDB", q: "¿Qué garantiza un índice único en MongoDB?", options: ["Ordenación física", "No duplicidad en el campo indexado", "Transacciones ACID globales", "Sharding automático"], a: 1, exp: "unique index evita valores duplicados." },
+                { id: "80-34", topic: "MongoDB", q: "¿Cuál es la clave primaria por defecto en MongoDB?", options: ["id", "_id", "pk", "objectId"], a: 1, exp: "_id es obligatorio; por defecto se genera ObjectId." },
+                // Scrum
+                { id: "80-35", topic: "Scrum", q: "¿Quién prioriza el Product Backlog?", options: ["Scrum Master", "Developers", "Product Owner", "Stakeholders por votación"], a: 2, exp: "El Product Owner es responsable del orden/prioridad del Product Backlog." },
+                { id: "80-36", topic: "Scrum", q: "Evento Scrum para inspeccionar incremento y adaptar Product Backlog:", options: ["Daily Scrum", "Sprint Retrospective", "Sprint Review", "Backlog Refinement (no es evento formal)"], a: 2, exp: "Sprint Review inspecciona incremento y adapta el backlog." },
+                { id: "80-37", topic: "Scrum", q: "¿Cuál es el objetivo principal de la Sprint Retrospective?", options: ["Planificar el siguiente sprint", "Mejorar el proceso y la forma de trabajar", "Demostrar producto al cliente", "Asignar tareas diarias"], a: 1, exp: "La retrospectiva busca mejora continua del equipo/proceso." },
+                // Python
+                { id: "80-38", topic: "Python", q: "¿Qué significa que un objeto es 'iterable' en Python?", options: ["Tiene método __next__", "Tiene método __iter__", "Es siempre una lista", "Solo puede recorrerse una vez"], a: 1, exp: "Iterable implementa __iter__ (o __getitem__ con índices)." },
+                { id: "80-39", topic: "Python", q: "¿Qué devuelve una comprensión de diccionario {k:v for ...}?", options: ["Una lista", "Una tupla", "Un diccionario", "Un generador"], a: 2, exp: "Las dict comprehensions devuelven dict." },
+                { id: "80-40", topic: "Python", q: "¿Para qué sirve 'with' al trabajar con ficheros?", options: ["Para compilar más rápido", "Para asegurar cierre del recurso (context manager)", "Para paralelizar IO", "Para convertir a bytes"], a: 1, exp: "El context manager asegura cierre/cleanup incluso con excepciones." },
+                { id: "80-41", topic: "Python", q: "¿Qué librería estándar se usa comúnmente para gestionar entornos virtuales?", options: ["pip", "venv", "setuptools", "wheel"], a: 1, exp: "venv crea entornos virtuales (pip instala paquetes)." },
+                // Angular
+                { id: "80-42", topic: "Angular", q: "¿Qué decorador define un componente en Angular?", options: ["@NgModule", "@Injectable", "@Component", "@Directive"], a: 2, exp: "@Component define selector, template, etc." },
+                { id: "80-43", topic: "Angular", q: "Servicio HTTP típico en Angular para peticiones REST:", options: ["HttpService", "HttpClient", "FetchClient", "RestClient"], a: 1, exp: "HttpClient (HttpClientModule o provideHttpClient)." },
+                { id: "80-44", topic: "Angular", q: "¿Qué es un Observable en Angular (RxJS)?", options: ["Una promesa bloqueante", "Un stream asíncrono con suscripción", "Un hilo del navegador", "Un decorator"], a: 1, exp: "Observable emite valores en el tiempo; se consume con subscribe o async pipe." },
+                { id: "80-45", topic: "Angular", q: "¿Qué es el 'async pipe'?", options: ["Un operador RxJS", "Una directiva para rutas", "Una forma de suscribirse y desuscribirse automáticamente en plantillas", "Un interceptor HTTP"], a: 2, exp: "async pipe gestiona suscripciones en templates." },
+                // .NET 6 / ASP.NET Core / EF Core / MediatR
+                { id: "80-46", topic: ".NET 6", q: "En ASP.NET Core, ¿dónde se registran servicios para DI?", options: ["appsettings.json", "Program.cs / builder.Services", "launchSettings.json", "wwwroot"], a: 1, exp: "Se registran en el contenedor con builder.Services (o IServiceCollection)." },
+                { id: "80-47", topic: ".NET 6", q: "¿Qué patrón implementa MediatR principalmente?", options: ["Singleton", "Mediator", "Factory", "Decorator"], a: 1, exp: "MediatR implementa Mediator para desacoplar request/handler." },
+                { id: "80-48", topic: "EF Core", q: "¿Qué método carga una entidad por clave primaria usando el caché del DbContext si ya está trackeada?", options: ["FirstOrDefault", "Single", "Find", "FromSqlRaw"], a: 2, exp: "Find usa el Change Tracker antes de consultar la BD." },
+                { id: "80-49", topic: "EF Core", q: "¿Qué hace AsNoTracking()?", options: ["Impide ejecutar la consulta", "Desactiva el seguimiento de cambios para mejorar rendimiento en lecturas", "Borra el ChangeTracker", "Activa lazy loading"], a: 1, exp: "AsNoTracking mejora lecturas cuando no se va a modificar." },
+                { id: "80-50", topic: ".NET 6", q: "En Minimal APIs, ¿cómo se define típicamente un endpoint GET?", options: ["app.MapGet(\"/ruta\", handler)", "app.Get(\"/ruta\")", "Map.Route(\"GET\")", "UseGet(\"/ruta\")"], a: 0, exp: "Minimal APIs usan app.MapGet/MapPost, etc." },
+                { id: "80-51", topic: ".NET 6", q: "¿Qué componente procesa una petición antes/después en pipeline HTTP?", options: ["Controller", "Middleware", "Razor", "DbContext"], a: 1, exp: "El pipeline se compone de middleware (UseX / MapX)." },
+                { id: "80-52", topic: "MediatR", q: "¿Qué interfaz representa un 'request' que devuelve una respuesta en MediatR?", options: ["ICommand", "IRequest<TResponse>", "IHandler", "IResponse"], a: 1, exp: "IRequest<TResponse> se maneja con IRequestHandler<TRequest,TResponse>." },
+                { id: "80-53", topic: "MediatR", q: "¿Para validaciones transversales (logging, validation) en MediatR se usan:", options: ["Controllers", "Pipeline behaviors", "DbMigrations", "Hosted services"], a: 1, exp: "IPipelineBehavior permite cross-cutting concerns." },
+                // Jenkins + Git
+                { id: "80-54", topic: "Jenkins", q: "¿Qué archivo define típicamente un pipeline declarativo en Jenkins?", options: ["pipeline.yml", "Jenkinsfile", "build.gradle", "pom.xml"], a: 1, exp: "Jenkinsfile define la pipeline (declarativa o scripted)." },
+                { id: "80-55", topic: "Git", q: "¿Qué comando crea una rama y cambia a ella en Git (con sintaxis moderna)?", options: ["git branch -c nombre", "git checkout -b nombre", "git switch -c nombre", "git merge nombre"], a: 2, exp: "git switch -c crea y cambia; checkout -b también funciona." },
+                { id: "80-56", topic: "Git", q: "¿Qué hace 'git rebase' de forma general?", options: ["Crea un tag", "Reescribe commits aplicándolos sobre otra base", "Borra el repositorio", "Cambia el remote"], a: 1, exp: "Rebase reaplica commits sobre otra rama/commit base." },
+                // JavaScript
+                { id: "80-57", topic: "JavaScript", q: "En JS, ¿qué describe mejor el 'event loop'?", options: ["Un hilo por promesa", "Mecanismo que coordina call stack, task queue y microtasks", "Un compilador JIT", "Un patrón MVC"], a: 1, exp: "Coordina ejecución asíncrona: microtasks (Promises) y tasks (timers/IO)." },
+                { id: "80-58", topic: "JavaScript", q: "¿Qué método convierte un JSON en objeto JS?", options: ["JSON.parse", "JSON.stringify", "Object.json", "Parse.JSON"], a: 0, exp: "JSON.parse deserializa; stringify serializa." },
+                { id: "80-59", topic: "JavaScript", q: "¿Qué se ejecuta antes: microtasks (Promise.then) o macrotasks (setTimeout)?", options: ["macrotasks", "microtasks", "depende del navegador", "siempre a la vez"], a: 1, exp: "Las microtasks se vacían antes de la siguiente macrotask." },
+                // Orbeon
+                { id: "80-60", topic: "Orbeon", q: "Orbeon Forms se basa principalmente en:", options: ["XForms", "JSP", "ASP clásico", "COBOL"], a: 0, exp: "Orbeon implementa XForms y herramientas asociadas." },
+                { id: "80-61", topic: "Orbeon", q: "En Orbeon, ¿qué concepto define la estructura y lógica de un formulario?", options: ["Pipeline Java", "XForms model + controls", "Stored procedures", "Webpack bundle"], a: 1, exp: "XForms define modelo (instancia/bindings) y controles." },
+                // HTML/CSS/Bootstrap
+                { id: "80-62", topic: "CSS", q: "¿Qué propiedad CSS define un contenedor flex?", options: ["display:flex", "position:flex", "flex:container", "layout:flex"], a: 0, exp: "display:flex activa flexbox." },
+                { id: "80-63", topic: "CSS", q: "En Flexbox, ¿qué propiedad alinea ítems en el eje principal?", options: ["align-items", "justify-content", "align-content", "place-items"], a: 1, exp: "justify-content alinea en eje principal; align-items en eje cruzado." },
+                { id: "80-64", topic: "HTML", q: "¿Qué atributo de input mejora accesibilidad asociando etiqueta y control?", options: ["aria-hint", "for (en label) con id (en input)", "alt", "role='input'"], a: 1, exp: "label[for] debe referenciar el id del input." },
+                { id: "80-65", topic: "Bootstrap", q: "En Bootstrap, ¿qué clase suele crear una fila del grid?", options: [".col", "container-fluid", "row", "grid-row"], a: 2, exp: ".row crea la fila; .col-* las columnas." },
+                // ENS + WCAG
+                { id: "80-66", topic: "ENS", q: "El ENS (RD 311/2022) se centra en:", options: ["Diseño UX", "Seguridad de la información en el sector público (medidas y principios)", "Licencias de software libre", "Redes sociales"], a: 1, exp: "ENS define principios/requisitos/medidas para sistemas del sector público." },
+                { id: "80-67", topic: "ENS", q: "¿Cuál es un principio básico del ENS?", options: ["Publicidad máxima de credenciales", "Seguridad integral", "Deshabilitar logs", "Todo en una sola red"], a: 1, exp: "Seguridad integral es uno de los principios del ENS." },
+                { id: "80-68", topic: "WCAG 2.1", q: "Los 4 principios WCAG se resumen como (POUR):", options: ["Perceptible, Operable, Understandable, Robust", "Portable, Open, Unified, Responsive", "Performance, Optimization, Usability, Rendering", "Privacy, Ownership, Updates, Rules"], a: 0, exp: "POUR = Perceptible, Operable, Understandable, Robust." },
+                { id: "80-69", topic: "WCAG 2.1", q: "Nivel de conformidad recomendado habitualmente en AA para sitios públicos:", options: ["A", "AA", "AAA", "No existe"], a: 1, exp: "AA es el objetivo típico en administraciones." },
+                // Más Oracle/PLSQL para completar nivel
+                { id: "80-70", topic: "Oracle SQL", q: "¿Qué función devuelve la fecha/hora actual del servidor en Oracle?", options: ["GETDATE()", "SYSDATE", "NOW()", "CURRENT_TIMESTAMP solo existe"], a: 1, exp: "SYSDATE devuelve fecha/hora del servidor; CURRENT_TIMESTAMP también existe (con TZ)." },
+                { id: "80-71", topic: "Oracle SQL", q: "¿Qué sentencia concede privilegio de SELECT sobre una tabla?", options: ["ALLOW SELECT ON t", "GRANT SELECT ON t TO usuario", "PERMIT SELECT t", "GIVE SELECT"], a: 1, exp: "DCL: GRANT ... TO ..." },
+                { id: "80-72", topic: "PL/SQL", q: "¿Qué palabra clave declara una variable constante en PL/SQL?", options: ["CONST", "CONSTANT", "READONLY", "FINAL"], a: 1, exp: "Se usa CONSTANT: v CONSTANT NUMBER := 5;" },
+                { id: "80-73", topic: "PL/SQL", q: "¿Qué tipo se usa para almacenar texto grande en PL/SQL/Oracle?", options: ["VARCHAR2(50)", "LONG siempre", "CLOB", "TEXT"], a: 2, exp: "CLOB es el tipo LOB de texto grande." },
+                { id: "80-74", topic: "EF Core", q: "¿Qué mecanismo usa EF Core para aplicar cambios de modelo a la BD?", options: ["Seeders", "Migrations", "Scaffolders", "Controllers"], a: 1, exp: "Migrations generan scripts/cambios de esquema." },
+                { id: "80-75", topic: "Angular", q: "¿Qué mecanismo se usa para inyección de dependencias en Angular?", options: ["DI container (injector)", "Reflection.Emit", "Manual new siempre", "Static imports"], a: 0, exp: "Angular usa un injector para DI (providers)." },
+                { id: "80-76", topic: "Jenkins", q: "En un Jenkinsfile declarativo, la sección principal que define agentes y etapas es:", options: ["pipeline { ... }", "job { ... }", "stages.yml", "workspace { ... }"], a: 0, exp: "Pipeline declarativo empieza con pipeline { agent ... stages ... }" },
+                { id: "80-77", topic: "JavaScript", q: "¿Qué palabra clave declara una constante de bloque en JS moderno?", options: ["var", "let", "const", "static"], a: 2, exp: "const define binding inmutable (no el objeto)." },
+                { id: "80-78", topic: "MongoDB", q: "¿Qué etapa de agregación filtra documentos (equivalente a WHERE)?", options: ["$match", "$whereOnly", "$filterStage", "$select"], a: 0, exp: "$match filtra documentos." },
+                { id: "80-79", topic: "Scrum", q: "¿Qué artefacto representa el trabajo seleccionado para el Sprint?", options: ["Product Backlog", "Sprint Backlog", "Definition of Done", "Burndown chart"], a: 1, exp: "Sprint Backlog = objetivo del sprint + items seleccionados + plan." },
+                { id: "80-80", topic: "HTML/CSS", q: "¿Qué etiqueta HTML se usa para agrupar navegación principal?", options: ["<nav>", "<section>", "<aside>", "<header-nav>"], a: 0, exp: "<nav> semántica para navegación." }
+            ],
+            E40_V1: [
+                { id: "40-01", topic: ".NET 6", q: "¿Qué diferencia principal hay entre transient y singleton en DI (ASP.NET Core)?", options: ["Transient se crea una vez por app, singleton por request", "Transient se crea cada vez, singleton una sola vez", "Transient solo para controllers", "Singleton no puede tener dependencias"], a: 1, exp: "Transient = nueva instancia por resolución; Singleton = una instancia para toda la app." },
+                { id: "40-02", topic: "EF Core", q: "Si quieres evitar N+1 y cargar navegación en una consulta, usas:", options: ["Include()", "Attach()", "Entry().State=Modified", "AsSplitQuery siempre"], a: 0, exp: "Include carga relaciones (eager loading)." },
+                { id: "40-03", topic: "MediatR", q: "¿Qué devuelve Send() normalmente en MediatR?", options: ["Siempre void", "El resultado del handler del request", "Un Task que nunca termina", "Un observable"], a: 1, exp: "IMediator.Send devuelve la respuesta del handler (Task<T>)." },
+                { id: "40-04", topic: "Angular", q: "¿Qué operador RxJS transforma emisiones (map) en otra secuencia y aplana?", options: ["map", "switchMap", "tap", "catchError"], a: 1, exp: "switchMap cambia a un nuevo observable y cancela el anterior." },
+                { id: "40-05", topic: "Angular", q: "¿Qué se recomienda para suscripción automática en plantilla?", options: ["subscribe() en constructor", "async pipe", "setInterval", "ngAfterViewInit siempre"], a: 1, exp: "async pipe gestiona suscripción/desuscripción." },
+                { id: "40-06", topic: "Oracle SQL", q: "¿Qué sentencia bloquea filas seleccionadas para actualización?", options: ["SELECT ... FOR UPDATE", "SELECT ... LOCK", "UPDATE ... SELECT", "HOLDLOCK"], a: 0, exp: "SELECT FOR UPDATE bloquea filas para cambios posteriores." },
+                { id: "40-07", topic: "Oracle SQL", q: "¿Qué operador combina resultados eliminando duplicados?", options: ["UNION", "UNION ALL", "JOIN", "INTERSECT ALL"], a: 0, exp: "UNION elimina duplicados; UNION ALL no." },
+                { id: "40-08", topic: "PL/SQL", q: "¿Qué excepción se lanza con SELECT INTO si hay más de una fila?", options: ["NO_DATA_FOUND", "TOO_MANY_ROWS", "DUP_VAL_ON_INDEX", "VALUE_ERROR"], a: 1, exp: "TOO_MANY_ROWS cuando devuelve más de una." },
+                { id: "40-09", topic: "MongoDB", q: "En MongoDB, ¿qué campo suele contener el tipo ObjectId por defecto?", options: ["id", "_id", "oid", "pk"], a: 1, exp: "_id por defecto es ObjectId." },
+                { id: "40-10", topic: "Scrum", q: "¿Quién facilita el Daily Scrum?", options: ["Scrum Master siempre lo dirige", "Product Owner", "Developers (el Scrum Master asegura que ocurra)", "El cliente"], a: 2, exp: "Los Developers lo realizan; SM asegura que se realice y se cumpla Scrum." },
+                { id: "40-11", topic: "Python", q: "¿Qué estructura es mutable?", options: ["tuple", "str", "list", "bytes"], a: 2, exp: "list es mutable; tuple/str/bytes no." },
+                { id: "40-12", topic: "Python", q: "¿Qué hace pip?", options: ["Crea entornos", "Instala paquetes", "Compila Python", "Genera documentación"], a: 1, exp: "pip gestiona instalación de paquetes." },
+                { id: "40-13", topic: "Jenkins", q: "¿Qué suele ejecutar un 'agent' en Jenkins?", options: ["El navegador del usuario", "El nodo/ejecutor donde corre la pipeline", "El repositorio remoto", "El IDE"], a: 1, exp: "agent define el nodo (label/docker) donde se ejecutan etapas." },
+                { id: "40-14", topic: "Git", q: "¿Qué comando muestra el histórico de commits en una rama?", options: ["git status", "git log", "git show-branch", "git diff --name-only"], a: 1, exp: "git log muestra commits." },
+                { id: "40-15", topic: "JavaScript", q: "¿Qué es una 'Promise'?", options: ["Un hilo", "Un objeto que representa un resultado futuro (resuelto/rechazado)", "Un callback", "Un módulo ES"], a: 1, exp: "Promise representa una operación asíncrona." },
+                { id: "40-16", topic: "JavaScript", q: "¿Qué palabra clave declara variable con ámbito de bloque (no hoisting como var)?", options: ["var", "let", "const", "global"], a: 1, exp: "let y const tienen scope de bloque." },
+                { id: "40-17", topic: "Orbeon", q: "Tecnología base de formularios en Orbeon:", options: ["XForms", "Razor", "React", "WebForms"], a: 0, exp: "Orbeon está basado en XForms." },
+                { id: "40-18", topic: "CSS", q: "¿Qué layout está pensado para dos dimensiones (filas y columnas) en CSS moderno?", options: ["Flexbox", "Grid", "Float", "Inline-block"], a: 1, exp: "CSS Grid es bidimensional." },
+                { id: "40-19", topic: "Bootstrap", q: "Clase típica para un contenedor centrado con ancho fijo por breakpoint:", options: ["container", "row", "col", "wrap"], a: 0, exp: ".container." },
+                { id: "40-20", topic: "WCAG 2.1", q: "¿Qué principio WCAG cubre que la interfaz sea manejable con teclado?", options: ["Perceptible", "Operable", "Understandable", "Robust"], a: 1, exp: "Operable incluye teclado, foco, tiempo, etc." },
+                { id: "40-21", topic: "ENS", q: "El ENS aplica principalmente a:", options: ["Solo empresas privadas", "Sistemas de información del sector público y proveedores en su ámbito", "Solo universidades privadas", "Solo redes sociales"], a: 1, exp: "ENS aplica a AAPP y sistemas en su ámbito (incluyendo proveedores cuando corresponda)." },
+                { id: "40-22", topic: "Oracle SQL", q: "¿Qué cláusula se usa para ordenar el resultado?", options: ["ORDER BY", "GROUP BY", "SORT", "ARRANGE"], a: 0, exp: "ORDER BY." },
+                { id: "40-23", topic: "Oracle SQL", q: "¿Qué devuelve NVL(expr, valor) en Oracle?", options: ["NULL siempre", "expr si no es NULL; si es NULL, valor", "valor si no es NULL", "Cambia tipo de datos a NUMBER"], a: 1, exp: "NVL sustituye NULL." },
+                { id: "40-24", topic: "PL/SQL", q: "¿Qué instrucción sale de un bucle en PL/SQL?", options: ["EXIT", "BREAK", "STOP", "LEAVE"], a: 0, exp: "EXIT (o EXIT WHEN condición)." },
+                { id: "40-25", topic: "EF Core", q: "¿Qué API se usa para ejecutar migraciones al iniciar la app (típico)?", options: ["context.Database.Migrate()", "context.ApplyMigrations()", "db.Update()", "services.MigrateAll()"], a: 0, exp: "Database.Migrate aplica migraciones pendientes." },
+                { id: "40-26", topic: ".NET 6", q: "¿Qué respuesta devuelve un Controller con Ok(obj) típicamente?", options: ["500", "200", "302", "204 siempre"], a: 1, exp: "Ok() produce 200." },
+                { id: "40-27", topic: "Angular", q: "¿Qué es un guard en routing?", options: ["Un componente de formulario", "Un interceptor HTTP", "Una condición que permite/impide navegación", "Un pipe"], a: 2, exp: "Guards controlan acceso a rutas (CanActivate, etc.)." },
+                { id: "40-28", topic: "MongoDB", q: "¿Qué ventaja principal tiene un esquema flexible?", options: ["Siempre más rápido", "Permite evolucionar documentos sin migraciones rígidas", "Impide validación", "Elimina índices"], a: 1, exp: "Flexibilidad para cambios; se puede añadir validación si se desea." },
+                { id: "40-29", topic: "Scrum", q: "¿Qué define la Definition of Done?", options: ["Fecha fin", "Criterio de calidad para considerar un incremento 'hecho'", "Lista de usuarios", "Diagrama de red"], a: 1, exp: "DoD = criterios para incremento listo." },
+                { id: "40-30", topic: "Jenkins", q: "¿Qué comando típico compila un proyecto .NET en pipeline?", options: ["dotnet build", "msbuild /nope", "csc /all", "npm run build"], a: 0, exp: "dotnet build es lo normal en .NET SDK." },
+                { id: "40-31", topic: "Git", q: "¿Qué hace 'git pull' de forma general?", options: ["Solo sube cambios", "Hace fetch + merge/rebase (según config)", "Borra ramas", "Crea un tag"], a: 1, exp: "pull integra cambios remotos en tu rama local." },
+                { id: "40-32", topic: "JavaScript", q: "¿Qué método añade elemento al final de un array?", options: ["push", "pop", "shift", "unshift"], a: 0, exp: "push añade al final; pop quita del final." },
+                { id: "40-33", topic: "CSS", q: "¿Qué pseudo-clase se usa para estilos cuando un elemento tiene foco?", options: [":hover", ":active", ":focus", ":visited"], a: 2, exp: ":focus." },
+                { id: "40-34", topic: "Oracle SQL", q: "¿Qué comando crea un índice?", options: ["CREATE INDEX", "ADD INDEX", "MAKE INDEX", "BUILD INDEX"], a: 0, exp: "CREATE INDEX." },
+                { id: "40-35", topic: "PL/SQL", q: "¿Qué es un REF CURSOR?", options: ["Un índice", "Un puntero a un cursor que puede devolverse desde un procedimiento/función", "Una tabla temporal", "Un trigger"], a: 1, exp: "REF CURSOR permite devolver conjuntos de resultados." },
+                { id: "40-36", topic: ".NET 6", q: "¿Qué se usa para configurar CORS en ASP.NET Core?", options: ["UseCors / AddCors", "UseJwt / AddJwt", "UseSpa", "AddMvcCorsOnly"], a: 0, exp: "AddCors y UseCors configuran CORS." },
+                { id: "40-37", topic: "Angular", q: "¿Qué patrón usa Angular para detectar cambios por defecto?", options: ["OnPush siempre", "Change detection basado en Zone.js (por defecto)", "Polling", "WebSockets"], a: 1, exp: "Por defecto usa Zone.js para disparar CD; OnPush es estrategia opcional." },
+                { id: "40-38", topic: "WCAG 2.1", q: "Para imágenes informativas, WCAG recomienda:", options: ["Siempre omitir alt", "alt descriptivo", "alt vacío siempre", "Solo title"], a: 1, exp: "alt descriptivo para contenido informativo; alt vacío para decorativas." },
+                { id: "40-39", topic: "ENS", q: "¿Qué es CCN-STIC 881 en el contexto ENS?", options: ["Un lenguaje de programación", "Guía técnica para adecuación/controles ENS en universidades (orientación)", "Un servidor web", "Un estándar de UI"], a: 1, exp: "Es una guía CCN-STIC orientada a adecuación al ENS (incluye enfoques por ámbito)." },
+                { id: "40-40", topic: "Bootstrap", q: "¿Qué clase aplica margen superior en Bootstrap 5 (escala) típicamente?", options: ["mt-3", "m-top-3", "margin-top-3", "topm-3"], a: 0, exp: "mt-3 es margen top." }
+            ],
+            E80_V2: [
+                // ===== ENS (peso alto) =====
+                { id: "80v2-01", topic: "ENS", q: "El Esquema Nacional de Seguridad es de aplicación a:", options: ["Solo AGE", "Todas las AAPP y proveedores cuando aplique", "Solo universidades públicas", "Solo sistemas críticos"], a: 1, exp: "El ENS aplica a AAPP y a proveedores en su ámbito de prestación." },
+                { id: "80v2-02", topic: "ENS", q: "El objetivo principal del ENS es:", options: ["Optimizar rendimiento", "Garantizar seguridad de la información", "Unificar lenguajes de programación", "Regular contratación TIC"], a: 1, exp: "El ENS busca garantizar la seguridad de la información tratada por sistemas públicos." },
+                { id: "80v2-03", topic: "ENS", q: "¿Qué dimensiones protege el ENS?", options: ["Confidencialidad, integridad, disponibilidad, autenticidad, trazabilidad", "Solo confidencialidad", "Disponibilidad y rendimiento", "Privacidad únicamente"], a: 0, exp: "El ENS cubre las 5 dimensiones clásicas de seguridad." },
+                { id: "80v2-04", topic: "ENS", q: "¿Quién es responsable último de la seguridad del sistema según ENS?", options: ["Administrador", "Proveedor", "Responsable del sistema", "CCN"], a: 2, exp: "El responsable del sistema asume la responsabilidad última." },
+                { id: "80v2-05", topic: "ENS", q: "¿Qué documento define la política de seguridad?", options: ["ENS", "Declaración de aplicabilidad", "Política de seguridad", "Plan director TIC"], a: 2, exp: "La política de seguridad es obligatoria según ENS." },
+                { id: "80v2-06", topic: "ENS", q: "¿Qué niveles de seguridad contempla el ENS?", options: ["Bajo, medio, alto", "Nivel 1,2,3", "Básico, avanzado", "Crítico y no crítico"], a: 0, exp: "ENS clasifica los sistemas en bajo, medio y alto." },
+                { id: "80v2-07", topic: "ENS", q: "La categorización de un sistema se basa en:", options: ["Tipo de datos", "Impacto ante incidentes", "Número de usuarios", "Tecnología usada"], a: 1, exp: "La categorización se basa en el impacto en las dimensiones de seguridad." },
+                { id: "80v2-08", topic: "ENS", q: "¿Qué principio ENS implica aplicar varias capas de protección?", options: ["Prevención", "Defensa en profundidad", "Seguridad integral", "Gestión de riesgos"], a: 1, exp: "Defensa en profundidad aplica múltiples capas de seguridad." },
+                { id: "80v2-09", topic: "ENS", q: "¿Qué principio ENS exige registrar actividades relevantes?", options: ["Trazabilidad", "Disponibilidad", "Autenticidad", "Integridad"], a: 0, exp: "La trazabilidad permite seguimiento de acciones." },
+                { id: "80v2-10", topic: "ENS", q: "¿Qué documento recoge las medidas de seguridad aplicables?", options: ["ENS", "Declaración de aplicabilidad", "Política TIC", "Plan estratégico"], a: 1, exp: "La Declaración de Aplicabilidad lista las medidas aplicadas." },
+
+                // ===== Seguridad / ENS + desarrollo =====
+                { id: "80v2-11", topic: "ENS", q: "¿Qué guía del CCN orienta sobre adecuación al ENS en universidades?", options: ["CCN-STIC 401", "CCN-STIC 881", "CCN-STIC 803", "CCN-STIC 210"], a: 1, exp: "La CCN-STIC 881 orienta específicamente a universidades." },
+                { id: "80v2-12", topic: "ENS", q: "¿Cada cuánto debe revisarse la política de seguridad?", options: ["Nunca", "Cuando cambie el sistema o periódicamente", "Solo tras incidentes", "Cada 10 años"], a: 1, exp: "Debe revisarse periódicamente y ante cambios relevantes." },
+                { id: "80v2-13", topic: "ENS", q: "La gestión de riesgos en ENS se basa en:", options: ["Auditorías", "Análisis y tratamiento de riesgos", "Firewalls", "Antivirus"], a: 1, exp: "ENS exige análisis y tratamiento de riesgos." },
+                { id: "80v2-14", topic: "ENS", q: "¿Qué medida ENS protege frente a accesos no autorizados?", options: ["Control de acceso", "Backups", "Alta disponibilidad", "Cifrado de logs"], a: 0, exp: "El control de acceso limita accesos no autorizados." },
+                { id: "80v2-15", topic: "ENS", q: "¿Qué rol ENS autoriza el uso del sistema?", options: ["Responsable de seguridad", "Responsable del sistema", "Responsable de la información", "Usuario final"], a: 1, exp: "El responsable del sistema autoriza su uso." },
+
+                // ===== Oracle / SQL =====
+                { id: "80v2-16", topic: "Oracle SQL", q: "¿Qué sentencia elimina todas las filas sin permitir ROLLBACK?", options: ["DELETE", "TRUNCATE", "DROP", "MERGE"], a: 1, exp: "TRUNCATE no permite rollback." },
+                { id: "80v2-17", topic: "Oracle SQL", q: "¿Qué función devuelve la fecha y hora con zona horaria?", options: ["SYSDATE", "CURRENT_TIMESTAMP", "NOW()", "GETDATE()"], a: 1, exp: "CURRENT_TIMESTAMP incluye zona horaria." },
+                { id: "80v2-18", topic: "Oracle SQL", q: "¿Qué JOIN devuelve solo coincidencias?", options: ["LEFT", "RIGHT", "FULL", "INNER"], a: 3, exp: "INNER JOIN devuelve solo filas coincidentes." },
+
+                // ===== PL/SQL =====
+                { id: "80v2-19", topic: "PL/SQL", q: "¿Qué sección maneja errores en PL/SQL?", options: ["DECLARE", "BEGIN", "EXCEPTION", "END"], a: 2, exp: "EXCEPTION gestiona errores." },
+                { id: "80v2-20", topic: "PL/SQL", q: "¿Qué tipo de trigger se ejecuta por cada fila?", options: ["STATEMENT", "DATABASE", "ROW", "INSTEAD OF"], a: 2, exp: "Los triggers ROW se ejecutan por cada fila." },
+
+                // ===== .NET / EF / MediatR =====
+                { id: "80v2-21", topic: ".NET 6", q: "¿Qué middleware fuerza HTTPS?", options: ["UseRouting", "UseHttpsRedirection", "UseCors", "UseAuth"], a: 1, exp: "UseHttpsRedirection redirige a HTTPS." },
+                { id: "80v2-22", topic: "EF Core", q: "¿Qué método guarda cambios en BD?", options: ["Save", "SaveChanges", "Commit", "Flush"], a: 1, exp: "SaveChanges persiste cambios." },
+                { id: "80v2-23", topic: "MediatR", q: "¿Dónde se implementa la lógica de negocio?", options: ["Controller", "Handler", "Middleware", "DbContext"], a: 1, exp: "La lógica va en el Handler." },
+
+                // ===== Angular / JS =====
+                { id: "80v2-24", topic: "Angular", q: "¿Qué fichero define un módulo?", options: ["*.service.ts", "*.component.ts", "*.module.ts", "angular.json"], a: 2, exp: "Los módulos se definen en *.module.ts." },
+                { id: "80v2-25", topic: "JavaScript", q: "¿Qué operador compara valor y tipo?", options: ["==", "=", "===", "!="], a: 2, exp: "=== compara valor y tipo." },
+
+                // ===== MongoDB =====
+                { id: "80v2-26", topic: "MongoDB", q: "¿Qué comando inserta un documento?", options: ["insertOne", "add", "saveDoc", "push"], a: 0, exp: "insertOne inserta un documento." },
+
+                // ===== Scrum =====
+                { id: "80v2-27", topic: "Scrum", q: "¿Duración máxima de un Sprint?", options: ["1 semana", "2 semanas", "1 mes", "Ilimitado"], a: 2, exp: "Sprint máximo 1 mes." },
+
+                // ===== Jenkins / Git =====
+                { id: "80v2-28", topic: "Jenkins", q: "¿Qué bloque define etapas en pipeline declarativa?", options: ["steps", "pipeline", "stages", "agent"], a: 2, exp: "Las etapas van en stages." },
+                { id: "80v2-29", topic: "Git", q: "¿Qué comando descarga cambios sin fusionar?", options: ["pull", "clone", "fetch", "merge"], a: 2, exp: "fetch descarga sin integrar." },
+
+                // ===== WCAG =====
+                { id: "80v2-30", topic: "WCAG 2.1", q: "El contraste de color afecta al principio:", options: ["Perceptible", "Operable", "Robust", "Understandable"], a: 0, exp: "El contraste es Perceptible." },
+
+                // ====== 50 NUEVAS (31..80) ======
+                // ENS / CCN-STIC / Incidentes
+                { id: "80v2-31", topic: "ENS", q: "La Declaración de Aplicabilidad (DdA) sirve para:", options: ["Listar las medidas ENS aplicables y su estado", "Definir el organigrama TI", "Sustituir el análisis de riesgos", "Eliminar auditorías"], a: 0, exp: "DdA = catálogo de medidas aplicables y su implantación." },
+                { id: "80v2-32", topic: "ENS", q: "El análisis de riesgos en ENS tiene como finalidad principal:", options: ["Cumplir un trámite documental", "Determinar medidas proporcionales al riesgo", "Evitar usar cifrado", "Evitar registros de actividad"], a: 1, exp: "Se buscan controles proporcionales al riesgo." },
+                { id: "80v2-33", topic: "ENS", q: "Una medida de 'Prevención' se orienta a:", options: ["Detectar después del incidente", "Evitar que el incidente ocurra", "Recuperar tras desastre", "Auditar sin actuar"], a: 1, exp: "Prevención reduce probabilidad de materialización." },
+                { id: "80v2-34", topic: "ENS", q: "La trazabilidad en ENS se apoya típicamente en:", options: ["Logs y registros de auditoría", "Solo backups", "Solo cifrado de disco", "Balanceadores"], a: 0, exp: "Trazabilidad requiere evidencias registradas." },
+                { id: "80v2-35", topic: "ENS", q: "En un incidente, el objetivo de la fase de 'contención' es:", options: ["Borrar evidencias", "Limitar propagación e impacto", "Publicar comunicado", "Reinstalar sin analizar"], a: 1, exp: "Contención limita daño antes de erradicar/recuperar." },
+
+                // Oracle SQL
+                { id: "80v2-36", topic: "Oracle SQL", q: "¿Qué función usa Oracle para sustituir NULL de forma similar a NVL pero con múltiples alternativas?", options: ["COALESCE", "IFNULL", "ISNULL", "DECODE NULL"], a: 0, exp: "COALESCE devuelve el primer no-NULL." },
+                { id: "80v2-37", topic: "Oracle SQL", q: "¿Qué hace EXPLAIN PLAN?", options: ["Ejecuta la consulta dos veces", "Muestra el plan de ejecución estimado", "Crea un índice", "Hace COMMIT"], a: 1, exp: "Permite analizar cómo Oracle ejecutaría la consulta." },
+                { id: "80v2-38", topic: "Oracle SQL", q: "¿Qué sentencia concede un rol a un usuario?", options: ["GRANT role TO user", "ALLOW role IN user", "ASSIGN role user", "PERMIT role"], a: 0, exp: "Se usa GRANT <rol> TO <usuario>." },
+                { id: "80v2-39", topic: "Oracle SQL", q: "¿Qué cláusula se usa para filtrar grupos tras un GROUP BY?", options: ["WHERE", "HAVING", "ORDER BY", "QUALIFY"], a: 1, exp: "HAVING filtra agregados." },
+                { id: "80v2-40", topic: "Oracle SQL", q: "¿Qué sucede con un DELETE sin WHERE?", options: ["Borra toda la tabla y hace commit implícito", "Borra todas las filas (DML) y permite rollback hasta commit", "No se permite", "Equivale a TRUNCATE"], a: 1, exp: "DELETE es DML: puede deshacerse si no se hace COMMIT." },
+
+                // PL/SQL
+                { id: "80v2-41", topic: "PL/SQL", q: "¿Qué atributo indica si el último FETCH devolvió fila?", options: ["SQL%ROWCOUNT", "cursor%FOUND", "cursor%ISOPEN", "SQL%FOUND"], a: 1, exp: "cursor%FOUND es TRUE si obtuvo fila." },
+                { id: "80v2-42", topic: "PL/SQL", q: "¿Qué sentencia captura una excepción específica?", options: ["EXCEPTION WHEN <nombre> THEN ...", "TRY/CATCH", "ON ERROR", "CATCH <nombre>"], a: 0, exp: "PL/SQL usa WHEN <excepción> THEN." },
+                { id: "80v2-43", topic: "PL/SQL", q: "DUP_VAL_ON_INDEX se produce típicamente cuando:", options: ["Se viola una FK", "Se inserta duplicado en índice UNIQUE/PK", "Falla un COMMIT", "Hay demasiadas filas en SELECT INTO"], a: 1, exp: "Es la excepción de duplicidad en restricción única." },
+                { id: "80v2-44", topic: "PL/SQL", q: "¿Qué permite un cursor FOR LOOP respecto a OPEN/FETCH/CLOSE?", options: ["Nada, es igual", "Oracle lo gestiona automáticamente", "Obliga a usar REF CURSOR", "Bloquea siempre tablas"], a: 1, exp: "Gestiona automáticamente el ciclo del cursor." },
+                { id: "80v2-45", topic: "PL/SQL", q: "¿Qué característica define a una transacción autónoma?", options: ["Comparte COMMIT con la principal", "Tiene COMMIT/ROLLBACK independientes", "No puede hacer DML", "Solo sirve para SELECT"], a: 1, exp: "Es independiente de la transacción principal." },
+
+                // .NET / ASP.NET Core / EF / MediatR
+                { id: "80v2-46", topic: ".NET 6", q: "En ASP.NET Core, AddControllers() se usa para:", options: ["Registrar MVC controllers y soporte de routing", "Configurar EF Core", "Habilitar Razor Pages únicamente", "Crear Hosted Services"], a: 0, exp: "Registra controladores y servicios MVC." },
+                { id: "80v2-47", topic: ".NET 6", q: "¿Qué hace UseAuthentication() en el pipeline?", options: ["Configura CORS", "Establece el usuario (ClaimsPrincipal) a partir del esquema configurado", "Registra DbContext", "Mapea endpoints"], a: 1, exp: "Autenticación establece identidad antes de autorización." },
+                { id: "80v2-48", topic: ".NET 6", q: "¿Qué hace UseAuthorization()?", options: ["Crea tokens JWT", "Aplica políticas/autorización sobre el usuario autenticado", "Encripta cookies", "Habilita HTTPS"], a: 1, exp: "Autoriza según políticas/roles/claims." },
+                { id: "80v2-49", topic: "EF Core", q: "¿Qué patrón representa DbContext respecto a persistencia?", options: ["Unit of Work", "Builder", "Adapter", "Observer"], a: 0, exp: "DbContext actúa como Unit of Work + repository-like." },
+                { id: "80v2-50", topic: "MediatR", q: "¿Qué interfaz se usa para notificaciones (pub/sub) sin respuesta?", options: ["INotification", "IRequest<T>", "ICommand", "IEventStore"], a: 0, exp: "INotification + INotificationHandler." },
+                { id: "80v2-51", topic: "MediatR", q: "En MediatR, Publish() se utiliza para:", options: ["Ejecutar un request con respuesta", "Notificar eventos a múltiples handlers", "Registrar servicios", "Hacer rollback"], a: 1, exp: "Publish dispara notificaciones." },
+
+                // Angular / RxJS
+                { id: "80v2-52", topic: "Angular", q: "¿Qué es un interceptor HTTP en Angular?", options: ["Un componente visual", "Un middleware para requests/responses HTTP", "Un guard de rutas", "Un pipe de plantilla"], a: 1, exp: "Interceptors modifican/observan peticiones y respuestas." },
+                { id: "80v2-53", topic: "Angular", q: "¿Qué operador RxJS se usa típicamente para gestionar errores en un stream?", options: ["catchError", "finalize", "filter", "scan"], a: 0, exp: "catchError intercepta y retorna un Observable alternativo." },
+                { id: "80v2-54", topic: "Angular", q: "¿Qué hook se ejecuta tras inicializar inputs del componente?", options: ["ngOnInit", "ngAfterViewInit", "ngOnChanges", "ngDoCheck"], a: 0, exp: "ngOnInit se ejecuta una vez tras inicialización." },
+                { id: "80v2-55", topic: "Angular", q: "La estrategia ChangeDetection.OnPush implica:", options: ["Siempre repinta cada tick", "Detecta cambios cuando cambian inputs por referencia o eventos", "Desactiva templates", "Evita Observables"], a: 1, exp: "OnPush reduce CD con triggers concretos." },
+
+                // JavaScript
+                { id: "80v2-56", topic: "JavaScript", q: "¿Qué devuelve Array.prototype.map()?", options: ["Un nuevo array transformado", "El mismo array mutado", "Un booleano", "Un objeto"], a: 0, exp: "map crea un nuevo array." },
+                { id: "80v2-57", topic: "JavaScript", q: "¿Qué diferencia principal hay entre let y const?", options: ["const no tiene scope de bloque", "const no permite reasignación del binding", "let es global siempre", "let es inmutable"], a: 1, exp: "const impide reasignar; el objeto puede mutar." },
+
+                // Python
+                { id: "80v2-58", topic: "Python", q: "¿Qué significa que una función sea generadora?", options: ["Devuelve siempre list", "Usa yield y produce valores perezosamente", "Siempre es async", "No admite parámetros"], a: 1, exp: "yield convierte la función en generador." },
+                { id: "80v2-59", topic: "Python", q: "¿Qué hace enumerate(iterable)?", options: ["Ordena", "Devuelve pares (índice, valor)", "Filtra NULL", "Convierte a dict"], a: 1, exp: "Facilita índice y elemento." },
+
+                // MongoDB
+                { id: "80v2-60", topic: "MongoDB", q: "¿Qué comando actualiza un documento y permite upsert?", options: ["updateOne({..},{..},{upsert:true})", "insertOrUpdate()", "merge()", "saveAll()"], a: 0, exp: "updateOne con upsert:true inserta si no existe." },
+                { id: "80v2-61", topic: "MongoDB", q: "¿Qué etapa limita el número de documentos en una agregación?", options: ["$limit", "$cap", "$top", "$truncate"], a: 0, exp: "$limit recorta resultados." },
+
+                // Git
+                { id: "80v2-62", topic: "Git", q: "¿Qué comando crea un tag anotado?", options: ["git tag -a v1.0 -m \"msg\"", "git tag --light v1.0", "git make-tag v1.0", "git branch tag v1.0"], a: 0, exp: "Tag anotado: -a + -m." },
+                { id: "80v2-63", topic: "Git", q: "¿Qué hace git reset --hard?", options: ["Solo mueve HEAD sin tocar archivos", "Mueve HEAD y actualiza índice + working tree perdiendo cambios locales", "Crea commit nuevo", "Hace merge"], a: 1, exp: "Pierde cambios no committeados." },
+
+                // Jenkins / CI
+                { id: "80v2-64", topic: "Jenkins", q: "En pipeline declarativa, ¿dónde van comandos shell o bat?", options: ["agent", "options", "steps", "environment"], a: 2, exp: "Los comandos se ejecutan en steps." },
+                { id: "80v2-65", topic: "Jenkins", q: "¿Qué característica clave aporta CI?", options: ["Evitar repositorios", "Build/test automatizados frecuentes para detectar fallos pronto", "Eliminar tests", "Desplegar sin control"], a: 1, exp: "CI detecta problemas temprano." },
+
+                // Scrum
+                { id: "80v2-66", topic: "Scrum", q: "¿Quién es responsable de maximizar el valor del producto?", options: ["Scrum Master", "Product Owner", "Developers", "PMO"], a: 1, exp: "PO maximiza valor." },
+                { id: "80v2-67", topic: "Scrum", q: "El Sprint Goal se define en:", options: ["Daily Scrum", "Sprint Planning", "Sprint Review", "Retrospective"], a: 1, exp: "Se establece en Sprint Planning." },
+
+                // WCAG / Accesibilidad
+                { id: "80v2-68", topic: "WCAG 2.1", q: "¿Qué técnica mejora accesibilidad de formularios?", options: ["Placeholder sin label", "label asociado con for/id", "Texto en imagen", "Color como único indicador"], a: 1, exp: "label for/id es básico." },
+                { id: "80v2-69", topic: "WCAG 2.1", q: "El foco visible se relaciona principalmente con:", options: ["Operable", "Perceptible", "Robust", "Understandable"], a: 0, exp: "Foco/teclado = Operable." },
+
+                // CSS/HTML/Bootstrap
+                { id: "80v2-70", topic: "CSS", q: "¿Qué propiedad controla el desbordamiento de un contenedor?", options: ["overflow", "wrap", "float", "display"], a: 0, exp: "overflow controla scroll/hidden/visible." },
+                { id: "80v2-71", topic: "HTML", q: "¿Qué atributo indica texto alternativo en imágenes?", options: ["title", "alt", "aria-text", "caption"], a: 1, exp: "alt es el alternativo." },
+                { id: "80v2-72", topic: "Bootstrap", q: "Clase para botón primario en Bootstrap 5:", options: ["btn btn-primary", "button-primary", "btn-primary-only", "primary-btn"], a: 0, exp: "btn btn-primary." },
+
+                // Orbeon
+                { id: "80v2-73", topic: "Orbeon", q: "En XForms, el 'model' se usa para:", options: ["Definir instancia de datos, bindings y constraints", "Hacer CSS", "Empaquetar JS", "Generar informes"], a: 0, exp: "Model = datos y reglas." },
+
+                // Seguridad aplicada (dev)
+                { id: "80v2-74", topic: "Seguridad", q: "Una medida típica contra inyección SQL es:", options: ["Concatenar strings", "Parámetros/consultas parametrizadas", "Desactivar índices", "Usar GET siempre"], a: 1, exp: "Parametrizar evita inyección." },
+                { id: "80v2-75", topic: "Seguridad", q: "¿Qué es el principio de mínimo privilegio?", options: ["Dar acceso total para evitar bloqueos", "Conceder solo permisos necesarios", "No usar roles", "Compartir cuentas"], a: 1, exp: "Permisos mínimos necesarios." },
+
+                // Oracle extra
+                { id: "80v2-76", topic: "Oracle SQL", q: "¿Qué sentencia crea un sinónimo para referenciar un objeto con otro nombre?", options: ["CREATE SYNONYM", "CREATE ALIAS", "MAKE SYNONYM", "ADD SYNONYM"], a: 0, exp: "CREATE SYNONYM ..." },
+                { id: "80v2-77", topic: "Oracle SQL", q: "¿Qué hace ROW_NUMBER() OVER(PARTITION BY ... ORDER BY ...)?", options: ["Ranking con huecos", "Numeración secuencial por partición", "Cuenta filas totales", "Elimina duplicados"], a: 1, exp: "ROW_NUMBER numera 1..N por partición." },
+
+                // EF Core extra
+                { id: "80v2-78", topic: "EF Core", q: "¿Qué hace Include() en EF Core?", options: ["Eager loading de navegaciones", "Desactiva tracking", "Aplica migraciones", "Crea índices"], a: 0, exp: "Carga relaciones en la misma consulta (o split)." },
+
+                // MediatR extra
+                { id: "80v2-79", topic: "MediatR", q: "Un Pipeline Behavior en MediatR se usa para:", options: ["Routing HTTP", "Cross-cutting (logging/validation) alrededor del handler", "Serializar JSON", "Crear DbContext"], a: 1, exp: "IPipelineBehavior envuelve la ejecución del handler." },
+
+                // Git extra
+                { id: "80v2-80", topic: "Git", q: "¿Qué comando muestra diferencias entre working tree y el último commit?", options: ["git diff", "git log", "git fetch", "git status -v"], a: 0, exp: "git diff muestra cambios no committeados." }
+            ],
+            E40_V2: [
+                // ====== MOVIDAS DESDE ENS_SYSTEMS (sin tocar respuestas) ======
+                {
+                    id: "ens-sis-p1-01",
+                    topic: "ENS / RD 311/2022",
+                    q: "¿Qué anexo del RD 311/2022, de 3 de mayo, por el que se regula el Esquema Nacional de Seguridad contiene el catálogo de medidas de seguridad?",
+                    options: ["Anexo I", "Anexo II", "Anexo III", "Anexo IV"],
+                    a: 1,
+                    exp: "Según la plantilla oficial: B (Anexo II)."
+                },
+                {
+                    id: "ens-sis-p1-02",
+                    topic: "ENS / Incidentes",
+                    q: "¿Qué obligación tiene una entidad al detectar un incidente de seguridad según el ENS? ¿Cuál es el principal objetivo del Real Decreto 311/2022 sobre informar?",
+                    options: [
+                        "Notificar al CCN-CERT en un plazo máximo de 24 horas",
+                        "Notificar al Centro de Respuesta a Incidentes de Seguridad (CERT) competente",
+                        "Publicar un comunicado público",
+                        "Suspender todos los servicios informáticos"
+                    ],
+                    a: 1,
+                    exp: "Según la plantilla oficial: B."
+                },
+                {
+                    id: "ens-sis-p1-03",
+                    topic: "ENS / Categorización",
+                    q: "En el proceso de categorización de un sistema, ¿qué nivel de seguridad se asigna a una dimensión si su compromiso puede suponer un perjuicio GRAVE?",
+                    options: ["ALTO", "BÁSICO", "MEDIO", "EXTREMO"],
+                    a: 2,
+                    exp: "Según la plantilla oficial: C (MEDIO)."
+                },
+                {
+                    id: "ens-sis-p1-04",
+                    topic: "ENS / CCN-STIC",
+                    q: "¿Cuál es la relación entre las guías CCN-STIC y el Esquema Nacional de Seguridad?",
+                    options: [
+                        "Son independientes y sin relación",
+                        "Las complementan y ayudan a implementar el ENS",
+                        "Solo se aplican si el ENS no se cumple",
+                        "Sustituyen al ENS"
+                    ],
+                    a: 1,
+                    exp: "Según la plantilla oficial: B."
+                },
+                {
+                    id: "ens-sis-p1-05",
+                    topic: "ENS / CCN-STIC 881",
+                    q: "¿Qué recomendación organiza la guía CCN-STIC 881 para priorizar los riesgos?",
+                    options: [
+                        "Priorizar según coste económico",
+                        "Evaluar impacto y probabilidad para clasificación",
+                        "Ordenar solo por impacto legal",
+                        "No realizar priorización"
+                    ],
+                    a: 1,
+                    exp: "Según la plantilla oficial: B."
+                },
+                {
+                    id: "ens-sis-p1-06",
+                    topic: "ENS / CCN-STIC",
+                    q: "¿Qué tipo de documentos se acompañan a las guías CCN-STIC para facilitar su aplicación?",
+                    options: [
+                        "Manuales de usuario",
+                        "Controles de seguridad y recomendaciones específicas",
+                        "Contratos legales",
+                        "Manuales de uso"
+                    ],
+                    a: 1,
+                    exp: "Según la plantilla oficial: B."
+                },
+                {
+                    id: "ens-sis-p1-07",
+                    topic: "ENS / Cadena de suministro",
+                    q: "En el contexto de las Guías CCN-STIC sobre la cadena de suministro, ¿cuál de los siguientes es un requisito de seguridad que debe incluirse en los pliegos de contratación con un proveedor externo?",
+                    options: [
+                        "La obligatoriedad de que el proveedor utilice únicamente software homologado",
+                        "La exigencia de que el proveedor demuestre su adhesión al ENS",
+                        "La cláusula de transferencia de la propiedad de los activos de seguridad al organismo",
+                        "El compromiso de que el proveedor no subcontratará servicios"
+                    ],
+                    a: 1,
+                    exp: "Según la plantilla oficial: B."
+                },
+                {
+                    id: "ens-sis-p2-01",
+                    topic: "ENS / Medidas organizativas",
+                    q: "¿Qué papel tienen las medidas organizativas dentro del ENS?",
+                    options: [
+                        "Son secundarias frente a las técnicas",
+                        "Son fundamentales para el cumplimiento integral del esquema",
+                        "Se pueden omitir si hay medidas técnicas fuertes",
+                        "Solo recomendadas para grandes empresas"
+                    ],
+                    a: 1,
+                    exp: "Según la plantilla oficial: B."
+                },
+                {
+                    id: "ens-sis-p2-02",
+                    topic: "ENS / Medidas organizativas",
+                    q: "¿Cuál de las siguientes NO es una medida de seguridad organizativa según el ENS?",
+                    options: [
+                        "Política de seguridad",
+                        "Normativa de seguridad",
+                        "Procedimientos de seguridad",
+                        "Cifrado de bases de datos"
+                    ],
+                    a: 3,
+                    exp: "Según la plantilla oficial: D."
+                },
+                {
+                    id: "ens-sis-p2-03",
+                    topic: "CCN-STIC 817",
+                    q: "En la guía CCN-STIC 817, durante la fase de análisis de un ciberincidente, ¿qué técnica se recomienda para determinar el alcance real del compromiso de los sistemas?",
+                    options: [
+                        "Análisis de logs de sistemas afectados únicamente",
+                        "Análisis forense de memoria volátil, disco, y correlación de eventos en múltiples fuentes",
+                        "Escaneo de vulnerabilidades en la red completa",
+                        "Entrevistas al personal afectado"
+                    ],
+                    a: 1,
+                    exp: "Según la plantilla oficial: B."
+                },
+
+                // ====== 30 NUEVAS (hasta 40) ======
+                { id: "40v2-01", topic: "ENS", q: "¿Qué documento debe estar aprobado y comunicado para cumplir ENS?", options: ["Política de seguridad", "Plan de marketing", "Manual de usuario", "Inventario de impresoras"], a: 0, exp: "La política de seguridad es obligatoria." },
+                { id: "40v2-02", topic: "ENS", q: "Defensa en profundidad implica:", options: ["Una única barrera fuerte", "Capas múltiples de controles", "Desactivar logs", "Eliminar roles"], a: 1, exp: "Múltiples capas reducen riesgo residual." },
+                { id: "40v2-03", topic: "ENS", q: "¿Qué dimensión ENS se relaciona con poder atribuir acciones a un sujeto?", options: ["Disponibilidad", "Autenticidad", "Integridad", "Confidencialidad"], a: 1, exp: "Autenticidad vincula identidad y acciones." },
+                { id: "40v2-04", topic: "ENS", q: "La trazabilidad se apoya principalmente en:", options: ["Logs/auditoría", "Solo backups", "Solo VPN", "DNS"], a: 0, exp: "Registros de auditoría." },
+
+                { id: "40v2-05", topic: "Oracle SQL", q: "¿Qué función devuelve el primer valor no NULL entre varios?", options: ["NVL", "COALESCE", "DECODE", "TO_CHAR"], a: 1, exp: "COALESCE evalúa en orden." },
+                { id: "40v2-06", topic: "Oracle SQL", q: "¿Qué cláusula filtra tras agrupar?", options: ["WHERE", "HAVING", "ORDER BY", "FETCH"], a: 1, exp: "HAVING filtra agregados." },
+                { id: "40v2-07", topic: "Oracle SQL", q: "¿Qué comando revoca un privilegio?", options: ["REMOVE", "REVOKE", "DENY", "UNGRANT"], a: 1, exp: "REVOKE ... FROM ..." },
+
+                { id: "40v2-08", topic: "PL/SQL", q: "¿Qué atributo indica si un cursor está abierto?", options: ["%OPEN", "%ISOPEN", "%FOUND", "%ROWCOUNT"], a: 1, exp: "%ISOPEN indica estado del cursor." },
+                { id: "40v2-09", topic: "PL/SQL", q: "¿Qué instrucción lanza una excepción predefinida o propia?", options: ["RAISE", "THROW", "SIGNAL", "ERROR"], a: 0, exp: "RAISE lanza excepciones." },
+
+                { id: "40v2-10", topic: ".NET 6", q: "¿Dónde se registra un DbContext normalmente?", options: ["builder.Services.AddDbContext", "app.UseDbContext", "Program.AddContext", "appsettings solo"], a: 0, exp: "Se registra en DI con AddDbContext." },
+                { id: "40v2-11", topic: ".NET 6", q: "UseRouting() se usa para:", options: ["Aplicar políticas CORS", "Habilitar el enrutamiento de endpoints", "Autenticar usuarios", "Configurar Swagger"], a: 1, exp: "Prepara el routing antes de MapControllers/MapGet." },
+                { id: "40v2-12", topic: "EF Core", q: "AsNoTracking() es útil cuando:", options: ["Vas a actualizar entidades", "Solo lectura y buscas rendimiento", "Necesitas lazy loading", "Quieres migrations"], a: 1, exp: "Evita tracking para lecturas." },
+                { id: "40v2-13", topic: "MediatR", q: "¿Qué se usa para eventos sin respuesta?", options: ["INotification", "IRequest<T>", "IResult", "IActionResult"], a: 0, exp: "INotification se publica con Publish()." },
+
+                { id: "40v2-14", topic: "Angular", q: "¿Qué es un interceptor HTTP?", options: ["Un guard", "Un middleware de HTTP requests/responses", "Un pipe", "Un módulo"], a: 1, exp: "Interceptors interceptan peticiones y respuestas." },
+                { id: "40v2-15", topic: "Angular", q: "¿Qué operador RxJS cancela la petición anterior al emitir una nueva?", options: ["mergeMap", "switchMap", "concatMap", "map"], a: 1, exp: "switchMap sustituye la suscripción anterior." },
+
+                { id: "40v2-16", topic: "Git", q: "¿Qué comando crea una rama y cambia a ella (moderno)?", options: ["git branch -c", "git switch -c", "git checkout --new", "git new-branch"], a: 1, exp: "git switch -c." },
+                { id: "40v2-17", topic: "Git", q: "¿Qué comando integra commits reaplicándolos sobre otra base?", options: ["merge", "rebase", "fetch", "stash"], a: 1, exp: "rebase reaplica commits." },
+
+                { id: "40v2-18", topic: "Jenkins", q: "En pipeline declarativa, las etapas se definen en:", options: ["agent", "stages", "environment", "options"], a: 1, exp: "Stages agrupa etapas." },
+                { id: "40v2-19", topic: "Jenkins", q: "¿Qué archivo suele definir el pipeline?", options: ["Jenkinsfile", "pipeline.json", "build.yml", "ci.config"], a: 0, exp: "Jenkinsfile." },
+
+                { id: "40v2-20", topic: "MongoDB", q: "¿Qué etapa de agregación filtra documentos?", options: ["$group", "$match", "$project", "$sort"], a: 1, exp: "$match equivale a WHERE." },
+                { id: "40v2-21", topic: "MongoDB", q: "Campo clave por defecto:", options: ["id", "_id", "pk", "guid"], a: 1, exp: "_id." },
+
+                { id: "40v2-22", topic: "Scrum", q: "¿Quién ordena el Product Backlog?", options: ["Scrum Master", "Product Owner", "Developers", "QA"], a: 1, exp: "PO prioriza." },
+                { id: "40v2-23", topic: "Scrum", q: "¿Evento para inspeccionar incremento y adaptar backlog?", options: ["Daily", "Sprint Review", "Retro", "Refinement"], a: 1, exp: "Sprint Review." },
+
+                { id: "40v2-24", topic: "WCAG 2.1", q: "POUR significa:", options: ["Perceptible, Operable, Understandable, Robust", "Portable, Open, Unified, Responsive", "Privacy, Ownership, Updates, Rules", "Performance, Optimization, Usability, Rendering"], a: 0, exp: "Los 4 principios WCAG." },
+                { id: "40v2-25", topic: "WCAG 2.1", q: "Foco visible se asocia a:", options: ["Operable", "Robust", "Understandable", "Perceptible"], a: 0, exp: "Teclado/foco = Operable." },
+
+                { id: "40v2-26", topic: "Python", q: "¿Qué devuelve enumerate()?", options: ["Solo valores", "Pares (índice, valor)", "Ordena lista", "Convierte a dict"], a: 1, exp: "Útil en bucles." },
+                { id: "40v2-27", topic: "Python", q: "¿Qué estructura es inmutable?", options: ["list", "dict", "tuple", "set"], a: 2, exp: "tuple es inmutable." },
+
+                { id: "40v2-28", topic: "JavaScript", q: "¿Qué método transforma un array sin mutarlo?", options: ["push", "map", "pop", "splice"], a: 1, exp: "map crea nuevo array." },
+                { id: "40v2-29", topic: "JavaScript", q: "¿Qué diferencia clave hay entre == y ===?", options: ["== compara tipo y valor", "=== hace coerción", "=== compara valor y tipo", "No hay diferencia"], a: 2, exp: "=== evita coerción." },
+
+                { id: "40v2-30", topic: "Seguridad", q: "Contramedida típica contra SQLi:", options: ["Concatenar strings", "Queries parametrizadas", "Desactivar validación", "Usar GET"], a: 1, exp: "Parametrización." }
+            ],
+            E80_V3: [
+                // ===== ENS / CCN-STIC / GOBIERNO SEGURIDAD (25) =====
+                { id: "80v3-01", topic: "ENS", q: "En ENS, la 'función de seguridad' se orienta a:", options: ["Solo comprar tecnología", "Coordinar y supervisar la seguridad del sistema", "Sustituir al responsable del sistema", "Auditar una vez y finalizar"], a: 1, exp: "La función de seguridad coordina/supervisa la seguridad del sistema." },
+                { id: "80v3-02", topic: "ENS", q: "El principio ENS de 'reevaluación periódica' implica:", options: ["No cambiar nunca controles", "Revisar riesgos/medidas regularmente y ante cambios", "Revisar solo tras incidentes graves", "Revisar cada 10 años"], a: 1, exp: "Debe revisarse de forma periódica y cuando haya cambios relevantes." },
+                { id: "80v3-03", topic: "ENS", q: "Una auditoría de seguridad en ENS sirve principalmente para:", options: ["Certificar software propietario", "Verificar adecuación/eficacia de medidas", "Eliminar el análisis de riesgos", "Sustituir la política de seguridad"], a: 1, exp: "Auditoría verifica el grado de cumplimiento y eficacia de medidas." },
+                { id: "80v3-04", topic: "ENS", q: "En ENS, la 'gestión de configuración' ayuda a:", options: ["Evitar backups", "Controlar cambios en sistemas y mantener trazabilidad", "Desactivar registros", "Eliminar control de acceso"], a: 1, exp: "Config management controla cambios y soporta trazabilidad." },
+                { id: "80v3-05", topic: "ENS", q: "¿Qué medida reduce impacto ante fallo de un CPD?", options: ["Single point of failure", "Redundancia/continuidad y recuperación", "Desactivar monitorización", "Permisos globales"], a: 1, exp: "Continuidad/DR y redundancia reducen impacto." },
+                { id: "80v3-06", topic: "ENS", q: "La 'autenticidad' se relaciona directamente con:", options: ["Evitar SQLi", "Asegurar que una entidad es quien dice ser", "Aumentar FPS", "Evitar duplicados en BD"], a: 1, exp: "Autenticidad = identidad veraz/origen legítimo." },
+                { id: "80v3-07", topic: "ENS", q: "La 'integridad' persigue:", options: ["Que el sistema sea rápido", "Que la información no se altere sin autorización", "Que los usuarios tengan admin", "Que no haya logs"], a: 1, exp: "Integridad evita modificaciones no autorizadas." },
+                { id: "80v3-08", topic: "ENS", q: "La 'disponibilidad' se garantiza típicamente mediante:", options: ["Solo cifrado", "Redundancia, monitorización, backup/restore, DR", "Solo MFA", "Solo control de acceso"], a: 1, exp: "Disponibilidad requiere medidas técnicas y organizativas." },
+                { id: "80v3-09", topic: "ENS", q: "Una 'medida de detección' se orienta a:", options: ["Evitar que ocurra el incidente", "Identificar incidentes/actividades anómalas", "Recuperar tras desastre", "Firmar contratos"], a: 1, exp: "Detección = descubrir eventos/incidentología." },
+                { id: "80v3-10", topic: "ENS", q: "El 'principio de proporcionalidad' en ENS implica:", options: ["Aplicar siempre nivel alto", "Aplicar medidas según riesgos y categoría", "No aplicar controles", "Aplicar solo controles baratos"], a: 1, exp: "Las medidas deben ser proporcionales al riesgo." },
+                { id: "80v3-11", topic: "ENS", q: "En ENS, un sistema de categoría ALTA se asocia a:", options: ["Impactos despreciables", "Impactos muy graves en dimensiones", "Solo a universidades", "Solo a sistemas sin datos"], a: 1, exp: "Alta = impacto muy grave." },
+                { id: "80v3-12", topic: "ENS", q: "La cadena de suministro en seguridad se gestiona mediante:", options: ["Ignorar subcontratas", "Requisitos de seguridad en pliegos y verificación", "Solo cláusulas económicas", "Deshabilitar auditorías"], a: 1, exp: "Se exigen requisitos y se verifican." },
+                { id: "80v3-13", topic: "ENS", q: "¿Qué práctica refuerza trazabilidad en sistemas?", options: ["Logs centralizados y correlación (SIEM)", "Borrar logs diariamente", "Desactivar NTP", "Cuentas compartidas"], a: 0, exp: "Logs centralizados + correlación mejoran trazabilidad." },
+                { id: "80v3-14", topic: "ENS", q: "La segregación de funciones busca:", options: ["Que una persona controle todo", "Reducir fraude/error separando responsabilidades", "Acelerar commits", "Evitar roles"], a: 1, exp: "SoD reduce riesgos operativos y de abuso." },
+                { id: "80v3-15", topic: "ENS", q: "Una medida típica de 'protección de la información' es:", options: ["Cifrado en tránsito y/o en reposo según necesidad", "Desactivar HTTPS", "Usar contraseñas en texto plano", "Compartir tokens"], a: 0, exp: "Cifrado protege confidencialidad e integridad." },
+                { id: "80v3-16", topic: "ENS", q: "¿Qué apoya la sincronización temporal (NTP) en seguridad?", options: ["La estética UI", "La validez de logs y correlación de eventos", "El tamaño del monitor", "La velocidad de CPU"], a: 1, exp: "Tiempos coherentes son críticos para auditoría/incidentes." },
+                { id: "80v3-17", topic: "ENS", q: "Un control de acceso robusto incluye:", options: ["Usuarios genéricos", "Autenticación + autorización + principio mínimo privilegio", "Solo CAPTCHA", "Solo IP fija"], a: 1, exp: "Debe cubrir identidad y permisos mínimos." },
+                { id: "80v3-18", topic: "ENS", q: "¿Qué práctica mejora resiliencia ante ransomware?", options: ["Backups inmutables/offline y pruebas de restauración", "Solo antivirus", "Desactivar copias", "Usar FTP anónimo"], a: 0, exp: "Backups fiables y testeados son clave." },
+                { id: "80v3-19", topic: "ENS", q: "La gestión de vulnerabilidades consiste en:", options: ["No parchear para estabilidad", "Inventario + evaluación + parchado + verificación", "Solo pentest anual", "Eliminar logs"], a: 1, exp: "Ciclo completo de vuln mgmt." },
+                { id: "80v3-20", topic: "ENS", q: "En un plan de continuidad, el RTO representa:", options: ["Cuántos datos se pueden perder", "Tiempo objetivo de recuperación", "Nivel de cifrado", "Número de servidores"], a: 1, exp: "RTO = tiempo máximo aceptable para restaurar servicio." },
+                { id: "80v3-21", topic: "ENS", q: "En un plan de continuidad, el RPO representa:", options: ["Tiempo objetivo de recuperación", "Pérdida máxima de datos aceptable (punto de restauración)", "Número de usuarios", "Latencia de red"], a: 1, exp: "RPO = cuánto dato puedes perder." },
+                { id: "80v3-22", topic: "ENS", q: "Una buena práctica en gestión de identidades es:", options: ["Cuentas compartidas", "Ciclo de vida: alta/modificación/baja y revisión periódica", "Contraseñas iguales para todos", "Desactivar MFA"], a: 1, exp: "IAM debe controlar altas/bajas y revisiones." },
+                { id: "80v3-23", topic: "ENS", q: "¿Qué técnica aporta no repudio y autenticidad en documentos?", options: ["Hash sin firma", "Firma electrónica", "ZIP con contraseña", "Base64"], a: 1, exp: "La firma electrónica aporta autenticidad e integridad." },
+                { id: "80v3-24", topic: "ENS", q: "En incidentes, la 'erradicación' es:", options: ["Restaurar backups", "Eliminar causa raíz/malware y cerrar vectores", "Publicar nota de prensa", "Cambiar logo"], a: 1, exp: "Erradicar = eliminar causa y cerrar brechas." },
+                { id: "80v3-25", topic: "ENS", q: "El objetivo de la 'lección aprendida' en incidentes es:", options: ["Culpar a alguien", "Mejorar controles y procedimientos", "Eliminar auditorías", "No documentar"], a: 1, exp: "Se mejora para evitar recurrencia." },
+
+                // ===== ORACLE SQL (15) =====
+                { id: "80v3-26", topic: "Oracle SQL", q: "¿Qué operador devuelve filas comunes entre dos consultas?", options: ["UNION", "INTERSECT", "MINUS", "JOIN"], a: 1, exp: "INTERSECT devuelve intersección." },
+                { id: "80v3-27", topic: "Oracle SQL", q: "MINUS en Oracle devuelve:", options: ["Suma", "Filas de la primera consulta que no están en la segunda", "Duplicados", "Producto cartesiano"], a: 1, exp: "MINUS = diferencia de conjuntos." },
+                { id: "80v3-28", topic: "Oracle SQL", q: "¿Qué función convierte texto a número si es posible?", options: ["TO_NUMBER", "TO_CHAR", "CAST(... AS DATE)", "NVL2"], a: 0, exp: "TO_NUMBER convierte a numérico." },
+                { id: "80v3-29", topic: "Oracle SQL", q: "¿Para qué se usa una VIEW?", options: ["Almacenar datos físicamente siempre", "Abstraer/segurizar consultas como tabla virtual", "Reemplazar índices", "Hacer COMMIT"], a: 1, exp: "Vista = consulta almacenada/virtual." },
+                { id: "80v3-30", topic: "Oracle SQL", q: "¿Qué hace CREATE MATERIALIZED VIEW?", options: ["Crea una tabla temporal", "Crea una vista con datos almacenados y refrescables", "Crea un índice", "Crea un sinónimo"], a: 1, exp: "MV almacena resultados y permite refresh." },
+                { id: "80v3-31", topic: "Oracle SQL", q: "¿Qué instrucción cambia el nombre de una columna (Oracle moderno)?", options: ["ALTER TABLE ... RENAME COLUMN", "RENAME COLUMN", "CHANGE COLUMN", "MODIFY NAME"], a: 0, exp: "ALTER TABLE t RENAME COLUMN a TO b." },
+                { id: "80v3-32", topic: "Oracle SQL", q: "¿Qué diferencia clave hay entre VARCHAR2 y CHAR?", options: ["CHAR es variable", "CHAR rellena a longitud fija", "VARCHAR2 ocupa siempre máximo", "No hay diferencia"], a: 1, exp: "CHAR es longitud fija (relleno)." },
+                { id: "80v3-33", topic: "Oracle SQL", q: "¿Qué hace un índice bitmap típicamente mejor que B-Tree?", options: ["Alta cardinalidad", "Baja cardinalidad y consultas analíticas", "Evitar locks", "Sustituir constraints"], a: 1, exp: "Bitmap suele ser útil en baja cardinalidad/analítica." },
+                { id: "80v3-34", topic: "Oracle SQL", q: "¿Qué función devuelve el último día del mes de una fecha?", options: ["LAST_DAY", "END_OF_MONTH", "MONTH_END", "TO_DATE_END"], a: 0, exp: "LAST_DAY(fecha)." },
+                { id: "80v3-35", topic: "Oracle SQL", q: "¿Qué función devuelve meses entre dos fechas?", options: ["MONTHS_BETWEEN", "DATEDIFF", "MONTH_DIFF", "ADD_MONTHS"], a: 0, exp: "MONTHS_BETWEEN(d1,d2)." },
+                { id: "80v3-36", topic: "Oracle SQL", q: "ADD_MONTHS(fecha, n) se usa para:", options: ["Sumar días", "Sumar meses a una fecha", "Convertir a timestamp", "Calcular año fiscal"], a: 1, exp: "Añade n meses." },
+                { id: "80v3-37", topic: "Oracle SQL", q: "¿Qué sentencia crea un usuario en Oracle (conceptualmente)?", options: ["CREATE LOGIN", "CREATE USER", "ADD USER", "NEW USER"], a: 1, exp: "CREATE USER ..." },
+                { id: "80v3-38", topic: "Oracle SQL", q: "¿Qué hace ALTER SESSION SET NLS_DATE_FORMAT?", options: ["Cambia formato de fecha de la sesión", "Cambia la zona horaria del SO", "Cambia tipo DATE a TIMESTAMP", "Elimina NLS"], a: 0, exp: "Afecta a presentación/parsing de fechas en esa sesión." },
+                { id: "80v3-39", topic: "Oracle SQL", q: "¿Qué es un TABLESPACE?", options: ["Un usuario", "Unidad lógica de almacenamiento de segmentos", "Un índice", "Un trigger"], a: 1, exp: "Tablespace agrupa almacenamiento lógico." },
+                { id: "80v3-40", topic: "Oracle SQL", q: "¿Qué sentencia permite comentar una columna en Oracle?", options: ["COMMENT ON COLUMN", "ADD COMMENT", "REMARK COLUMN", "COLUMN COMMENT"], a: 0, exp: "COMMENT ON COLUMN t.c IS '...';" },
+
+                // ===== PL/SQL (10) =====
+                { id: "80v3-41", topic: "PL/SQL", q: "¿Qué es un bloque 'DECLARE' en PL/SQL?", options: ["Parte obligatoria siempre", "Sección opcional para declarar variables/cursores", "Manejo de errores", "Fin del bloque"], a: 1, exp: "DECLARE es opcional y declara variables." },
+                { id: "80v3-42", topic: "PL/SQL", q: "¿Qué instrucción devuelve control al llamador en una FUNCTION?", options: ["RETURN valor", "EXIT", "BREAK", "YIELD"], a: 0, exp: "RETURN devuelve el valor en una function." },
+                { id: "80v3-43", topic: "PL/SQL", q: "¿Qué permite SAVEPOINT en transacciones?", options: ["Cerrar sesión", "Definir punto para rollback parcial", "Crear índice", "Bloquear tabla"], a: 1, exp: "SAVEPOINT habilita ROLLBACK TO." },
+                { id: "80v3-44", topic: "PL/SQL", q: "¿Cuál es el objetivo de BULK COLLECT?", options: ["Evitar índices", "Traer múltiples filas a colecciones eficientemente", "Deshabilitar triggers", "Forzar commit"], a: 1, exp: "Reduce context switches SQL/PLSQL." },
+                { id: "80v3-45", topic: "PL/SQL", q: "FORALL se usa para:", options: ["Bucle de SELECT", "Ejecutar DML en lote usando colecciones", "Crear paquetes", "Capturar excepciones"], a: 1, exp: "FORALL optimiza DML masivo." },
+                { id: "80v3-46", topic: "PL/SQL", q: "¿Qué tipo de error captura VALUE_ERROR?", options: ["Duplicado en índice", "Conversión/asignación inválida o tamaño", "No_data_found", "Too_many_rows"], a: 1, exp: "VALUE_ERROR suele ser conversión/asignación." },
+                { id: "80v3-47", topic: "PL/SQL", q: "¿Qué es un 'package specification'?", options: ["Implementación", "Interfaz pública (declaraciones)", "Trigger", "Índice"], a: 1, exp: "Spec expone procedimientos/funciones/variables públicas." },
+                { id: "80v3-48", topic: "PL/SQL", q: "¿Qué directiva habilita un bloque autónomo?", options: ["PRAGMA AUTONOMOUS_TRANSACTION", "PRAGMA INLINE", "PRAGMA LOCK", "PRAGMA COMMIT"], a: 0, exp: "PRAGMA AUTONOMOUS_TRANSACTION." },
+                { id: "80v3-49", topic: "PL/SQL", q: "Un trigger 'AFTER INSERT' se ejecuta:", options: ["Antes de insertar", "Después de insertar", "Solo si hay error", "En la conexión del cliente"], a: 1, exp: "AFTER INSERT => tras inserción." },
+                { id: "80v3-50", topic: "PL/SQL", q: "¿Qué hace DBMS_OUTPUT.PUT_LINE?", options: ["Inserta en tabla", "Escribe salida para depuración", "Hace commit", "Cifra datos"], a: 1, exp: "Imprime salida (según herramienta/servidoroutput)." },
+
+                // ===== .NET 6 / ASP.NET Core / EF Core / MediatR (12) =====
+                { id: "80v3-51", topic: ".NET 6", q: "¿Qué es un Hosted Service (IHostedService)?", options: ["Un controller", "Un servicio en background gestionado por el host", "Un middleware", "Un paquete NuGet de UI"], a: 1, exp: "IHostedService ejecuta tareas en background (Start/Stop)." },
+                { id: "80v3-52", topic: ".NET 6", q: "¿Qué patrón describe el pipeline de ASP.NET Core?", options: ["Chain of Responsibility (middleware)", "Singleton", "Adapter", "Prototype"], a: 0, exp: "Middleware = cadena de responsabilidad." },
+                { id: "80v3-53", topic: ".NET 6", q: "¿Qué hace app.MapControllers()?", options: ["Registra DI", "Mapea rutas de controllers al routing", "Aplica migraciones", "Habilita CORS"], a: 1, exp: "Conecta endpoints de controllers." },
+                { id: "80v3-54", topic: "EF Core", q: "¿Qué hace DbContext.ChangeTracker?", options: ["Gestiona archivos", "Rastrea entidades y estados para persistencia", "Compila LINQ", "Hace cache distribuida"], a: 1, exp: "Rastrea cambios/estados." },
+                { id: "80v3-55", topic: "EF Core", q: "¿Qué significa 'tracking' en EF Core?", options: ["Ordenar resultados", "Que el contexto controla estado de entidades", "Que no se puede actualizar", "Que siempre usa lazy loading"], a: 1, exp: "Tracking permite detectar cambios para SaveChanges." },
+                { id: "80v3-56", topic: "EF Core", q: "¿Qué método suele usarse para incluir relaciones en una query?", options: ["Include", "Attach", "AddRange", "Entry().Reload"], a: 0, exp: "Include hace eager loading." },
+                { id: "80v3-57", topic: ".NET 6", q: "En DI, 'Scoped' significa:", options: ["Una instancia para toda la app", "Una instancia por request/scope", "Una instancia por resolución", "Solo para singleton"], a: 1, exp: "Scoped = por request (web) o por scope." },
+                { id: "80v3-58", topic: "MediatR", q: "Un Request Handler en MediatR implementa:", options: ["IRequest<T>", "IRequestHandler<TRequest,TResponse>", "INotification", "IService"], a: 1, exp: "Handler implementa IRequestHandler." },
+                { id: "80v3-59", topic: "MediatR", q: "La validación transversal en MediatR se implementa típicamente con:", options: ["Attributes en controllers", "IPipelineBehavior", "DbContext", "Middleware de static files"], a: 1, exp: "Pipeline behaviors para cross-cutting." },
+                { id: "80v3-60", topic: ".NET 6", q: "¿Qué hace IConfiguration (appsettings)?", options: ["Compila", "Provee configuración por providers (json, env, secrets)", "Gestiona threads", "Renderiza HTML"], a: 1, exp: "Configuration se compone de providers." },
+                { id: "80v3-61", topic: ".NET 6", q: "¿Para qué sirve ILogger<T>?", options: ["Persistir entidades", "Registrar logs estructurados", "Generar JWT", "Cachear HTML"], a: 1, exp: "ILogger registra logs." },
+                { id: "80v3-62", topic: "EF Core", q: "¿Qué es una migración en EF Core?", options: ["Un backup", "Un conjunto de cambios del modelo aplicables a BD", "Un controller", "Un test unitario"], a: 1, exp: "Migrations gestionan evolución del esquema." },
+
+                // ===== Angular / RxJS (8) =====
+                { id: "80v3-63", topic: "Angular", q: "¿Qué es un Reactive Form en Angular?", options: ["Form con jQuery", "Form modelado en TS con FormGroup/FormControl", "Solo HTML", "Un guard"], a: 1, exp: "Reactive forms se definen en TS." },
+                { id: "80v3-64", topic: "Angular", q: "¿Qué módulo se usa para formularios reactivos?", options: ["HttpClientModule", "ReactiveFormsModule", "RouterModule", "BrowserAnimationsModule"], a: 1, exp: "ReactiveFormsModule." },
+                { id: "80v3-65", topic: "Angular", q: "¿Qué hace el operador RxJS tap()?", options: ["Transforma valores", "Efectos laterales sin cambiar el stream", "Filtra", "Reintenta"], a: 1, exp: "tap para side-effects (log, flags...)." },
+                { id: "80v3-66", topic: "Angular", q: "¿Qué hace debounceTime() típicamente?", options: ["Acelera emissions", "Espera silencio antes de emitir (inputs/búsquedas)", "Convierte a promise", "Cierra observable"], a: 1, exp: "Ideal para búsquedas en vivo." },
+                { id: "80v3-67", topic: "Angular", q: "¿Qué ventaja tiene el async pipe?", options: ["Rompe CD", "Suscribe/Desuscribe automáticamente", "Evita servicios", "Obliga a usar callbacks"], a: 1, exp: "Gestiona ciclo de vida de suscripción." },
+                { id: "80v3-68", topic: "Angular", q: "¿Qué es un 'service' en Angular?", options: ["Un componente visual", "Clase inyectable para lógica/estado compartido", "Un módulo de rutas", "Un pipe"], a: 1, exp: "Servicios encapsulan lógica y se inyectan." },
+                { id: "80v3-69", topic: "Angular", q: "¿Qué hace Router.navigate()", options: ["Hace HTTP", "Navega programáticamente a una ruta", "Compila TS", "Cambia CSS"], a: 1, exp: "Navegación programática." },
+                { id: "80v3-70", topic: "Angular", q: "¿Qué es un 'resolver' en routing?", options: ["Carga datos antes de activar una ruta", "Bloquea la ruta por roles", "Intercepta HTTP", "Pinta templates"], a: 0, exp: "Resolver precarga datos para la ruta." },
+
+                // ===== JavaScript (4) =====
+                { id: "80v3-71", topic: "JavaScript", q: "¿Qué hace Array.prototype.filter()?", options: ["Transforma cada elemento", "Devuelve un nuevo array con elementos que cumplen condición", "Ordena", "Reduce a un valor"], a: 1, exp: "filter selecciona elementos." },
+                { id: "80v3-72", topic: "JavaScript", q: "¿Qué es 'hoisting' en JS?", options: ["Ejecución paralela", "Elevación de declaraciones (var/function) en tiempo de compilación", "Un módulo ES", "Un tipo de dato"], a: 1, exp: "Declaraciones se procesan antes; var se inicializa como undefined." },
+                { id: "80v3-73", topic: "JavaScript", q: "¿Qué hace async/await?", options: ["Bloquea el hilo", "Simplifica manejo de Promises con sintaxis secuencial", "Elimina Promises", "Convierte JS en C#"], a: 1, exp: "Es azúcar sintáctico sobre Promises." },
+                { id: "80v3-74", topic: "JavaScript", q: "¿Qué diferencia hay entre null y undefined?", options: ["Son iguales", "undefined suele ser ausencia no asignada; null valor explícito 'vacío'", "null solo en arrays", "undefined solo en JSON"], a: 1, exp: "undefined = no definido; null = vacío intencional." },
+
+                // ===== Python (4) =====
+                { id: "80v3-75", topic: "Python", q: "¿Qué es un 'virtualenv' (venv)?", options: ["Un contenedor Docker", "Entorno aislado de dependencias", "Un compilador", "Un IDE"], a: 1, exp: "Aísla paquetes por proyecto." },
+                { id: "80v3-76", topic: "Python", q: "¿Qué hace list.append(x)?", options: ["Inserta al principio", "Añade al final", "Elimina", "Ordena"], a: 1, exp: "append añade al final." },
+                { id: "80v3-77", topic: "Python", q: "¿Qué devuelve len(obj)?", options: ["Hash", "Tamaño/longitud", "Tipo", "Bytes siempre"], a: 1, exp: "Devuelve la longitud." },
+                { id: "80v3-78", topic: "Python", q: "¿Qué hace dict.get(k, default)?", options: ["Borra clave", "Devuelve valor o default si no existe", "Ordena claves", "Convierte a lista"], a: 1, exp: "Evita KeyError." },
+
+                // ===== MongoDB (3) =====
+                { id: "80v3-79", topic: "MongoDB", q: "¿Qué operador consulta por existencia de un campo?", options: ["$exists", "$has", "$present", "$field"], a: 0, exp: "$exists comprueba existencia." },
+                { id: "80v3-80", topic: "MongoDB", q: "¿Qué significa 'sharding' en MongoDB?", options: ["Cifrado", "Particionar datos entre nodos", "Duplicar índices", "Eliminar réplicas"], a: 1, exp: "Sharding reparte datos en shards." },
+                { id: "80v3-81", topic: "MongoDB", q: "¿Qué es un Replica Set?", options: ["Un índice", "Conjunto de nodos que replican datos para alta disponibilidad", "Un tipo de documento", "Un driver"], a: 1, exp: "Replica set proporciona HA y failover." },
+
+                // ===== Scrum (3) =====
+                { id: "80v3-82", topic: "Scrum", q: "El artefacto 'Increment' es:", options: ["Lista de bugs", "Suma de todo lo completado en el sprint + previos, usable", "Plan del sprint", "Documento de requisitos"], a: 1, exp: "Increment = producto usable." },
+                { id: "80v3-83", topic: "Scrum", q: "El Daily Scrum tiene como propósito:", options: ["Aprobar vacaciones", "Inspeccionar progreso hacia Sprint Goal y adaptar plan", "Repriorizar Product Backlog", "Hacer retrospectiva"], a: 1, exp: "Daily: inspección y adaptación diaria del plan." },
+                { id: "80v3-84", topic: "Scrum", q: "¿Qué es el 'Backlog Refinement'?", options: ["Evento formal obligatorio", "Actividad para aclarar/dividir/estimar PBIs", "Sustituye Sprint Planning", "Reunión solo del PO"], a: 1, exp: "Refinement es actividad continua (no evento formal)." },
+
+                // ===== Jenkins + Git + DevOps (6) =====
+                { id: "80v3-85", topic: "Jenkins", q: "¿Qué es un 'stage' en Jenkins declarativo?", options: ["Un commit", "Un bloque lógico de la pipeline (build/test/deploy)", "Un nodo físico", "Un repositorio"], a: 1, exp: "Stage organiza la pipeline." },
+                { id: "80v3-86", topic: "Jenkins", q: "¿Qué es un 'agent any'?", options: ["Solo Windows", "Ejecuta en cualquier nodo disponible", "Solo en master", "Solo en Docker"], a: 1, exp: "any permite ejecutar en cualquier agente." },
+                { id: "80v3-87", topic: "Git", q: "¿Qué hace git stash?", options: ["Borra commits", "Guarda cambios locales temporalmente sin commit", "Publica release", "Cambia remoto"], a: 1, exp: "Stash aparca cambios no committeados." },
+                { id: "80v3-88", topic: "Git", q: "¿Qué es un 'remote' en Git?", options: ["Un branch local", "Referencia a repositorio remoto (origin)", "Un tag", "Un hook"], a: 1, exp: "Remote apunta a repo remoto." },
+                { id: "80v3-89", topic: "DevOps", q: "CD (Continuous Delivery/Deployment) se relaciona con:", options: ["Solo escribir tests", "Automatizar entrega/despliegue tras CI", "Evitar versionado", "Eliminar pipelines"], a: 1, exp: "CD automatiza entrega/despliegue." },
+                { id: "80v3-90", topic: "DevOps", q: "Infrastructure as Code (IaC) implica:", options: ["Configurar a mano siempre", "Definir infra con código (terraform/arm/ansible)", "No usar control de versiones", "Solo Excel"], a: 1, exp: "IaC versiona y automatiza infra." },
+
+                // ===== HTML/CSS/Bootstrap/WCAG/Orbeon (10) =====
+                { id: "80v3-91", topic: "WCAG 2.1", q: "Un texto alternativo (alt) adecuado para imagen decorativa es:", options: ["Un párrafo largo", "Alt vacío (alt=\"\")", "Nombre del archivo", "No poner atributo"], a: 1, exp: "Decorativas: alt vacío para que lectores la ignoren." },
+                { id: "80v3-92", topic: "WCAG 2.1", q: "Evitar depender solo del color para transmitir información corresponde a:", options: ["Robust", "Perceptible", "Operable", "Understandable"], a: 1, exp: "Perceptible: la info debe percibirse por más de un canal." },
+                { id: "80v3-93", topic: "HTML", q: "¿Qué elemento representa contenido principal de la página?", options: ["<main>", "<aside>", "<footer>", "<small>"], a: 0, exp: "<main> indica contenido principal." },
+                { id: "80v3-94", topic: "HTML", q: "¿Para qué sirve aria-label?", options: ["Cambiar CSS", "Aportar nombre accesible cuando no hay texto visible", "Optimizar SEO", "Reducir JS"], a: 1, exp: "Aporta etiqueta accesible a controles." },
+                { id: "80v3-95", topic: "CSS", q: "¿Qué propiedad controla el espacio entre columnas/filas en Grid/Flex moderno?", options: ["gap", "margin-inline", "padding-gap", "space"], a: 0, exp: "gap define separación." },
+                { id: "80v3-96", topic: "CSS", q: "En CSS, position: sticky requiere normalmente:", options: ["top (u otro offset) definido", "display:flex", "z-index negativo", "float"], a: 0, exp: "Sticky necesita offset (top/left...)." },
+                { id: "80v3-97", topic: "Bootstrap", q: "Clase para ocultar en pantallas pequeñas y mostrar en md+ (BS5) es:", options: ["d-none d-md-block", "hide-sm show-md", "sm-hidden md-show", "display-md-only"], a: 0, exp: "d-none d-md-block." },
+                { id: "80v3-98", topic: "Bootstrap", q: "Clase para hacer un botón con borde sin relleno (BS5):", options: ["btn btn-outline-primary", "btn btn-border-primary", "btn btn-hollow", "btn btn-line"], a: 0, exp: "Outline buttons: btn-outline-*." },
+                { id: "80v3-99", topic: "Orbeon", q: "En Orbeon/XForms, un 'bind' se usa para:", options: ["Definir estilos CSS", "Asociar reglas/constraints/calculations a datos", "Configurar Jenkins", "Crear tablas SQL"], a: 1, exp: "Bind liga reglas y constraints al modelo." },
+                { id: "80v3-100", topic: "Orbeon", q: "Ventaja clave de XForms es:", options: ["Solo funciona sin navegador", "Separar modelo de datos y vista/controles", "Requiere jQuery", "No admite validación"], a: 1, exp: "XForms separa datos (modelo) y controles." }
+            ],
+            E40_V3: [
+                // ENS (12)
+                { id: "40v3-01", topic: "ENS", q: "¿Qué asegura el principio de 'mínimo privilegio'?", options: ["Acceso total a todos", "Permisos estrictamente necesarios", "Sin roles", "Contraseñas compartidas"], a: 1, exp: "Solo permisos necesarios." },
+                { id: "40v3-02", topic: "ENS", q: "¿Qué práctica reduce riesgo por cuentas comprometidas?", options: ["MFA", "Desactivar logs", "Passwords en excel", "Usuarios genéricos"], a: 0, exp: "MFA mitiga robo de credenciales." },
+                { id: "40v3-03", topic: "ENS", q: "¿Qué es un inventario de activos en seguridad?", options: ["Lista de usuarios", "Lista de sistemas/datos/servicios y su valor", "Un firewall", "Un backup"], a: 1, exp: "Inventario base para riesgos." },
+                { id: "40v3-04", topic: "ENS", q: "¿Qué apoya la 'seguridad por defecto'?", options: ["Configurar con settings seguros inicialmente", "Abrir todo y cerrar luego", "Eliminar contraseñas", "Desactivar TLS"], a: 0, exp: "Secure by default reduce superficie de ataque." },
+                { id: "40v3-05", topic: "ENS", q: "Una revisión de permisos periódica busca:", options: ["Aumentar permisos", "Detectar excesos y revocar lo innecesario", "Quitar backups", "Eliminar auditoría"], a: 1, exp: "Evita acumulación de permisos." },
+                { id: "40v3-06", topic: "ENS", q: "La monitorización de seguridad debe enfocarse en:", options: ["Eventos relevantes y alertas accionables", "Todo sin filtrar", "Solo UI", "No registrar nada"], a: 0, exp: "Se monitoriza lo relevante." },
+                { id: "40v3-07", topic: "ENS", q: "¿Qué es la 'superficie de ataque'?", options: ["Velocidad del servidor", "Puntos expuestos que pueden ser atacados", "Número de pantallas", "Tamaño de BD"], a: 1, exp: "Endpoints/servicios expuestos." },
+                { id: "40v3-08", topic: "ENS", q: "Un control de acceso basado en roles es:", options: ["RBAC", "ABAC siempre", "DAC", "MAC"], a: 0, exp: "RBAC: roles." },
+                { id: "40v3-09", topic: "ENS", q: "El registro de auditoría debe protegerse para:", options: ["Que cualquiera lo edite", "Evitar manipulación y conservar evidencias", "Reducir espacio borrándolo", "Evitar correlación"], a: 1, exp: "Logs deben ser íntegros." },
+                { id: "40v3-10", topic: "ENS", q: "Una política de contraseñas segura incluye:", options: ["Reutilización obligatoria", "Longitud mínima y bloqueo ante intentos", "Solo 4 dígitos", "Publicarlas en intranet"], a: 1, exp: "Longitud y controles anti-fuerza bruta." },
+                { id: "40v3-11", topic: "ENS", q: "¿Qué es hardening?", options: ["Hacer la UI más bonita", "Reducir exposición deshabilitando servicios/puertos innecesarios", "Abrir puertos", "Aumentar permisos"], a: 1, exp: "Hardening reduce superficie de ataque." },
+                { id: "40v3-12", topic: "ENS", q: "¿Qué práctica ayuda a detectar intrusiones?", options: ["IDS/IPS y correlación de eventos", "Solo backups", "Solo DNS", "Desactivar alertas"], a: 0, exp: "IDS/IPS + correlación ayuda." },
+
+                // Oracle/PLSQL (8)
+                { id: "40v3-13", topic: "Oracle SQL", q: "¿Qué es una constraint CHECK?", options: ["Índice", "Regla booleana de validación en columna/tabla", "Trigger", "Vista"], a: 1, exp: "CHECK valida condiciones." },
+                { id: "40v3-14", topic: "Oracle SQL", q: "¿Qué hace DROP INDEX?", options: ["Borra tabla", "Elimina el índice", "Hace rollback", "Crea sinónimo"], a: 1, exp: "Elimina el índice." },
+                { id: "40v3-15", topic: "Oracle SQL", q: "¿Qué es un synonym?", options: ["Alias de objeto (tabla/vista) para facilitar referencias", "Un índice", "Un trigger", "Un tablespace"], a: 0, exp: "Synonym = alias." },
+                { id: "40v3-16", topic: "Oracle SQL", q: "¿Qué hace EXCEPTION en PL/SQL?", options: ["Declara variables", "Gestiona errores/excepciones", "Hace commit", "Crea cursor"], a: 1, exp: "Bloque EXCEPTION." },
+                { id: "40v3-17", topic: "PL/SQL", q: "¿Qué ocurre si no se maneja una excepción?", options: ["Se ignora", "Propaga al llamador y revierte el bloque", "Se convierte en warning", "Se hace commit"], a: 1, exp: "Propaga si no se captura." },
+                { id: "40v3-18", topic: "PL/SQL", q: "¿Qué es un cursor explícito?", options: ["El FOR LOOP", "Cursor declarado por el programador con OPEN/FETCH/CLOSE", "Un trigger", "Un índice"], a: 1, exp: "Explícito: control manual." },
+                { id: "40v3-19", topic: "Oracle SQL", q: "¿Qué hace ALTER TABLE ... ADD CONSTRAINT?", options: ["Renombra tabla", "Añade una restricción", "Borra datos", "Crea índice siempre"], a: 1, exp: "Define constraints." },
+                { id: "40v3-20", topic: "Oracle SQL", q: "¿Qué función devuelve el usuario actual en Oracle?", options: ["CURRENT_USER", "USER()", "WHOAMI()", "SESSION_USER()"], a: 0, exp: "CURRENT_USER (y USER) son comunes; aquí: CURRENT_USER." },
+
+                // .NET/EF/MediatR (10)
+                { id: "40v3-21", topic: ".NET 6", q: "¿Qué hace app.UseCors()?", options: ["Cifra tráfico", "Aplica la política CORS en el pipeline", "Crea controladores", "Ejecuta migraciones"], a: 1, exp: "Aplica CORS." },
+                { id: "40v3-22", topic: ".NET 6", q: "¿Qué formato se usa habitualmente para configuración por entorno?", options: ["appsettings.{Environment}.json", "config.env.cs", "settings.xml fijo", "hardcode"], a: 0, exp: "appsettings.Development/Production..." },
+                { id: "40v3-23", topic: "EF Core", q: "¿Qué hace Remove(entity)?", options: ["Marca entidad como Deleted", "Borra BD sin SaveChanges", "Hace commit", "Desconecta contexto"], a: 0, exp: "Se elimina al SaveChanges." },
+                { id: "40v3-24", topic: "EF Core", q: "¿Qué hace Add(entity)?", options: ["Marca Added para insertar al SaveChanges", "Actualiza siempre", "Borra", "Hace select"], a: 0, exp: "Inserta al guardar." },
+                { id: "40v3-25", topic: "EF Core", q: "¿Qué es una relación 1..N en EF Core?", options: ["Una vista", "N entidades hijas referencian una principal", "Un índice", "Un trigger"], a: 1, exp: "One-to-many." },
+                { id: "40v3-26", topic: "MediatR", q: "¿Qué diferencia IRequest vs INotification?", options: ["Ambas devuelven respuesta", "IRequest espera respuesta; INotification es evento sin respuesta", "INotification solo para HTTP", "IRequest no tiene handler"], a: 1, exp: "Request/Response vs Pub/Sub." },
+                { id: "40v3-27", topic: ".NET 6", q: "¿Qué es un middleware?", options: ["Una tabla", "Componente que procesa request/response en cadena", "Un controlador", "Un paquete npm"], a: 1, exp: "Pipeline encadenado." },
+                { id: "40v3-28", topic: ".NET 6", q: "¿Qué hace Swagger (OpenAPI) en APIs?", options: ["Cifra DB", "Documenta y prueba endpoints", "Acelera CPU", "Sustituye tests"], a: 1, exp: "Documentación y UI de prueba." },
+                { id: "40v3-29", topic: ".NET 6", q: "¿Qué representa IActionResult?", options: ["Resultado HTTP abstracto en controllers", "Una conexión SQL", "Un token JWT", "Una migración"], a: 0, exp: "Abstracción de respuesta HTTP." },
+                { id: "40v3-30", topic: ".NET 6", q: "¿Qué hace StatusCodes.Status404NotFound?", options: ["Devuelve 200", "Representa código 404", "Representa 500", "Cambia routing"], a: 1, exp: "Constantes de status codes." },
+
+                // Angular/JS/Python (6)
+                { id: "40v3-31", topic: "Angular", q: "¿Qué hace HttpClient.get<T>()?", options: ["Crea un componente", "Realiza GET y devuelve Observable<T>", "Devuelve Promise bloqueante", "No soporta genéricos"], a: 1, exp: "HttpClient trabaja con Observables." },
+                { id: "40v3-32", topic: "Angular", q: "¿Qué es un pipe personalizado?", options: ["Una ruta", "Transformador de valores en plantilla", "Un interceptor", "Un guard"], a: 1, exp: "Pipes transforman valores." },
+                { id: "40v3-33", topic: "JavaScript", q: "¿Qué hace JSON.stringify(obj)?", options: ["Parsea JSON", "Convierte a string JSON", "Compara objetos", "Ordena claves"], a: 1, exp: "Serializa a JSON." },
+                { id: "40v3-34", topic: "JavaScript", q: "¿Qué hace Array.prototype.reduce()?", options: ["Filtra", "Acumula a un único valor", "Mapea", "Ordena"], a: 1, exp: "Reduce acumula." },
+                { id: "40v3-35", topic: "Python", q: "¿Qué hace 'pip freeze'?", options: ["Instala Python", "Lista dependencias instaladas", "Crea venv", "Borra paquetes"], a: 1, exp: "Muestra paquetes/versiones." },
+                { id: "40v3-36", topic: "Python", q: "¿Qué hace try/except?", options: ["Optimiza CPU", "Maneja excepciones", "Convierte tipos", "Hace IO async"], a: 1, exp: "Control de errores." },
+
+                // MongoDB/Scrum/Jenkins/Git/WCAG/Bootstrap (4)
+                { id: "40v3-37", topic: "MongoDB", q: "¿Qué etapa ordena documentos en agregación?", options: ["$group", "$sort", "$order", "$rank"], a: 1, exp: "$sort ordena." },
+                { id: "40v3-38", topic: "Git", q: "¿Qué muestra 'git status'?", options: ["Ramas remotas", "Estado del working tree/index", "Contenido del commit", "Tags"], a: 1, exp: "Estado de cambios." },
+                { id: "40v3-39", topic: "WCAG 2.1", q: "Subtítulos para vídeos benefician principalmente a:", options: ["Perceptible", "Robust", "Operable", "Understandable"], a: 0, exp: "Mejoran perceptibilidad del contenido." },
+                { id: "40v3-40", topic: "Bootstrap", q: "¿Qué clase centra texto en Bootstrap 5?", options: ["text-center", "center-text", "align-center", "txt-mid"], a: 0, exp: "text-center." }
+            ],
+            E80_V4: [
+                /* ===== ENS / CCN-STIC (30) ===== */
+                { id: "80v4-01", topic: "ENS", q: "¿Qué documento ENS identifica riesgos, amenazas y salvaguardas?", options: ["Política de seguridad", "Análisis de riesgos", "Declaración de aplicabilidad", "Plan de continuidad"], a: 1, exp: "El análisis de riesgos identifica amenazas, impactos y controles." },
+                { id: "80v4-02", topic: "ENS", q: "¿Qué principio ENS exige mantener la seguridad durante todo el ciclo de vida?", options: ["Prevención", "Seguridad integral", "Gestión de riesgos", "Proporcionalidad"], a: 1, exp: "Seguridad integral cubre todo el ciclo de vida." },
+                { id: "80v4-03", topic: "ENS", q: "¿Qué rol ENS decide la categoría del sistema?", options: ["Responsable de seguridad", "Responsable del sistema", "CCN", "Proveedor"], a: 1, exp: "El responsable del sistema categoriza." },
+                { id: "80v4-04", topic: "ENS", q: "¿Qué medida ENS protege frente a pérdida de información?", options: ["Cifrado", "Backups", "Control de acceso", "Auditoría"], a: 1, exp: "Las copias protegen frente a pérdida." },
+                { id: "80v4-05", topic: "ENS", q: "¿Qué exige ENS sobre incidentes graves?", options: ["No documentarlos", "Notificación y gestión", "Publicarlos en web", "Ignorarlos"], a: 1, exp: "ENS exige notificación y gestión." },
+                { id: "80v4-06", topic: "ENS", q: "¿Qué es una auditoría ENS?", options: ["Pentest opcional", "Verificación formal del cumplimiento", "Escaneo automático", "Checklist informal"], a: 1, exp: "Auditoría verifica cumplimiento ENS." },
+                { id: "80v4-07", topic: "ENS", q: "¿Qué medida limita el impacto de errores humanos?", options: ["Segregación de funciones", "Logs", "Firewall", "VPN"], a: 0, exp: "Separar funciones reduce errores/fraude." },
+                { id: "80v4-08", topic: "ENS", q: "¿Qué dimensión ENS se ve afectada por caídas del sistema?", options: ["Confidencialidad", "Integridad", "Disponibilidad", "Autenticidad"], a: 2, exp: "Caídas afectan a disponibilidad." },
+                { id: "80v4-09", topic: "ENS", q: "¿Qué exige ENS sobre proveedores?", options: ["Nada", "Cumplimiento de requisitos de seguridad", "Solo NDA", "Solo SLA"], a: 1, exp: "La cadena de suministro debe cumplir requisitos." },
+                { id: "80v4-10", topic: "ENS", q: "¿Qué medida reduce ataques de fuerza bruta?", options: ["MFA y bloqueo", "Logs", "Backups", "Hash MD5"], a: 0, exp: "MFA/bloqueo mitigan fuerza bruta." },
+                { id: "80v4-11", topic: "ENS", q: "¿Qué documento recoge excepciones justificadas a medidas ENS?", options: ["Análisis de riesgos", "Declaración de aplicabilidad", "Política de seguridad", "Inventario"], a: 1, exp: "La DdA refleja excepciones." },
+                { id: "80v4-12", topic: "ENS", q: "¿Qué es un activo según ENS?", options: ["Solo hardware", "Información, servicios y sistemas", "Solo datos personales", "Solo servidores"], a: 1, exp: "Activo incluye info, servicios y sistemas." },
+                { id: "80v4-13", topic: "ENS", q: "¿Qué medida protege la confidencialidad en tránsito?", options: ["HTTPS/TLS", "Backups", "IDS", "Hardening"], a: 0, exp: "TLS protege datos en tránsito." },
+                { id: "80v4-14", topic: "ENS", q: "¿Qué objetivo tiene la monitorización?", options: ["Aumentar latencia", "Detectar eventos relevantes", "Eliminar logs", "Reducir seguridad"], a: 1, exp: "Monitorización detecta eventos." },
+                { id: "80v4-15", topic: "ENS", q: "¿Qué exige ENS sobre registros de auditoría?", options: ["Ser opcionales", "Proteger integridad y acceso", "Borrarlos rápido", "No centralizarlos"], a: 1, exp: "Logs deben protegerse." },
+                { id: "80v4-16", topic: "ENS", q: "¿Qué es continuidad de negocio?", options: ["Backups", "Capacidad de mantener servicios críticos", "Alta disponibilidad solo", "VPN"], a: 1, exp: "Continuidad mantiene servicios críticos." },
+                { id: "80v4-17", topic: "ENS", q: "¿Qué práctica reduce superficie de ataque?", options: ["Hardening", "Escalado", "Caching", "Debug activo"], a: 0, exp: "Hardening reduce exposición." },
+                { id: "80v4-18", topic: "ENS", q: "¿Qué control valida identidad del usuario?", options: ["Autenticación", "Autorización", "Auditoría", "Backup"], a: 0, exp: "Autenticación valida identidad." },
+                { id: "80v4-19", topic: "ENS", q: "¿Qué control limita acciones permitidas?", options: ["Autorización", "Autenticación", "Hash", "VPN"], a: 0, exp: "Autorización limita acciones." },
+                { id: "80v4-20", topic: "ENS", q: "¿Qué exige ENS sobre cambios en sistemas?", options: ["Ignorarlos", "Gestión de cambios", "Solo documentar", "Solo avisar"], a: 1, exp: "Gestión de cambios obligatoria." },
+                { id: "80v4-21", topic: "ENS", q: "¿Qué apoya la correlación de eventos?", options: ["SIEM", "VPN", "Proxy", "Load balancer"], a: 0, exp: "SIEM correlaciona eventos." },
+                { id: "80v4-22", topic: "ENS", q: "¿Qué rol ENS gestiona riesgos y controles?", options: ["Responsable seguridad", "Responsable sistema", "Usuario", "Proveedor"], a: 0, exp: "Responsable de seguridad." },
+                { id: "80v4-23", topic: "ENS", q: "¿Qué medida protege frente a borrado accidental?", options: ["Backups", "Firewall", "IDS", "CORS"], a: 0, exp: "Backups." },
+                { id: "80v4-24", topic: "ENS", q: "¿Qué exige ENS sobre formación?", options: ["No aplica", "Concienciación y formación", "Solo admins", "Solo inicial"], a: 1, exp: "Formación y concienciación." },
+                { id: "80v4-25", topic: "ENS", q: "¿Qué es clasificación de la información?", options: ["Ordenar carpetas", "Asignar niveles según impacto", "Cifrar siempre", "Publicar todo"], a: 1, exp: "Clasificar según impacto." },
+                { id: "80v4-26", topic: "ENS", q: "¿Qué medida reduce riesgos internos?", options: ["Mínimo privilegio", "Cifrado", "VPN", "CDN"], a: 0, exp: "Mínimo privilegio." },
+                { id: "80v4-27", topic: "ENS", q: "¿Qué se revisa en auditoría ENS?", options: ["Código fuente", "Cumplimiento de medidas", "UI", "Rendimiento"], a: 1, exp: "Auditoría revisa medidas." },
+                { id: "80v4-28", topic: "ENS", q: "¿Qué protege frente a modificación no autorizada?", options: ["Integridad", "Disponibilidad", "Autenticidad", "Trazabilidad"], a: 0, exp: "Integridad." },
+                { id: "80v4-29", topic: "ENS", q: "¿Qué protege frente a suplantación?", options: ["Autenticidad", "Integridad", "Backup", "RAID"], a: 0, exp: "Autenticidad." },
+                { id: "80v4-30", topic: "ENS", q: "¿Qué documento aprueba la dirección?", options: ["Política de seguridad", "DdA", "Análisis riesgos", "Inventario"], a: 0, exp: "La política la aprueba dirección." },
+
+                /* ===== ORACLE / PL/SQL (15) ===== */
+                { id: "80v4-31", topic: "Oracle SQL", q: "¿Qué cláusula agrupa resultados?", options: ["GROUP BY", "ORDER BY", "WHERE", "HAVING"], a: 0, exp: "GROUP BY agrupa." },
+                { id: "80v4-32", topic: "Oracle SQL", q: "¿Qué función sustituye NULL por valor?", options: ["NVL", "TO_CHAR", "COALESCE ONLY", "ISNULL"], a: 0, exp: "NVL sustituye NULL." },
+                { id: "80v4-33", topic: "Oracle SQL", q: "¿Qué JOIN devuelve todas las filas de ambas tablas?", options: ["FULL OUTER JOIN", "INNER JOIN", "LEFT JOIN", "CROSS"], a: 0, exp: "FULL OUTER JOIN." },
+                { id: "80v4-34", topic: "Oracle SQL", q: "¿Qué sentencia confirma cambios?", options: ["COMMIT", "ROLLBACK", "SAVEPOINT", "FLASHBACK"], a: 0, exp: "COMMIT confirma." },
+                { id: "80v4-35", topic: "PL/SQL", q: "¿Qué bloque captura errores?", options: ["DECLARE", "BEGIN", "EXCEPTION", "END"], a: 2, exp: "EXCEPTION maneja errores." },
+                { id: "80v4-36", topic: "PL/SQL", q: "¿Qué cursor gestiona Oracle automáticamente en FOR?", options: ["Explícito", "Implícito", "REF", "Dinámico"], a: 1, exp: "FOR usa cursor implícito." },
+                { id: "80v4-37", topic: "Oracle SQL", q: "¿Qué objeto genera valores secuenciales?", options: ["SEQUENCE", "INDEX", "TRIGGER", "VIEW"], a: 0, exp: "SEQUENCE genera valores." },
+                { id: "80v4-38", topic: "Oracle SQL", q: "¿Qué hace TRUNCATE?", options: ["Borra filas sin rollback", "Borra con rollback", "Borra estructura", "Actualiza"], a: 0, exp: "TRUNCATE no permite rollback." },
+                { id: "80v4-39", topic: "PL/SQL", q: "¿Qué hace RAISE?", options: ["Cierra cursor", "Lanza excepción", "Hace commit", "Imprime texto"], a: 1, exp: "RAISE lanza excepción." },
+                { id: "80v4-40", topic: "Oracle SQL", q: "¿Qué función devuelve fecha actual?", options: ["SYSDATE", "NOW", "GETDATE", "TODAY"], a: 0, exp: "SYSDATE." },
+                { id: "80v4-41", topic: "Oracle SQL", q: "¿Qué restricción impide NULL?", options: ["NOT NULL", "CHECK", "UNIQUE", "FK"], a: 0, exp: "NOT NULL." },
+                { id: "80v4-42", topic: "PL/SQL", q: "¿Qué instrucción sale de un bucle?", options: ["EXIT", "BREAK", "STOP", "RETURN"], a: 0, exp: "EXIT." },
+                { id: "80v4-43", topic: "Oracle SQL", q: "¿Qué comando elimina tabla?", options: ["DROP TABLE", "DELETE", "TRUNCATE", "REMOVE"], a: 0, exp: "DROP TABLE." },
+                { id: "80v4-44", topic: "PL/SQL", q: "¿Qué tipo devuelve FUNCTION?", options: ["Nada", "Valor", "Cursor siempre", "Tabla"], a: 1, exp: "FUNCTION devuelve valor." },
+                { id: "80v4-45", topic: "Oracle SQL", q: "¿Qué cláusula limita filas?", options: ["FETCH FIRST", "TOP", "LIMIT", "ROWNUM ONLY"], a: 0, exp: "FETCH FIRST n ROWS ONLY." },
+
+                /* ===== .NET / EF / Angular / JS / OTROS (35) ===== */
+                { id: "80v4-46", topic: ".NET 6", q: "¿Dónde se registran servicios DI?", options: ["Program.cs", "appsettings.json", "wwwroot", "launchSettings"], a: 0, exp: "builder.Services en Program.cs." },
+                { id: "80v4-47", topic: ".NET 6", q: "¿Qué middleware maneja autenticación?", options: ["UseAuthentication", "UseRouting", "UseCors", "UseStaticFiles"], a: 0, exp: "UseAuthentication." },
+                { id: "80v4-48", topic: "EF Core", q: "¿Qué método persiste cambios?", options: ["SaveChanges", "Commit", "Flush", "Apply"], a: 0, exp: "SaveChanges." },
+                { id: "80v4-49", topic: "EF Core", q: "¿Qué hace AsNoTracking?", options: ["Mejora lecturas", "Impide consultas", "Borra cache", "Fuerza lazy"], a: 0, exp: "Optimiza lecturas." },
+                { id: "80v4-50", topic: "Angular", q: "¿Qué devuelve HttpClient?", options: ["Promise", "Observable", "Callback", "Thread"], a: 1, exp: "Devuelve Observable." },
+                { id: "80v4-51", topic: "Angular", q: "¿Qué pipe gestiona suscripciones?", options: ["async", "json", "date", "slice"], a: 0, exp: "async pipe." },
+                { id: "80v4-52", topic: "JavaScript", q: "¿Qué compara valor y tipo?", options: ["===", "==", "=", "!="], a: 0, exp: "===." },
+                { id: "80v4-53", topic: "JavaScript", q: "¿Qué método añade al final del array?", options: ["push", "pop", "shift", "unshift"], a: 0, exp: "push." },
+                { id: "80v4-54", topic: "Python", q: "¿Qué estructura es mutable?", options: ["list", "tuple", "str", "bytes"], a: 0, exp: "list." },
+                { id: "80v4-55", topic: "Python", q: "¿Qué crea un entorno virtual?", options: ["venv", "pip", "setuptools", "wheel"], a: 0, exp: "venv." },
+                { id: "80v4-56", topic: "MongoDB", q: "¿Qué campo es clave primaria?", options: ["_id", "id", "pk", "guid"], a: 0, exp: "_id." },
+                { id: "80v4-57", topic: "MongoDB", q: "¿Qué etapa filtra documentos?", options: ["$match", "$group", "$sort", "$limit"], a: 0, exp: "$match." },
+                { id: "80v4-58", topic: "Scrum", q: "¿Quién prioriza el Product Backlog?", options: ["PO", "SM", "Devs", "Cliente"], a: 0, exp: "Product Owner." },
+                { id: "80v4-59", topic: "Scrum", q: "¿Evento para inspeccionar incremento?", options: ["Sprint Review", "Daily", "Retro", "Planning"], a: 0, exp: "Sprint Review." },
+                { id: "80v4-60", topic: "Git", q: "¿Qué comando descarga sin fusionar?", options: ["fetch", "pull", "clone", "merge"], a: 0, exp: "git fetch." },
+                { id: "80v4-61", topic: "Git", q: "¿Qué muestra git log?", options: ["Commits", "Estado", "Diff", "Branches"], a: 0, exp: "Histórico de commits." },
+                { id: "80v4-62", topic: "Jenkins", q: "¿Qué archivo define pipeline?", options: ["Jenkinsfile", "pipeline.yml", "build.xml", "pom.xml"], a: 0, exp: "Jenkinsfile." },
+                { id: "80v4-63", topic: "HTML", q: "¿Etiqueta semántica de navegación?", options: ["<nav>", "<div>", "<span>", "<section>"], a: 0, exp: "<nav>." },
+                { id: "80v4-64", topic: "CSS", q: "¿Qué activa flexbox?", options: ["display:flex", "position:flex", "flex:on", "layout:flex"], a: 0, exp: "display:flex." },
+                { id: "80v4-65", topic: "Bootstrap", q: "¿Clase de fila?", options: ["row", "col", "container", "grid"], a: 0, exp: "row." },
+                { id: "80v4-66", topic: "WCAG 2.1", q: "¿Nivel recomendado en AA?", options: ["AA", "A", "AAA", "Ninguno"], a: 0, exp: "AA." },
+                { id: "80v4-67", topic: "WCAG 2.1", q: "POUR significa:", options: ["Perceptible, Operable, Understandable, Robust", "Otro", "Nada", "N/A"], a: 0, exp: "Principios WCAG." },
+                { id: "80v4-68", topic: "Orbeon", q: "Tecnología base:", options: ["XForms", "React", "JSP", "ASP"], a: 0, exp: "XForms." },
+                { id: "80v4-69", topic: "JavaScript", q: "¿Qué convierte JSON a objeto?", options: ["JSON.parse", "JSON.stringify", "toJSON", "parseJSON"], a: 0, exp: "JSON.parse." },
+                { id: "80v4-70", topic: "Angular", q: "¿Qué decorador define componente?", options: ["@Component", "@NgModule", "@Injectable", "@Pipe"], a: 0, exp: "@Component." },
+                { id: "80v4-71", topic: ".NET 6", q: "¿Qué devuelve Ok()?", options: ["200", "204", "404", "500"], a: 0, exp: "HTTP 200." },
+                { id: "80v4-72", topic: "EF Core", q: "¿Qué carga relaciones?", options: ["Include", "Attach", "Find", "Entry"], a: 0, exp: "Include." },
+                { id: "80v4-73", topic: "JavaScript", q: "¿Qué método filtra arrays?", options: ["filter", "map", "reduce", "forEach"], a: 0, exp: "filter." },
+                { id: "80v4-74", topic: "Python", q: "¿Qué maneja excepciones?", options: ["try/except", "if", "for", "with"], a: 0, exp: "try/except." },
+                { id: "80v4-75", topic: "Scrum", q: "¿Duración máxima Sprint?", options: ["1 mes", "2 meses", "6 semanas", "Ilimitado"], a: 0, exp: "Máx. 1 mes." },
+                { id: "80v4-76", topic: "Git", q: "¿Qué crea rama y cambia?", options: ["git switch -c", "git branch", "git merge", "git fetch"], a: 0, exp: "switch -c." },
+                { id: "80v4-77", topic: "HTML", q: "¿Atributo accesible para inputs?", options: ["label for", "alt", "title", "role"], a: 0, exp: "label for + id." },
+                { id: "80v4-78", topic: "CSS", q: "¿Qué alinea en eje principal (flex)?", options: ["justify-content", "align-items", "gap", "place-items"], a: 0, exp: "justify-content." },
+                { id: "80v4-79", topic: "Bootstrap", q: "¿Margen superior?", options: ["mt-3", "pt-3", "ms-3", "mb-3"], a: 0, exp: "mt-3." },
+                { id: "80v4-80", topic: "JavaScript", q: "¿Qué es una Promise?", options: ["Resultado futuro", "Hilo", "Callback", "Clase DOM"], a: 0, exp: "Representa resultado futuro." }
+            ],
+            E40_V4: [
+                { id: "40v4-01", topic: "ENS", q: "¿Qué documento ENS define las normas generales de protección de la información?", options: ["Análisis de riesgos", "Política de seguridad", "Declaración de aplicabilidad", "Plan de contingencia"], a: 1, exp: "La política de seguridad establece el marco general." },
+                { id: "40v4-02", topic: "ENS", q: "¿Qué dimensión ENS se ve afectada por datos alterados sin autorización?", options: ["Disponibilidad", "Integridad", "Confidencialidad", "Trazabilidad"], a: 1, exp: "La integridad protege frente a modificaciones no autorizadas." },
+                { id: "40v4-03", topic: "ENS", q: "¿Qué principio ENS recomienda aplicar solo las medidas necesarias?", options: ["Proporcionalidad", "Defensa en profundidad", "Seguridad integral", "Prevención"], a: 0, exp: "Proporcionalidad ajusta medidas al riesgo." },
+                { id: "40v4-04", topic: "ENS", q: "¿Qué rol ENS vela por la correcta aplicación de controles?", options: ["Responsable del sistema", "Responsable de seguridad", "Usuario", "Proveedor"], a: 1, exp: "El responsable de seguridad supervisa controles." },
+                { id: "40v4-05", topic: "ENS", q: "¿Qué exige ENS respecto a accesos privilegiados?", options: ["Ningún control", "Registro y control", "Acceso libre", "Solo contraseña"], a: 1, exp: "Los accesos privilegiados deben controlarse y registrarse." },
+
+                { id: "40v4-06", topic: "Oracle SQL", q: "¿Qué cláusula filtra filas antes de agrupar?", options: ["HAVING", "WHERE", "GROUP BY", "ORDER BY"], a: 1, exp: "WHERE filtra antes del GROUP BY." },
+                { id: "40v4-07", topic: "Oracle SQL", q: "¿Qué operador devuelve intersección de consultas?", options: ["UNION", "INTERSECT", "MINUS", "JOIN"], a: 1, exp: "INTERSECT devuelve filas comunes." },
+                { id: "40v4-08", topic: "Oracle SQL", q: "¿Qué función convierte texto a fecha?", options: ["TO_CHAR", "TO_DATE", "CAST", "DATE()"], a: 1, exp: "TO_DATE convierte texto a fecha." },
+                { id: "40v4-09", topic: "PL/SQL", q: "¿Qué palabra clave define una constante?", options: ["CONST", "CONSTANT", "FINAL", "READONLY"], a: 1, exp: "CONSTANT define constantes." },
+                { id: "40v4-10", topic: "PL/SQL", q: "¿Qué atributo indica filas afectadas?", options: ["SQL%ROWCOUNT", "SQL%FOUND", "SQL%ISOPEN", "SQL%NOTFOUND"], a: 0, exp: "SQL%ROWCOUNT devuelve filas afectadas." },
+
+                { id: "40v4-11", topic: ".NET 6", q: "¿Qué archivo arranca una app ASP.NET Core moderna?", options: ["Startup.cs", "Program.cs", "appsettings.json", "launch.json"], a: 1, exp: "Program.cs arranca la app." },
+                { id: "40v4-12", topic: ".NET 6", q: "¿Qué patrón usa MediatR?", options: ["Factory", "Mediator", "Singleton", "Adapter"], a: 1, exp: "MediatR implementa Mediator." },
+                { id: "40v4-13", topic: "EF Core", q: "¿Qué método busca por PK usando caché?", options: ["First", "Single", "Find", "Where"], a: 2, exp: "Find usa el ChangeTracker." },
+                { id: "40v4-14", topic: "EF Core", q: "¿Qué hace Include()?", options: ["Carga relaciones", "Inserta datos", "Elimina tracking", "Filtra"], a: 0, exp: "Include carga navegación." },
+                { id: "40v4-15", topic: "MediatR", q: "¿Qué interfaz define un handler?", options: ["IRequest", "IHandler", "IRequestHandler", "IMediator"], a: 2, exp: "IRequestHandler implementa la lógica." },
+
+                { id: "40v4-16", topic: "Angular", q: "¿Qué fichero define un componente?", options: ["*.module.ts", "*.component.ts", "*.service.ts", "angular.json"], a: 1, exp: "Los componentes se definen en *.component.ts." },
+                { id: "40v4-17", topic: "Angular", q: "¿Qué operador RxJS cancela el anterior observable?", options: ["mergeMap", "concatMap", "switchMap", "map"], a: 2, exp: "switchMap cancela el anterior." },
+                { id: "40v4-18", topic: "Angular", q: "¿Qué se usa para navegación entre rutas?", options: ["Router", "HttpClient", "Injector", "Pipe"], a: 0, exp: "Router gestiona navegación." },
+
+                { id: "40v4-19", topic: "JavaScript", q: "¿Qué método transforma arrays?", options: ["filter", "map", "reduce", "every"], a: 1, exp: "map transforma elementos." },
+                { id: "40v4-20", topic: "JavaScript", q: "¿Qué palabra clave define constante?", options: ["var", "let", "const", "static"], a: 2, exp: "const define constantes." },
+                { id: "40v4-21", topic: "JavaScript", q: "¿Qué API gestiona promesas encadenadas?", options: ["then/catch", "async/await", "callbacks", "event loop"], a: 1, exp: "async/await simplifica promesas." },
+
+                { id: "40v4-22", topic: "Python", q: "¿Qué estructura mantiene orden e inmutabilidad?", options: ["list", "set", "tuple", "dict"], a: 2, exp: "tuple es inmutable." },
+                { id: "40v4-23", topic: "Python", q: "¿Qué palabra define una función?", options: ["def", "func", "lambda", "method"], a: 0, exp: "def define funciones." },
+
+                { id: "40v4-24", topic: "MongoDB", q: "¿Qué método elimina un documento?", options: ["deleteOne", "removeAll", "drop", "erase"], a: 0, exp: "deleteOne elimina un documento." },
+                { id: "40v4-25", topic: "MongoDB", q: "¿Qué operador ordena resultados?", options: ["$sort", "$group", "$limit", "$project"], a: 0, exp: "$sort ordena." },
+
+                { id: "40v4-26", topic: "Scrum", q: "¿Quién define la Definition of Done?", options: ["Product Owner", "Scrum Master", "Developers", "Cliente"], a: 2, exp: "La DoD es responsabilidad del equipo." },
+                { id: "40v4-27", topic: "Scrum", q: "¿Evento para mejora del proceso?", options: ["Sprint Review", "Daily", "Sprint Retrospective", "Planning"], a: 2, exp: "La retrospectiva mejora el proceso." },
+
+                { id: "40v4-28", topic: "Git", q: "¿Qué comando muestra cambios no confirmados?", options: ["git status", "git log", "git show", "git diff --cached"], a: 0, exp: "git status muestra estado." },
+                { id: "40v4-29", topic: "Git", q: "¿Qué comando confirma cambios?", options: ["git commit", "git push", "git add", "git merge"], a: 0, exp: "git commit confirma cambios." },
+
+                { id: "40v4-30", topic: "Jenkins", q: "¿Qué bloque ejecuta comandos?", options: ["steps", "stages", "agent", "pipeline"], a: 0, exp: "steps ejecuta comandos." },
+
+                { id: "40v4-31", topic: "HTML", q: "¿Etiqueta semántica para contenido principal?", options: ["<main>", "<section>", "<article>", "<div>"], a: 0, exp: "<main> identifica contenido principal." },
+                { id: "40v4-32", topic: "CSS", q: "¿Qué propiedad define columnas en grid?", options: ["grid-template-columns", "grid-auto-flow", "column-gap", "flex-direction"], a: 0, exp: "grid-template-columns define columnas." },
+                { id: "40v4-33", topic: "CSS", q: "¿Qué pseudo-clase indica foco?", options: [":hover", ":focus", ":active", ":visited"], a: 1, exp: ":focus indica foco." },
+                { id: "40v4-34", topic: "Bootstrap", q: "¿Qué clase centra texto?", options: ["text-center", "align-center", "center-text", "txt-center"], a: 0, exp: "text-center centra texto." },
+
+                { id: "40v4-35", topic: "WCAG 2.1", q: "¿Qué principio cubre navegación por teclado?", options: ["Perceptible", "Operable", "Understandable", "Robust"], a: 1, exp: "Operable cubre teclado." },
+                { id: "40v4-36", topic: "WCAG 2.1", q: "¿Qué atributo describe imágenes informativas?", options: ["alt", "title", "aria-label", "role"], a: 0, exp: "alt describe imágenes." },
+
+                { id: "40v4-37", topic: "Orbeon", q: "¿Qué define la lógica del formulario?", options: ["XForms", "HTML", "Java", "CSS"], a: 0, exp: "XForms define modelo y lógica." },
+
+                { id: "40v4-38", topic: ".NET 6", q: "¿Qué devuelve NotFound()?", options: ["200", "204", "404", "500"], a: 2, exp: "NotFound devuelve 404." },
+                { id: "40v4-39", topic: ".NET 6", q: "¿Qué middleware gestiona CORS?", options: ["UseCors", "UseAuth", "UseRouting", "UseHttpsRedirection"], a: 0, exp: "UseCors gestiona CORS." },
+                { id: "40v4-40", topic: "JavaScript", q: "¿Qué método convierte objeto a JSON?", options: ["JSON.stringify", "JSON.parse", "toJSON", "stringifyJSON"], a: 0, exp: "JSON.stringify serializa." }
+            ],
+
+
+        };
+        BANK.E80_V3 = BANK.E80_V3.slice(0, 80);
+        /* =========================
+           Motor de examen
+           ========================= */
+        let state = {
+            examKey: "E80",
+            questions: [],
+            index: 0,
+            answers: new Map(),        // qid -> { chosen: idx, order: [originalOptionIndices...] }
+            corrected: false
+        };
+
+        const $ = (id) => document.getElementById(id);
+
+        function deepClone(obj) { return JSON.parse(JSON.stringify(obj)); }
+
+        function shuffleArray(arr) {
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        function initExam() {
+            state.corrected = false;
+            state.examKey = $("examSelect").value;
+            state.index = 0;
+            state.answers = new Map();
+
+            let qs = deepClone(BANK[state.examKey]);
+
+            if ($("shuffleQ").checked) shuffleArray(qs);
+
+            // Barajar opciones (sin perder respuesta correcta)
+            if ($("shuffleO").checked) {
+                qs = qs.map(q => {
+                    const idxs = q.options.map((_, i) => i);
+                    shuffleArray(idxs);
+                    const newOptions = idxs.map(i => q.options[i]);
+                    const newA = idxs.indexOf(q.a);
+                    return { ...q, options: newOptions, a: newA, _order: idxs };
+                });
+            } else {
+                qs = qs.map(q => ({ ...q, _order: q.options.map((_, i) => i) }));
+            }
+
+            state.questions = qs;
+
+            $("submitBtn").disabled = false;
+            $("prevBtn").disabled = true;
+            $("nextBtn").disabled = state.questions.length <= 1;
+            $("jumpBtn").disabled = false;
+
+            updateStatus("En curso");
+            render();
+            updateKPIs();
+        }
+
+        function resetAll() {
+            state = { examKey: $("examSelect").value, questions: [], index: 0, answers: new Map(), corrected: false };
+            $("questionArea").innerHTML = "";
+            $("submitBtn").disabled = true;
+            $("prevBtn").disabled = true;
+            $("nextBtn").disabled = true;
+            $("jumpBtn").disabled = true;
+            $("progBar").style.width = "0%";
+            $("progText").textContent = "0/0";
+            $("idxText").textContent = "-";
+            $("navHint").textContent = "";
+            $("reviewLinks").innerHTML = "";
+            updateKPIs();
+            updateStatus("Listo");
+        }
+
+        function updateStatus(txt) { $("statusText").textContent = txt; }
+
+        function render() {
+            const qs = state.questions;
+            if (!qs.length) return;
+
+            const q = qs[state.index];
+            const total = qs.length;
+
+            $("progText").textContent = `${countAnswered()}/${total}`;
+            $("idxText").textContent = `${state.index + 1} / ${total}`;
+            $("progBar").style.width = `${Math.round((countAnswered() / total) * 100)}%`;
+
+            $("prevBtn").disabled = state.index === 0;
+            $("nextBtn").disabled = state.index === total - 1;
+
+            const saved = state.answers.get(q.id);
+            const chosen = saved ? saved.chosen : null;
+
+            let html = `
+    <div class="qhead">
+      <div>
+        <div class="qnum">Pregunta ${state.index + 1} <span class="tag" style="margin-left:8px;">${escapeHtml(q.topic)}</span></div>
+      </div>
+      <div class="small">ID: ${escapeHtml(q.id)}</div>
+    </div>
+    <div class="qtext">${escapeHtml(q.q)}</div>
+    <div class="opts">
+  `;
+
+            q.options.forEach((opt, i) => {
+                const isChecked = chosen === i ? "checked" : "";
+                html += `
+      <label class="opt" data-opt="${i}">
+        <input type="radio" name="opt" value="${i}" ${isChecked} ${state.corrected ? "disabled" : ""}/>
+        <div><strong>${String.fromCharCode(65 + i)}.</strong> ${escapeHtml(opt)}</div>
+      </label>
+    `;
+            });
+
+            html += `</div>`;
+
+            // Si ya corregido, pintar y explicación
+            if (state.corrected) {
+                html += renderCorrection(q);
+            }
+
+            $("questionArea").innerHTML = html;
+
+            // Bind radio change
+            document.querySelectorAll('input[name="opt"]').forEach(r => {
+                r.addEventListener("change", (ev) => {
+                    const val = parseInt(ev.target.value, 10);
+                    state.answers.set(q.id, { chosen: val, order: q._order });
+                    updateKPIs();
+                    $("progText").textContent = `${countAnswered()}/${total}`;
+                    $("progBar").style.width = `${Math.round((countAnswered() / total) * 100)}%`;
+
+                    if ($("instantFeedback").checked) {
+                        // Corrección instantánea solo para la pregunta actual (sin bloquear el examen completo)
+                        // Pintamos clases en la UI actual
+                        paintInstant(q, val);
+                    }
+                });
+            });
+
+            $("navHint").textContent = state.corrected
+                ? "Modo corregido: usa Anterior/Siguiente o los enlaces de revisión."
+                : "Consejo: responde todas y pulsa “Enviar y corregir”.";
+        }
+
+        function paintInstant(q, chosen) {
+            document.querySelectorAll(".opt").forEach(el => el.classList.remove("correct", "wrong"));
+            document.querySelectorAll(".opt").forEach(el => {
+                const i = parseInt(el.getAttribute("data-opt"), 10);
+                if (i === q.a) el.classList.add("correct");
+                if (chosen !== q.a && i === chosen) el.classList.add("wrong");
+            });
+
+            // Explicación breve en instant feedback
+            const existing = document.getElementById("instantExplain");
+            if (existing) existing.remove();
+            const box = document.createElement("div");
+            box.id = "instantExplain";
+            box.className = "explain";
+            box.innerHTML = `<strong>Correcta: ${String.fromCharCode(65 + q.a)}</strong>. ${escapeHtml(q.exp)}`;
+            $("questionArea").appendChild(box);
+        }
+
+        function renderCorrection(q) {
+            const ans = state.answers.get(q.id);
+            const chosen = ans ? ans.chosen : null;
+
+            // aplicar clases en HTML (después, con JS añadimos clases)
+            setTimeout(() => {
+                document.querySelectorAll(".opt").forEach(el => el.classList.remove("correct", "wrong"));
+                document.querySelectorAll(".opt").forEach(el => {
+                    const i = parseInt(el.getAttribute("data-opt"), 10);
+                    if (i === q.a) el.classList.add("correct");
+                    if (chosen !== null && chosen !== q.a && i === chosen) el.classList.add("wrong");
+                });
+            }, 0);
+
+            const chosenText = (chosen === null) ? "Sin responder" : String.fromCharCode(65 + chosen);
+            const correctText = String.fromCharCode(65 + q.a);
+
+            return `
+    <div class="explain">
+      <div><strong>Tu respuesta:</strong> ${chosenText}</div>
+      <div><strong>Correcta:</strong> ${correctText}</div>
+      <div style="margin-top:6px;"><strong>Explicación:</strong> ${escapeHtml(q.exp)}</div>
+    </div>
+  `;
+        }
+
+        function countAnswered() {
+            return state.answers.size;
+        }
+
+        function updateKPIs() {
+            const total = state.questions.length || 0;
+            let answered = 0, correct = 0, wrong = 0;
+
+            state.questions.forEach(q => {
+                const a = state.answers.get(q.id);
+                if (!a || a.chosen === null || a.chosen === undefined) return;
+                answered++;
+                if (a.chosen === q.a) correct++;
+                else wrong++;
+            });
+
+            // Puntuación tipo test con penalización estándar: N = A - E/(d-1)
+            const d = 4;
+            const scoreRaw = (correct - (wrong / (d - 1))); // A - E/3
+
+            // Escalado según tipo de examen
+            const is80 = state.examKey.startsWith("E80");
+            const maxPoints = is80 ? 40 : 20;
+            const scoreScaled = total ? (scoreRaw / total) * maxPoints : 0;
+
+            $("kpiAnswered").textContent = String(answered);
+            $("kpiCorrect").textContent = String(correct);
+            $("kpiWrong").textContent = String(wrong);
+            $("kpiScore").textContent = `${scoreScaled.toFixed(2)} / ${maxPoints}`;
+
+        }
+
+        function submitAndCorrect() {
+            if (!state.questions.length) return;
+            state.corrected = true;
+            updateStatus("Corregido");
+
+            // Construir revisión rápida (falladas y en blanco)
+            const links = [];
+            state.questions.forEach((q, idx) => {
+                const a = state.answers.get(q.id);
+                const chosen = a ? a.chosen : null;
+                const isBlank = (chosen === null || chosen === undefined);
+                const isWrong = (!isBlank && chosen !== q.a);
+
+                if (isBlank || isWrong) {
+                    links.push({ idx, id: q.id, label: `P${idx + 1} (${isBlank ? "blanca" : "fallo"}) — ${q.topic}` });
+                }
+            });
+
+            const review = $("reviewLinks");
+            review.innerHTML = links.length
+                ? links.map(x => `<a href="#" data-j="${x.idx}">${escapeHtml(x.label)}</a>`).join("")
+                : `<div class="small">Sin fallos ni blancas. Buen trabajo.</div>`;
+
+            // Click handlers
+            review.querySelectorAll("a").forEach(a => {
+                a.addEventListener("click", (ev) => {
+                    ev.preventDefault();
+                    const j = parseInt(ev.target.getAttribute("data-j"), 10);
+                    if (!Number.isNaN(j)) {
+                        state.index = j;
+                        render();
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                    }
+                });
+            });
+
+            render();
+            updateKPIs();
+        }
+
+        function jumpTo() {
+            if (!state.questions.length) return;
+            const total = state.questions.length;
+            const raw = prompt(`Ir a pregunta (1-${total}):`);
+            if (!raw) return;
+            const n = parseInt(raw, 10);
+            if (Number.isNaN(n) || n < 1 || n > total) return;
+            state.index = n - 1;
+            render();
+        }
+
+        function escapeHtml(s) {
+            return String(s)
+                .replaceAll("&", "&amp;")
+                .replaceAll("<", "&lt;")
+                .replaceAll(">", "&gt;")
+                .replaceAll('"', "&quot;")
+                .replaceAll("'", "&#039;");
+        }
+
+        /* =========================
+           Eventos UI
+           ========================= */
+        $("startBtn").addEventListener("click", initExam);
+        $("resetBtn").addEventListener("click", resetAll);
+        $("submitBtn").addEventListener("click", submitAndCorrect);
+
+        $("prevBtn").addEventListener("click", () => {
+            if (state.index > 0) { state.index--; render(); }
+        });
+        $("nextBtn").addEventListener("click", () => {
+            if (state.index < state.questions.length - 1) { state.index++; render(); }
+        });
+        $("jumpBtn").addEventListener("click", jumpTo);
+
+        // Si cambias examen, reinicia estado visual
+        $("examSelect").addEventListener("change", resetAll);
+
+        // Inicial
+        resetAll();
+    </script>
+</body>
+
+</html>
