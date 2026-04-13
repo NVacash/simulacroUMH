@@ -1679,6 +1679,244 @@
 { id:"40v6-39", topic:"Scrum", q:"¿Qué ocurre si no hay Definition of Done clara?", options:["Nada","Ambigüedad en entregables","Error","Se cancela sprint"], a:1, exp:"Dificulta evaluar completitud." },
 
 { id:"40v6-40", topic:"Git", q:"¿Qué ocurre si haces rebase sobre rama compartida?", options:["Nada","Puede reescribir historial y generar conflictos","Optimiza","Evita merge"], a:1, exp:"Rebase cambia historial → peligro en ramas compartidas." }
+],E80_V7: [
+
+{ id:"80v7-01", topic:"Oracle SQL", q:"En Oracle, ¿qué ocurre si una subconsulta escalar devuelve más de una fila?", options:["Devuelve la primera","Devuelve NULL","Error en ejecución","Concatena valores"], a:2, exp:"Una subconsulta escalar debe devolver solo una fila." },
+
+{ id:"80v7-02", topic:"Oracle SQL", q:"¿Qué escenario puede hacer que un índice no sea utilizado por el optimizador?", options:["Uso de BETWEEN","Uso de funciones sobre la columna indexada","Uso de ORDER BY","Uso de JOIN"], a:1, exp:"Funciones sobre columnas suelen invalidar uso directo del índice." },
+
+{ id:"80v7-03", topic:"Oracle SQL", q:"¿Qué diferencia hay entre UNION y INTERSECT respecto a duplicados?", options:["Ambos eliminan duplicados","UNION los mantiene","INTERSECT los duplica","INTERSECT no elimina duplicados"], a:0, exp:"Ambos eliminan duplicados por defecto." },
+
+{ id:"80v7-04", topic:"Oracle SQL", q:"¿Qué ocurre al usar NOT IN cuando la subconsulta contiene NULL?", options:["Funciona igual","Puede devolver conjunto vacío inesperado","Ignora NULL","Error"], a:1, exp:"NULL rompe la lógica de NOT IN." },
+
+{ id:"80v7-05", topic:"PL/SQL", q:"¿Qué problema evita el uso de FORALL en operaciones masivas?", options:["Errores de sintaxis","Cambio de contexto excesivo SQL/PLSQL","Bloqueos","Excepciones"], a:1, exp:"Reduce overhead entre motor SQL y PL/SQL." },
+
+{ id:"80v7-06", topic:"PL/SQL", q:"¿Qué ocurre si un trigger AFTER falla?", options:["Se ignora","Se confirma operación","Se hace rollback de la transacción","Se ejecuta parcialmente"], a:2, exp:"Un error en trigger provoca rollback." },
+
+{ id:"80v7-07", topic:"PL/SQL", q:"¿Qué limitación tienen los triggers sobre tablas mutantes?", options:["No pueden usar variables","No pueden consultar la misma tabla en ciertos contextos","No pueden hacer UPDATE","No pueden lanzar excepciones"], a:1, exp:"Error mutating table en triggers de fila." },
+
+{ id:"80v7-08", topic:"ENS", q:"¿Qué implica que una dimensión tenga nivel ALTO en ENS?", options:["Sin medidas","Máxima protección requerida","Solo auditoría","Configuración básica"], a:1, exp:"Nivel alto exige controles más estrictos." },
+
+{ id:"80v7-09", topic:"ENS", q:"¿Qué relación hay entre análisis de riesgos y medidas de seguridad?", options:["Independientes","El análisis determina medidas","Las medidas eliminan análisis","No hay relación"], a:1, exp:"El análisis define controles necesarios." },
+
+{ id:"80v7-10", topic:"ENS", q:"¿Qué ocurre si no se documenta la política de seguridad?", options:["Nada","Incumplimiento ENS","Solo advertencia","No afecta auditoría"], a:1, exp:"Es requisito obligatorio." },
+
+{ id:"80v7-11", topic:".NET 6", q:"¿Qué ocurre si registras múltiples implementaciones sin diferenciarlas en DI?", options:["Error","Se usa la última","Se usan todas automáticamente","Se ignoran"], a:1, exp:"La última registrada prevalece." },
+
+{ id:"80v7-12", topic:".NET 6", q:"¿Qué problema puede causar un middleware mal ordenado?", options:["Error compilación","Flujo incorrecto de ejecución","Null","Duplicados"], a:1, exp:"El orden del pipeline es crítico." },
+
+{ id:"80v7-13", topic:"EF Core", q:"¿Qué ocurre si se llama SaveChanges varias veces en la misma operación lógica?", options:["Optimiza","Multiplica transacciones","Agrupa cambios","Evita errores"], a:1, exp:"Cada SaveChanges abre su propia transacción." },
+
+{ id:"80v7-14", topic:"EF Core", q:"¿Qué diferencia hay entre eager loading y explicit loading?", options:["Eager es manual","Explicit carga bajo demanda explícita","Son iguales","Eager no usa Include"], a:1, exp:"Explicit se carga manualmente tras la consulta." },
+
+{ id:"80v7-15", topic:"MediatR", q:"¿Qué problema evita el uso de pipeline behaviors?", options:["Errores SQL","Duplicación de lógica transversal","Problemas DI","Errores HTTP"], a:1, exp:"Centraliza validaciones/logging." },
+
+{ id:"80v7-16", topic:"Angular", q:"¿Qué ocurre si un observable lanza error sin catchError?", options:["Se ignora","Se rompe la cadena","Se reinicia","Se repite"], a:1, exp:"El stream se termina." },
+
+{ id:"80v7-17", topic:"Angular", q:"¿Qué problema puede causar cambiar estado en template directamente?", options:["Error","Re-render innecesario","No afecta","Bloqueo"], a:1, exp:"Puede disparar múltiples ciclos de change detection." },
+
+{ id:"80v7-18", topic:"JavaScript", q:"¿Qué ocurre con Promise.all si una promesa falla?", options:["Ignora error","Falla todo el conjunto","Continúa","Devuelve null"], a:1, exp:"Promise.all falla si alguna falla." },
+
+{ id:"80v7-19", topic:"MongoDB", q:"¿Qué ocurre si una colección crece sin índices adecuados?", options:["Error","Degradación de rendimiento","Optimiza","Bloqueo"], a:1, exp:"Consultas se vuelven lentas." },
+
+{ id:"80v7-20", topic:"Scrum", q:"¿Qué ocurre si no se cumple el Sprint Goal?", options:["Sprint inválido","Se analiza en retrospectiva","Se cancela automáticamente","Se ignora"], a:1, exp:"Se revisa y mejora en retrospectiva." },
+{ id:"80v7-21", topic:"Oracle SQL", q:"¿Qué diferencia práctica suele haber entre WHERE y ON en un LEFT JOIN?", options:["Ninguna, siempre son equivalentes","Mover una condición de ON a WHERE puede convertir el LEFT JOIN en un filtrado equivalente a INNER JOIN","ON solo sirve para ORDER BY","WHERE solo se aplica antes del JOIN"], a:1, exp:"En OUTER JOIN, filtrar en WHERE puede eliminar filas preservadas por el LEFT JOIN." },
+
+{ id:"80v7-22", topic:"Oracle SQL", q:"¿Qué ocurre si se usa una función analítica junto con GROUP BY en la misma consulta?", options:["Es incompatible siempre","Puede coexistir si la sintaxis y el nivel de agregación son correctos","La función analítica sustituye al GROUP BY","Oracle obliga a usar subconsulta siempre"], a:1, exp:"Pueden combinarse, pero hay que respetar el nivel lógico de la consulta." },
+
+{ id:"80v7-23", topic:"Oracle SQL", q:"¿Qué problema puede introducir usar SELECT * en vistas o consultas críticas?", options:["Mejora el plan de ejecución","Acopla la consulta a cambios de esquema y puede cargar columnas innecesarias","Impide totalmente crear índices","Convierte la consulta en no determinista"], a:1, exp:"SELECT * empeora mantenimiento y puede traer más datos de los necesarios." },
+
+{ id:"80v7-24", topic:"Oracle SQL", q:"¿Qué diferencia hay entre COUNT(*) y COUNT(columna) cuando existen NULL?", options:["COUNT(*) ignora NULL y COUNT(columna) no","COUNT(columna) ignora NULL y COUNT(*) cuenta filas","Ambos ignoran NULL por igual","COUNT(*) cuenta columnas y COUNT(columna) filas"], a:1, exp:"COUNT(columna) no cuenta NULL; COUNT(*) cuenta filas." },
+
+{ id:"80v7-25", topic:"PL/SQL", q:"¿Qué ventaja aporta encapsular procedimientos relacionados en un package?", options:["Evita compilar","Mejora organización, encapsulación y reutilización","Impide usar variables globales","Sustituye a los cursores"], a:1, exp:"Un package agrupa interfaz e implementación y mejora modularidad." },
+
+{ id:"80v7-26", topic:"PL/SQL", q:"¿Qué ocurre si una función PL/SQL invocada desde SQL intenta ejecutar COMMIT?", options:["Es válido si usa RETURN","Puede fallar por restricciones de contexto SQL","Se ejecuta y confirma la consulta","Oracle lo transforma en savepoint"], a:1, exp:"Las funciones llamadas desde SQL tienen restricciones; no deben gestionar transacciones así." },
+
+{ id:"80v7-27", topic:"PL/SQL", q:"¿Qué diferencia práctica hay entre NO_DATA_FOUND y TOO_MANY_ROWS?", options:["Ambas indican cero filas","NO_DATA_FOUND implica cero filas y TOO_MANY_ROWS más de una en SELECT INTO","TOO_MANY_ROWS solo aparece en cursores explícitos","NO_DATA_FOUND solo aparece en triggers"], a:1, exp:"Son las dos excepciones clásicas de SELECT INTO." },
+
+{ id:"80v7-28", topic:"ENS", q:"¿Qué efecto tiene una categorización insuficiente de un sistema en ENS?", options:["Solo afecta a la documentación","Puede llevar a implantar medidas por debajo de lo necesario","Se corrige automáticamente en auditoría","No afecta si hay backups"], a:1, exp:"Una mala categorización arrastra una protección inadecuada." },
+
+{ id:"80v7-29", topic:"ENS", q:"¿Qué describe mejor la diferencia entre autenticación y trazabilidad?", options:["Autenticación registra acciones y trazabilidad verifica identidad","Autenticación verifica identidad; trazabilidad permite reconstruir acciones","Son sinónimos dentro del ENS","Trazabilidad solo aplica a redes"], a:1, exp:"Autenticación = quién es; trazabilidad = qué hizo/cuándo." },
+
+{ id:"80v7-30", topic:"ENS", q:"¿Qué persigue el principio de reevaluación periódica?", options:["Repetir la implantación desde cero cada semana","Revisar riesgos y medidas cuando cambian el contexto o el sistema","Sustituir auditorías formales","Evitar cambios en producción"], a:1, exp:"La seguridad no es estática; debe revisarse periódicamente." },
+
+{ id:"80v7-31", topic:".NET 6", q:"¿Qué problema evita inyectar abstracciones en lugar de implementaciones concretas?", options:["Errores de compilación de C#","Acoplamiento fuerte y menor testabilidad","Dependencias circulares del CLR","Uso excesivo de middlewares"], a:1, exp:"Trabajar contra interfaces reduce acoplamiento y facilita pruebas." },
+
+{ id:"80v7-32", topic:".NET 6", q:"¿Qué diferencia práctica hay entre UseAuthentication y UseAuthorization?", options:["No hay diferencia","Authentication construye la identidad; Authorization aplica políticas/permisos","Authorization crea el ClaimsPrincipal y Authentication valida roles","UseAuthorization debe ir siempre antes de UseRouting"], a:1, exp:"Primero se autentica al usuario; después se autoriza." },
+
+{ id:"80v7-33", topic:"EF Core", q:"¿Qué riesgo tiene materializar una consulta con ToList() demasiado pronto?", options:["La consulta deja de poder ejecutarse","Se traslada parte del procesamiento a memoria cliente antes de tiempo","EF Core activa lazy loading automáticamente","Convierte la consulta en transacción distribuida"], a:1, exp:"Cortar la composición pronto puede empeorar rendimiento y consumo." },
+
+{ id:"80v7-34", topic:"EF Core", q:"¿Qué diferencia práctica hay entre FirstOrDefault y SingleOrDefault cuando la lógica de negocio espera unicidad?", options:["FirstOrDefault detecta duplicados mejor","SingleOrDefault ayuda a evidenciar duplicados inesperados","Son idénticos salvo rendimiento","SingleOrDefault devuelve siempre null si hay varias filas"], a:1, exp:"SingleOrDefault falla si hay más de un elemento, lo que puede ser deseable." },
+
+{ id:"80v7-35", topic:"MediatR", q:"¿Qué ventaja aporta modelar comandos y consultas como requests separados?", options:["Reduce el número de clases del proyecto","Favorece separación de responsabilidades y flujo más explícito","Evita usar DI","Sustituye a EF Core"], a:1, exp:"Encaja con CQRS ligero y clarifica intención." },
+
+{ id:"80v7-36", topic:"Angular", q:"¿Qué diferencia hay entre un Subject y un Observable expuesto desde un servicio?", options:["Ninguna; son intercambiables","Exponer Observable en lugar de Subject ayuda a encapsular la emisión","Subject es de solo lectura","Observable permite next()"], a:1, exp:"Se suele encapsular el Subject y exponer solo el Observable." },
+
+{ id:"80v7-37", topic:"Angular", q:"¿Qué problema puede provocar mutar directamente un objeto con OnPush?", options:["Que Angular recompila el componente","Que no se detecte el cambio si no cambia la referencia","Que el observable se complete","Que el router se reinicie"], a:1, exp:"OnPush depende mucho de cambios de referencia o triggers concretos." },
+
+{ id:"80v7-38", topic:"JavaScript", q:"¿Qué diferencia hay entre microtasks y macrotasks en el event loop?", options:["Las macrotasks tienen prioridad sobre microtasks","Las microtasks se vacían antes de pasar a la siguiente macrotask","No existe diferencia real en navegadores modernos","Las microtasks solo se usan con setTimeout"], a:1, exp:"Promises y queueMicrotask van antes que timers en el ciclo." },
+
+{ id:"80v7-39", topic:"MongoDB", q:"¿Qué ventaja aporta embeber documentos frente a referenciar, cuando la relación es muy cercana y se lee junta?", options:["Elimina cualquier posibilidad de duplicación","Puede reducir consultas adicionales al recuperar datos relacionados","Impide crecimiento del documento","Hace innecesarios los índices"], a:1, exp:"Embeber puede mejorar lecturas cuando los datos viven y se consultan juntos." },
+
+{ id:"80v7-40", topic:"Scrum", q:"¿Qué diferencia hay entre Sprint Review y Sprint Retrospective?", options:["La Review mejora el proceso y la Retro revisa el producto","La Review inspecciona incremento/producto; la Retro inspecciona proceso y colaboración","Ambas tienen el mismo objetivo con distinto nombre","La Retrospective prioriza el Product Backlog"], a:1, exp:"Review = producto/incremento; Retro = forma de trabajar." },
+{ id:"80v7-41", topic:"Oracle SQL", q:"¿Qué ocurre si se usa ORDER BY en una subconsulta sin FETCH o TOP equivalente?", options:["Siempre ordena el resultado final","Puede ser ignorado por el optimizador","Produce error","Ordena solo en memoria"], a:1, exp:"El ORDER BY en subconsultas no siempre se respeta sin limitación de filas." },
+
+{ id:"80v7-42", topic:"Oracle SQL", q:"¿Qué implica usar funciones analíticas con OVER() sin ORDER BY?", options:["Error","Resultado no determinista en algunas funciones","Siempre ordena por PK","Se agrupa automáticamente"], a:1, exp:"Algunas funciones dependen del orden para ser deterministas." },
+
+{ id:"80v7-43", topic:"Oracle SQL", q:"¿Qué diferencia hay entre CROSS JOIN y INNER JOIN sin condición?", options:["Son equivalentes","CROSS JOIN produce producto cartesiano","INNER JOIN sin condición falla","CROSS JOIN elimina duplicados"], a:1, exp:"CROSS JOIN genera todas las combinaciones posibles." },
+
+{ id:"80v7-44", topic:"PL/SQL", q:"¿Qué ocurre si una variable NUMBER recibe un valor fuera de rango?", options:["Se trunca","Error VALUE_ERROR","Se convierte automáticamente","Se ignora"], a:1, exp:"Provoca excepción VALUE_ERROR." },
+
+{ id:"80v7-45", topic:"PL/SQL", q:"¿Qué ventaja tiene usar excepciones definidas por el usuario?", options:["Mayor rendimiento","Mayor control semántico de errores","Evita rollback","Evita triggers"], a:1, exp:"Permiten manejar errores de dominio específicos." },
+
+{ id:"80v7-46", topic:"ENS", q:"¿Qué diferencia hay entre medida organizativa y técnica?", options:["Organizativa es opcional","Técnica es software/hardware, organizativa es proceso/política","Son iguales","Técnica solo aplica a redes"], a:1, exp:"Organizativa define procesos; técnica implementa controles." },
+
+{ id:"80v7-47", topic:"ENS", q:"¿Qué implica el principio de proporcionalidad?", options:["Aplicar todas las medidas siempre","Adecuar medidas al riesgo","Reducir controles","Eliminar auditorías"], a:1, exp:"No todas las medidas aplican a todos los sistemas." },
+
+{ id:"80v7-48", topic:"ENS", q:"¿Qué ocurre si no se gestionan logs correctamente?", options:["Nada","Se pierde trazabilidad","Solo afecta rendimiento","Evita ataques"], a:1, exp:"Sin logs no hay auditoría ni análisis." },
+
+{ id:"80v7-49", topic:".NET 6", q:"¿Qué problema puede causar usar servicios estáticos en lugar de DI?", options:["Mejor rendimiento","Acoplamiento y dificultad de testeo","Error compilación","Evita GC"], a:1, exp:"Rompe principios de DI y testabilidad." },
+
+{ id:"80v7-50", topic:".NET 6", q:"¿Qué ocurre si no se configura correctamente CORS?", options:["Error compilación","Bloqueo de peticiones cross-origin","Se ignora","Duplica llamadas"], a:1, exp:"El navegador bloquea llamadas cross-origin." },
+
+{ id:"80v7-51", topic:"EF Core", q:"¿Qué problema puede causar usar Include en múltiples niveles sin necesidad?", options:["Error","Carga excesiva de datos","Bloqueo","No afecta"], a:1, exp:"Puede provocar overfetching." },
+
+{ id:"80v7-52", topic:"EF Core", q:"¿Qué ocurre si se usa AsNoTracking en entidades que luego se modifican?", options:["Se guardan igual","No se detectan cambios","Error","Rollback"], a:1, exp:"No hay tracking → no se persisten cambios." },
+
+{ id:"80v7-53", topic:"MediatR", q:"¿Qué ventaja tiene desacoplar lógica con handlers?", options:["Más código","Separación de responsabilidades","Evita DI","Evita BD"], a:1, exp:"Cada handler tiene responsabilidad clara." },
+
+{ id:"80v7-54", topic:"Angular", q:"¿Qué ocurre si se suscribe manualmente sin unsubscribe en componente destruido?", options:["Nada","Memory leak","Error","Se reinicia"], a:1, exp:"Suscripciones activas generan fugas." },
+
+{ id:"80v7-55", topic:"Angular", q:"¿Qué ventaja tiene usar async pipe frente a subscribe manual?", options:["Más control","Gestión automática de suscripción","Mayor rendimiento siempre","Evita HTTP"], a:1, exp:"Async pipe gestiona ciclo de vida." },
+
+{ id:"80v7-56", topic:"JavaScript", q:"¿Qué ocurre si se modifica un objeto pasado por referencia?", options:["Se copia","Se modifica original","Error","Null"], a:1, exp:"Objetos se pasan por referencia." },
+
+{ id:"80v7-57", topic:"JavaScript", q:"¿Qué problema evita usar let en lugar de var?", options:["Errores async","Scope incorrecto","Memoria","Eventos"], a:1, exp:"let tiene scope de bloque." },
+
+{ id:"80v7-58", topic:"MongoDB", q:"¿Qué ocurre si se hacen consultas sin índice en grandes colecciones?", options:["Error","Full scan","Optimización","No afecta"], a:1, exp:"Escaneo completo de colección." },
+
+{ id:"80v7-59", topic:"Scrum", q:"¿Qué ocurre si no hay backlog refinado?", options:["Nada","Dificulta planificación","Se cancela sprint","Error"], a:1, exp:"Backlog refinado facilita planificación." },
+
+{ id:"80v7-60", topic:"Git", q:"¿Qué ocurre si haces commit sin stage previo?", options:["Error","No incluye cambios","Incluye todo","Hace reset"], a:1, exp:"Solo se comitea lo que está en stage." },
+{ id:"80v7-61", topic:"Oracle SQL", q:"¿Qué ocurre si una consulta tiene múltiples ORDER BY en subniveles?", options:["Todos se aplican","Solo el del nivel más externo afecta al resultado final","Produce error","Se combinan"], a:1, exp:"El ORDER BY efectivo es el del SELECT final." },
+
+{ id:"80v7-62", topic:"Oracle SQL", q:"¿Qué diferencia hay entre DISTINCT y GROUP BY sin agregación?", options:["GROUP BY es más rápido siempre","Son equivalentes en resultado","DISTINCT agrupa más","GROUP BY elimina duplicados parcialmente"], a:1, exp:"Ambos eliminan duplicados en ese contexto." },
+
+{ id:"80v7-63", topic:"Oracle SQL", q:"¿Qué problema puede causar usar funciones no deterministas en consultas?", options:["Error","Resultados inconsistentes","Optimización automática","Bloqueo"], a:1, exp:"Puede devolver distintos resultados en ejecuciones." },
+
+{ id:"80v7-64", topic:"PL/SQL", q:"¿Qué ocurre si se usa un cursor FOR sin control en grandes datasets?", options:["Error","Consumo alto de memoria/tiempo","Optimización automática","Rollback"], a:1, exp:"Puede ser ineficiente frente a BULK COLLECT." },
+
+{ id:"80v7-65", topic:"PL/SQL", q:"¿Qué diferencia hay entre excepción controlada y no controlada?", options:["Ninguna","Controlada se captura, no controlada se propaga","Controlada es automática","No controlada no existe"], a:1, exp:"Las no capturadas suben en la pila." },
+
+{ id:"80v7-66", topic:"ENS", q:"¿Qué implica la dimensión de confidencialidad?", options:["Datos íntegros","Acceso solo autorizado","Disponibilidad","Auditoría"], a:1, exp:"Protege acceso a datos." },
+
+{ id:"80v7-67", topic:"ENS", q:"¿Qué ocurre si no se aplica el principio de mínimo privilegio?", options:["Nada","Mayor superficie de ataque","Más rendimiento","Menos logs"], a:1, exp:"Usuarios con más permisos = más riesgo." },
+
+{ id:"80v7-68", topic:"ENS", q:"¿Qué diferencia hay entre riesgo residual y riesgo inicial?", options:["Son iguales","Residual es tras aplicar medidas","Inicial es tras medidas","Residual no existe"], a:1, exp:"Residual es el riesgo restante." },
+
+{ id:"80v7-69", topic:".NET 6", q:"¿Qué ocurre si no se registra un servicio requerido en DI?", options:["Null","Error en runtime","Se crea automáticamente","Se ignora"], a:1, exp:"Fallo al resolver dependencias." },
+
+{ id:"80v7-70", topic:".NET 6", q:"¿Qué problema puede causar un middleware que no llama a next?", options:["Nada","Interrumpe pipeline","Duplica respuesta","Error compilación"], a:1, exp:"Detiene flujo." },
+
+{ id:"80v7-71", topic:"EF Core", q:"¿Qué ocurre si se modifican entidades en paralelo sin control?", options:["Nada","Conflictos de concurrencia","Optimiza","Rollback automático"], a:1, exp:"Puede lanzar excepciones de concurrencia." },
+
+{ id:"80v7-72", topic:"EF Core", q:"¿Qué ventaja tiene usar transacciones explícitas?", options:["Más lento","Control sobre múltiples operaciones","Evita SaveChanges","No afecta"], a:1, exp:"Permite atomicidad en múltiples acciones." },
+
+{ id:"80v7-73", topic:"MediatR", q:"¿Qué ocurre si no registras los handlers en DI?", options:["Nada","Error en ejecución","Se ignoran","Se crean dinámicamente"], a:1, exp:"No se pueden resolver handlers." },
+
+{ id:"80v7-74", topic:"Angular", q:"¿Qué ocurre si cambias una propiedad primitiva en OnPush?", options:["No detecta cambio","Sí detecta cambio","Error","Recarga"], a:1, exp:"Cambios primitivos sí se detectan." },
+
+{ id:"80v7-75", topic:"Angular", q:"¿Qué problema evita usar trackBy en listas dinámicas?", options:["Errores HTTP","Re-render innecesario","Bloqueo","Null"], a:1, exp:"Optimiza renderizado." },
+
+{ id:"80v7-76", topic:"JavaScript", q:"¿Qué ocurre si accedes a una variable antes de declararla con var?", options:["Error","Undefined por hoisting","Null","0"], a:1, exp:"var se eleva con valor undefined." },
+
+{ id:"80v7-77", topic:"JavaScript", q:"¿Qué diferencia hay entre == y ===?", options:["Son iguales","=== compara tipo y valor","== es más estricto","=== convierte tipos"], a:1, exp:"=== no hace coerción." },
+
+{ id:"80v7-78", topic:"MongoDB", q:"¿Qué ventaja tiene usar índices compuestos correctamente?", options:["Menos memoria","Optimiza múltiples campos","Evita duplicados","No afecta"], a:1, exp:"Mejora consultas complejas." },
+
+{ id:"80v7-79", topic:"Scrum", q:"¿Qué ocurre si el equipo no revisa retrospectivas?", options:["Nada","No mejora proceso","Sprint falla","Error"], a:1, exp:"Se pierde mejora continua." },
+
+{ id:"80v7-80", topic:"Git", q:"¿Qué problema puede causar usar rebase en ramas compartidas?", options:["Optimiza","Reescribe historial y genera conflictos","Evita merges","No afecta"], a:1, exp:"Puede romper historial compartido." }
+],E40_V7: [
+
+{ id:"40v7-01", topic:"Oracle SQL", q:"¿Qué ocurre si se usa una subconsulta correlacionada mal optimizada en un SELECT?", options:["Nada","Puede ejecutarse por cada fila, degradando rendimiento","Se ejecuta una vez","Oracle la convierte en JOIN automáticamente siempre"], a:1, exp:"Las subconsultas correlacionadas pueden ejecutarse por cada fila." },
+
+{ id:"40v7-02", topic:"Oracle SQL", q:"¿Qué diferencia hay entre usar HAVING y WHERE en consultas con agregación?", options:["HAVING se evalúa antes","WHERE filtra antes del GROUP BY y HAVING después","Son equivalentes","HAVING es más rápido"], a:1, exp:"WHERE antes de agrupar; HAVING después." },
+
+{ id:"40v7-03", topic:"Oracle SQL", q:"¿Qué problema puede causar usar funciones en cláusula JOIN?", options:["Error","Evita uso de índices y degrada rendimiento","Optimiza consultas","Evita duplicados"], a:1, exp:"Impide uso eficiente de índices." },
+
+{ id:"40v7-04", topic:"PL/SQL", q:"¿Qué ocurre si se usa SELECT INTO sin controlar excepciones?", options:["Nada","Puede lanzar excepciones que detienen ejecución","Se ignora","Devuelve NULL"], a:1, exp:"Puede lanzar NO_DATA_FOUND o TOO_MANY_ROWS." },
+
+{ id:"40v7-05", topic:"PL/SQL", q:"¿Qué ventaja tiene usar BULK COLLECT sin LIMIT?", options:["Más rápido siempre","Puede consumir mucha memoria","Evita excepciones","No afecta"], a:1, exp:"Carga todo en memoria → peligro en datasets grandes." },
+
+{ id:"40v7-06", topic:"ENS", q:"¿Qué ocurre si no se aplican controles proporcionales al riesgo?", options:["Nada","Sobre o infra protección del sistema","Mejora rendimiento","Evita auditoría"], a:1, exp:"Se pierde equilibrio entre seguridad y coste." },
+
+{ id:"40v7-07", topic:"ENS", q:"¿Qué implica la trazabilidad insuficiente?", options:["Más rendimiento","Dificultad para investigar incidentes","Evita ataques","Mejor seguridad"], a:1, exp:"Sin trazabilidad no hay auditoría efectiva." },
+
+{ id:"40v7-08", topic:"ENS", q:"¿Qué relación hay entre disponibilidad y resiliencia?", options:["Son iguales","Resiliencia soporta fallos para mantener disponibilidad","Disponibilidad evita fallos","No hay relación"], a:1, exp:"Resiliencia ayuda a mantener disponibilidad ante fallos." },
+
+{ id:"40v7-09", topic:".NET 6", q:"¿Qué ocurre si un middleware escribe en la respuesta después de next?", options:["Nada","Puede sobrescribir o corromper la respuesta","Error","Se ignora"], a:1, exp:"Orden de escritura importa." },
+
+{ id:"40v7-10", topic:".NET 6", q:"¿Qué problema puede causar inyectar DbContext como Singleton?", options:["Ninguno","Problemas de concurrencia y estado","Mejora rendimiento","Evita errores"], a:1, exp:"DbContext no es thread-safe." },
+
+{ id:"40v7-11", topic:"EF Core", q:"¿Qué ocurre si se mezclan consultas cliente y servidor en LINQ?", options:["Error","Parte se ejecuta en memoria","Optimiza","No afecta"], a:1, exp:"Puede traer datos innecesarios a memoria." },
+
+{ id:"40v7-12", topic:"EF Core", q:"¿Qué diferencia hay entre tracking y no tracking en concurrencia?", options:["Ninguna","Tracking permite detectar conflictos","No tracking evita conflictos","Tracking bloquea BD"], a:1, exp:"Tracking ayuda a detectar cambios concurrentes." },
+
+{ id:"40v7-13", topic:"MediatR", q:"¿Qué problema evita no acoplar handlers entre sí?", options:["Errores SQL","Dependencias circulares","Problemas HTTP","Bloqueos"], a:1, exp:"Evita dependencias circulares." },
+
+{ id:"40v7-14", topic:"Angular", q:"¿Qué ocurre si un observable no completa y no se desuscribe?", options:["Nada","Fuga de memoria","Error","Se reinicia"], a:1, exp:"Queda suscripción activa." },
+
+{ id:"40v7-15", topic:"Angular", q:"¿Qué ventaja tiene usar OnPush con inmutabilidad?", options:["Más código","Menos detecciones innecesarias","Evita errores","Evita async"], a:1, exp:"Reduce ciclos de detección." },
+
+{ id:"40v7-16", topic:"JavaScript", q:"¿Qué ocurre si se usa == con tipos distintos?", options:["Error","Conversión implícita","Null","Undefined"], a:1, exp:"Hace coerción de tipos." },
+
+{ id:"40v7-17", topic:"JavaScript", q:"¿Qué problema evita usar Promise.allSettled frente a Promise.all?", options:["Errores","Fallo completo del conjunto","Bloqueo","Timeout"], a:1, exp:"Permite gestionar errores individuales." },
+
+{ id:"40v7-18", topic:"MongoDB", q:"¿Qué problema puede causar exceso de embedding?", options:["Más consultas","Documentos demasiado grandes","Error","Optimización"], a:1, exp:"Documentos grandes afectan rendimiento." },
+
+{ id:"40v7-19", topic:"Scrum", q:"¿Qué ocurre si el Sprint Goal no está claro?", options:["Nada","Desalineación del equipo","Error","Cancelación"], a:1, exp:"Falta de foco en el sprint." },
+
+{ id:"40v7-20", topic:"Git", q:"¿Qué ocurre si haces commit frecuente sin pull previo en equipo?", options:["Nada","Conflictos posteriores","Optimiza","Evita errores"], a:1, exp:"Puede generar conflictos al integrar." },
+{ id:"40v7-21", topic:"Oracle SQL", q:"¿Qué ocurre si una subconsulta en SELECT depende de columnas no indexadas en una tabla grande?", options:["Nada","Puede ejecutarse repetidamente con alto coste","Oracle la cachea siempre","Se convierte automáticamente en JOIN eficiente"], a:1, exp:"Subconsultas correlacionadas sin índices escalan muy mal." },
+
+{ id:"40v7-22", topic:"Oracle SQL", q:"¿Qué diferencia hay entre usar NVL y COALESCE en Oracle?", options:["Son idénticas siempre","COALESCE permite más de dos argumentos","NVL es estándar SQL","COALESCE solo funciona con números"], a:1, exp:"COALESCE es más flexible y estándar." },
+
+{ id:"40v7-23", topic:"Oracle SQL", q:"¿Qué problema puede causar un JOIN sin condición clara en tablas grandes?", options:["Error","Producto cartesiano masivo","Optimización automática","Se ignora"], a:1, exp:"Puede generar combinaciones explosivas." },
+
+{ id:"40v7-24", topic:"PL/SQL", q:"¿Qué ocurre si se usa COMMIT dentro de un procedimiento llamado en un contexto mayor?", options:["Nada","Rompe atomicidad de la operación global","Optimiza","Evita errores"], a:1, exp:"Divide la transacción en partes." },
+
+{ id:"40v7-25", topic:"PL/SQL", q:"¿Qué ventaja tiene usar excepciones específicas frente a WHEN OTHERS?", options:["Menos código","Mejor control de errores","Evita errores","Mayor rendimiento"], a:1, exp:"WHEN OTHERS oculta causas específicas." },
+
+{ id:"40v7-26", topic:"ENS", q:"¿Qué implica no gestionar correctamente el riesgo residual?", options:["Nada","Falsa sensación de seguridad","Mejor rendimiento","Menos controles"], a:1, exp:"Se ignora riesgo restante." },
+
+{ id:"40v7-27", topic:"ENS", q:"¿Qué problema puede causar exceso de controles de seguridad?", options:["Más seguridad siempre","Sobrecoste y complejidad innecesaria","Evita ataques","Mejor rendimiento"], a:1, exp:"Debe haber proporcionalidad." },
+
+{ id:"40v7-28", topic:"ENS", q:"¿Qué relación hay entre disponibilidad y redundancia?", options:["Son iguales","Redundancia mejora disponibilidad","Disponibilidad elimina redundancia","No hay relación"], a:1, exp:"Redundancia ayuda a tolerar fallos." },
+
+{ id:"40v7-29", topic:".NET 6", q:"¿Qué ocurre si un servicio Scoped se comparte entre threads manualmente?", options:["Nada","Problemas de concurrencia","Optimiza","Evita errores"], a:1, exp:"Scoped no es thread-safe." },
+
+{ id:"40v7-30", topic:".NET 6", q:"¿Qué problema puede causar no usar await en llamadas async?", options:["Error","Ejecución no controlada y posibles bugs","Optimiza","Bloquea"], a:1, exp:"Puede provocar race conditions." },
+
+{ id:"40v7-31", topic:"EF Core", q:"¿Qué ocurre si se ejecuta una consulta LINQ compleja no traducible a SQL?", options:["Error","Parte se ejecuta en cliente","Optimiza","Se ignora"], a:1, exp:"EF Core evalúa parte en memoria." },
+
+{ id:"40v7-32", topic:"EF Core", q:"¿Qué problema puede causar usar múltiples SaveChanges en un loop?", options:["Nada","Muchas transacciones y bajo rendimiento","Optimiza","Evita conflictos"], a:1, exp:"Cada llamada es una transacción." },
+
+{ id:"40v7-33", topic:"MediatR", q:"¿Qué ocurre si lógica de negocio se pone en controllers en vez de handlers?", options:["Nada","Acoplamiento y menor mantenibilidad","Optimiza","Evita errores"], a:1, exp:"Rompe separación de responsabilidades." },
+
+{ id:"40v7-34", topic:"Angular", q:"¿Qué ocurre si se usa ChangeDetectionStrategy.Default en listas grandes?", options:["Nada","Mayor coste de detección de cambios","Optimiza","Evita errores"], a:1, exp:"Puede impactar rendimiento." },
+
+{ id:"40v7-35", topic:"Angular", q:"¿Qué problema evita usar operadores como switchMap en peticiones HTTP?", options:["Errores","Condiciones de carrera","Bloqueos","Timeout"], a:1, exp:"Cancela peticiones anteriores." },
+
+{ id:"40v7-36", topic:"JavaScript", q:"¿Qué ocurre si se modifica un array mientras se itera con forEach?", options:["Error","Comportamiento inesperado","Optimiza","Se ignora"], a:1, exp:"Puede alterar la iteración." },
+
+{ id:"40v7-37", topic:"JavaScript", q:"¿Qué ventaja tiene usar debounce frente a throttle en eventos intensivos?", options:["Más llamadas","Reducir ejecuciones finales","Evitar async","Evitar errores"], a:1, exp:"Debounce agrupa eventos en una ejecución final." },
+
+{ id:"40v7-38", topic:"MongoDB", q:"¿Qué problema puede causar no limitar resultados en consultas grandes?", options:["Error","Uso excesivo de memoria/red","Optimiza","Evita índices"], a:1, exp:"Puede saturar recursos." },
+
+{ id:"40v7-39", topic:"Scrum", q:"¿Qué ocurre si el equipo no tiene incrementos entregables cada sprint?", options:["Nada","Se pierde valor incremental","Error","Se cancela"], a:1, exp:"Scrum se basa en incrementos entregables." },
+
+{ id:"40v7-40", topic:"Git", q:"¿Qué problema puede causar hacer force push en repositorio compartido?", options:["Optimiza","Reescribe historial y rompe trabajo de otros","Evita conflictos","No afecta"], a:1, exp:"Puede destruir historial compartido." }
 ]
         };
         BANK.E80_V3 = BANK.E80_V3.slice(0, 80);
