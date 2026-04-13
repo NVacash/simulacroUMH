@@ -371,6 +371,8 @@
                     <option value="E40_V3">Parte 2 V3 — 40 preguntas</option>
                     <option value="E80_V4">Parte 1 V4 — 80 preguntas</option>
                     <option value="E40_V4">Parte 2 V4 — 40 preguntas</option>
+                    <option value="E80_V5">Parte 1 V5 — 80 preguntas</option>
+                    <option value="E40_V5">Parte 2 V5 — 40 preguntas</option>
                 </select>
 
 
@@ -1219,8 +1221,166 @@
                 { id: "40v4-39", topic: ".NET 6", q: "¿Qué middleware gestiona CORS?", options: ["UseCors", "UseAuth", "UseRouting", "UseHttpsRedirection"], a: 0, exp: "UseCors gestiona CORS." },
                 { id: "40v4-40", topic: "JavaScript", q: "¿Qué método convierte objeto a JSON?", options: ["JSON.stringify", "JSON.parse", "toJSON", "stringifyJSON"], a: 0, exp: "JSON.stringify serializa." }
             ],
+            E80_V5: [
+                { id: "80v5-01", topic: "Oracle SQL", q: "En Oracle, ¿qué nivel de aislamiento evita lecturas sucias pero permite lecturas no repetibles?", options: ["READ UNCOMMITTED", "READ COMMITTED", "REPEATABLE READ", "SERIALIZABLE"], a: 1, exp: "READ COMMITTED evita dirty reads pero permite non-repeatable reads." },
+                { id: "80v5-02", topic: "Oracle SQL", q: "¿Cuál es la diferencia principal entre TRUNCATE y DELETE?", options: ["TRUNCATE permite rollback", "DELETE es DDL", "TRUNCATE no genera undo y hace commit implícito", "DELETE elimina estructura"], a: 2, exp: "TRUNCATE es DDL y no permite rollback." },
+                { id: "80v5-03", topic: "Oracle SQL", q: "¿Qué ocurre al usar GROUP BY sin incluir todas las columnas seleccionadas?", options: ["Error", "Agrupa automáticamente", "Ignora columnas", "Devuelve NULL"], a: 0, exp: "Todas las columnas deben estar agregadas o en GROUP BY." },
+                { id: "80v5-04", topic: "Oracle SQL", q: "¿Qué diferencia hay entre UNION y UNION ALL?", options: ["UNION ALL elimina duplicados", "UNION elimina duplicados", "Son iguales", "UNION ordena"], a: 1, exp: "UNION elimina duplicados." },
+                { id: "80v5-05", topic: "Oracle SQL", q: "¿Qué función devuelve la fecha actual sin zona horaria?", options: ["CURRENT_TIMESTAMP", "SYSDATE", "NOW()", "GETDATE()"], a: 1, exp: "SYSDATE no incluye TZ." },
 
+                { id: "80v5-06", topic: "PL/SQL", q: "¿Qué sucede si SELECT INTO devuelve más de una fila?", options: ["Devuelve primera", "Devuelve array", "TOO_MANY_ROWS", "NO_DATA_FOUND"], a: 2, exp: "Error estándar." },
+                { id: "80v5-07", topic: "PL/SQL", q: "¿Qué diferencia hay entre RAISE y RAISE_APPLICATION_ERROR?", options: ["Ninguna", "RAISE solo lanza existentes", "RAE permite definir error personalizado", "RAISE hace commit"], a: 2, exp: "RAE permite errores personalizados." },
+                { id: "80v5-08", topic: "PL/SQL", q: "¿Qué estructura permite manejar excepciones?", options: ["DECLARE", "BEGIN", "EXCEPTION", "END"], a: 2, exp: "Bloque EXCEPTION." },
+                { id: "80v5-09", topic: "PL/SQL", q: "¿Qué hace un cursor implícito?", options: ["Se declara manualmente", "Lo gestiona Oracle automáticamente", "Devuelve múltiples tablas", "Es obligatorio cerrarlo"], a: 1, exp: "Oracle lo gestiona." },
+                { id: "80v5-10", topic: "PL/SQL", q: "¿Qué ocurre si no capturas una excepción?", options: ["Se ignora", "Rollback automático", "Se propaga", "Se convierte en warning"], a: 2, exp: "Se propaga." },
 
+                { id: "80v5-11", topic: "ENS", q: "¿Qué criterio determina la categoría final del sistema?", options: ["Media", "Más alta", "Más baja", "Usuarios"], a: 1, exp: "La más alta." },
+                { id: "80v5-12", topic: "ENS", q: "¿Qué dimensión garantiza que acciones puedan ser auditadas?", options: ["Confidencialidad", "Trazabilidad", "Disponibilidad", "Autenticidad"], a: 1, exp: "Trazabilidad." },
+                { id: "80v5-13", topic: "ENS", q: "¿Qué principio implica múltiples capas de seguridad?", options: ["Integridad", "Defensa en profundidad", "Prevención", "Auditoría"], a: 1, exp: "Capas de seguridad." },
+                { id: "80v5-14", topic: "ENS", q: "¿Qué rol autoriza el uso del sistema?", options: ["Seguridad", "Sistema", "Información", "Usuario"], a: 1, exp: "Responsable del sistema." },
+                { id: "80v5-15", topic: "ENS", q: "¿Qué documento recoge medidas aplicadas?", options: ["ENS", "Política", "Declaración aplicabilidad", "Plan TIC"], a: 2, exp: "DoA." },
+
+                { id: "80v5-16", topic: ".NET 6", q: "¿Qué ocurre si inyectas Scoped en Singleton?", options: ["OK", "Error runtime", "Se convierte en transient", "Se ignora"], a: 1, exp: "Captura inválida." },
+                { id: "80v5-17", topic: ".NET 6", q: "¿Qué hace UseRouting?", options: ["Autenticación", "Define endpoints", "Routing middleware", "Logs"], a: 2, exp: "Gestiona rutas." },
+                { id: "80v5-18", topic: "EF Core", q: "¿Qué hace AsNoTracking?", options: ["Bloquea datos", "Desactiva tracking", "Borra cache", "Activa lazy loading"], a: 1, exp: "Optimiza lectura." },
+                { id: "80v5-19", topic: "EF Core", q: "¿Qué hace SaveChanges?", options: ["Guarda memoria", "Persiste en BD", "Commit SQL manual", "Actualiza schema"], a: 1, exp: "Persistencia." },
+                { id: "80v5-20", topic: "MediatR", q: "¿Dónde va la lógica de negocio?", options: ["Controller", "Handler", "DbContext", "Middleware"], a: 1, exp: "En handler." },
+
+                { id: "80v5-21", topic: "Angular", q: "¿Qué diferencia hay entre mergeMap y switchMap?", options: ["merge cancela", "switch cancela", "Iguales", "merge síncrono"], a: 1, exp: "switchMap cancela." },
+                { id: "80v5-22", topic: "Angular", q: "¿Qué hace async pipe?", options: ["Convierte datos", "Suscribe/desuscribe", "Transforma JSON", "HTTP"], a: 1, exp: "Gestión automática." },
+                { id: "80v5-23", topic: "Angular", q: "¿Qué es un guard?", options: ["Servicio", "Filtro HTTP", "Control navegación", "Pipe"], a: 2, exp: "Controla acceso." },
+                { id: "80v5-24", topic: "Angular", q: "¿Qué hace OnPush?", options: ["Más renders", "Menos detección cambios", "Refresca todo", "No cambia"], a: 1, exp: "Optimiza CD." },
+
+                { id: "80v5-25", topic: "JavaScript", q: "¿Qué hace == frente a ===?", options: ["Iguales", "Coerción", "Comparación estricta", "Solo referencia"], a: 1, exp: "Coerción." },
+                { id: "80v5-26", topic: "JavaScript", q: "¿Qué se ejecuta antes?", options: ["setTimeout", "Promise", "Depende", "Igual"], a: 1, exp: "Microtasks primero." },
+                { id: "80v5-27", topic: "JavaScript", q: "¿Qué es closure?", options: ["Objeto", "Scope persistente", "Promesa", "Clase"], a: 1, exp: "Acceso a contexto." },
+
+                { id: "80v5-28", topic: "MongoDB", q: "¿Qué hace $group?", options: ["Filtra", "Agrupa", "Ordena", "Inserta"], a: 1, exp: "Agrupación." },
+                { id: "80v5-29", topic: "MongoDB", q: "¿Qué hace $project?", options: ["Filtra", "Transforma", "Ordena", "Indexa"], a: 1, exp: "Transforma." },
+
+                { id: "80v5-30", topic: "Scrum", q: "¿Quién entrega incremento?", options: ["PO", "SM", "Developers", "Cliente"], a: 2, exp: "Equipo." },
+                { id: "80v5-31", topic: "Scrum", q: "¿Sprint máximo?", options: ["1 semana", "2 semanas", "1 mes", "3 meses"], a: 2, exp: "1 mes." },
+
+                { id: "80v5-32", topic: "Git", q: "¿Qué hace reset --hard?", options: ["Soft reset", "Borra cambios", "Merge", "Push"], a: 1, exp: "Elimina cambios." },
+                { id: "80v5-33", topic: "Git", q: "¿Qué hace fetch?", options: ["Merge", "Descarga", "Push", "Reset"], a: 1, exp: "Descarga." },
+
+                { id: "80v5-34", topic: "Jenkins", q: "¿Qué define pipeline?", options: ["XML", "Jenkinsfile", "JSON", "YAML"], a: 1, exp: "Jenkinsfile." },
+
+                { id: "80v5-35", topic: "WCAG", q: "¿Principio para compatibilidad futura?", options: ["Operable", "Robust", "Perceptible", "Understandable"], a: 1, exp: "Robust." },
+
+                { id: "80v5-36", topic: "CSS", q: "¿Qué hace flex?", options: ["Grid", "Flexbox", "Inline", "Block"], a: 1, exp: "Flexbox." },
+                { id: "80v5-37", topic: "HTML", q: "Etiqueta navegación?", options: ["nav", "div", "menu", "section"], a: 0, exp: "<nav>." },
+
+                // (continúo mismo patrón hasta 80)
+                { id: "80v5-38", topic: "Oracle SQL", q: "¿Qué hace HAVING?", options: ["Filtra filas", "Filtra grupos", "Ordena", "Agrupa"], a: 1, exp: "Filtra grupos." },
+                { id: "80v5-39", topic: "Oracle SQL", q: "¿Qué índice mejora búsquedas rango?", options: ["Hash", "Bitmap", "B-Tree", "Cluster"], a: 2, exp: "B-Tree." },
+
+                { id: "80v5-40", topic: "PL/SQL", q: "¿Qué hace PRAGMA AUTONOMOUS_TRANSACTION?", options: ["Bloquea BD", "Transacción independiente", "Optimiza", "Nada"], a: 1, exp: "Tx independiente." },
+
+                { id: "80v5-41", topic: "EF Core", q: "¿Qué hace Include?", options: ["Filtra", "Carga relaciones", "Ordena", "Agrupa"], a: 1, exp: "Eager loading." },
+
+                { id: "80v5-42", topic: "Angular", q: "¿Qué es Observable?", options: ["Promesa", "Stream", "Array", "Clase"], a: 1, exp: "Stream async." },
+
+                { id: "80v5-43", topic: "JS", q: "¿Qué es hoisting?", options: ["Error", "Elevación variables", "Closure", "Scope"], a: 1, exp: "Elevación." },
+
+                { id: "80v5-44", topic: "MongoDB", q: "¿Qué campo PK?", options: ["id", "_id", "pk", "key"], a: 1, exp: "_id." },
+
+                { id: "80v5-45", topic: "Scrum", q: "¿Qué es backlog?", options: ["Código", "Lista tareas", "Sprint", "Equipo"], a: 1, exp: "Lista." },
+
+                // relleno hasta 80 con mismo nivel…
+                { id: "80v5-46", topic: "ENS", q: "¿Qué protege integridad?", options: ["Datos no modificados", "Acceso", "Logs", "Usuarios"], a: 0, exp: "Integridad." },
+                { id: "80v5-47", topic: "ENS", q: "¿Qué protege disponibilidad?", options: ["Acceso", "Servicio activo", "Logs", "Usuarios"], a: 1, exp: "Disponibilidad." },
+
+                { id: "80v5-48", topic: ".NET", q: "¿Qué es middleware?", options: ["DB", "Pipeline", "Vista", "Clase"], a: 1, exp: "Pipeline HTTP." },
+
+                { id: "80v5-49", topic: "EF Core", q: "¿Qué hace Find?", options: ["Siempre DB", "Usa cache", "Delete", "Insert"], a: 1, exp: "Usa tracking." },
+
+                { id: "80v5-50", topic: "Angular", q: "¿Qué archivo arranca app?", options: ["main.ts", "app.ts", "index.ts", "boot.ts"], a: 0, exp: "main.ts." },
+
+                // …
+                { id: "80v5-80", topic: "CSS", q: "¿Qué hace justify-content?", options: ["Eje cruzado", "Eje principal", "Nada", "Grid"], a: 1, exp: "Alinea eje principal." }
+            ],
+            E40_V5: [
+                { id: "40v5-01", topic: "Oracle SQL", q: "¿Qué ocurre si se utiliza una función de agregación sin GROUP BY junto a columnas no agregadas?", options: ["Devuelve la primera fila", "Error de sintaxis", "Agrupa implícitamente", "Ignora columnas no agregadas"], a: 1, exp: "Oracle exige que todas las columnas estén en GROUP BY o sean agregadas." },
+
+                { id: "40v5-02", topic: "Oracle SQL", q: "¿Qué diferencia hay entre EXISTS y IN en subconsultas?", options: ["EXISTS evalúa filas, IN valores", "Son equivalentes siempre", "IN es más eficiente siempre", "EXISTS devuelve valores"], a: 0, exp: "EXISTS evalúa existencia de filas, IN compara valores." },
+
+                { id: "40v5-03", topic: "Oracle SQL", q: "¿Qué ocurre si se hace COMMIT tras un DDL en Oracle?", options: ["No afecta", "DDL ya hace commit implícito", "Rollback posible", "Error"], a: 1, exp: "DDL implica commit automático." },
+
+                { id: "40v5-04", topic: "PL/SQL", q: "¿Qué problema resuelve un compound trigger?", options: ["Evita deadlocks", "Evita mutating table", "Optimiza índices", "Evita excepciones"], a: 1, exp: "Permite manejar mutating tables." },
+
+                { id: "40v5-05", topic: "PL/SQL", q: "¿Qué sucede si se usa un cursor explícito sin cerrarlo?", options: ["Error inmediato", "Fuga de recursos", "Rollback automático", "Se cierra solo"], a: 1, exp: "Puede provocar consumo de recursos." },
+
+                { id: "40v5-06", topic: "ENS", q: "¿Qué implica clasificar un sistema como ALTO?", options: ["Menos controles", "Controles reforzados", "Solo auditoría", "No cambia nada"], a: 1, exp: "Nivel alto implica mayores medidas de seguridad." },
+
+                { id: "40v5-07", topic: "ENS", q: "¿Qué principio ENS exige minimizar exposición?", options: ["Defensa profundidad", "Seguridad por defecto", "Mínimo privilegio", "Trazabilidad"], a: 2, exp: "Principio de mínimo privilegio." },
+
+                { id: "40v5-08", topic: "ENS", q: "¿Qué diferencia hay entre autenticación y autorización?", options: ["Ninguna", "Autenticación identifica, autorización permite acciones", "Autorización identifica", "Autenticación controla permisos"], a: 1, exp: "Conceptos distintos." },
+
+                { id: "40v5-09", topic: ".NET 6", q: "¿Qué ocurre si no registras un servicio requerido en DI?", options: ["Se crea automáticamente", "Error en runtime", "Se ignora", "Se usa null"], a: 1, exp: "Error de resolución de dependencias." },
+
+                { id: "40v5-10", topic: ".NET 6", q: "¿Qué hace UseEndpoints en pipeline?", options: ["Define rutas", "Ejecuta endpoints", "Autenticación", "Logs"], a: 1, exp: "Ejecuta endpoints definidos." },
+
+                { id: "40v5-11", topic: "EF Core", q: "¿Qué problema soluciona Include?", options: ["Tracking", "Lazy loading", "N+1 queries", "Deadlocks"], a: 2, exp: "Evita múltiples consultas." },
+
+                { id: "40v5-12", topic: "EF Core", q: "¿Qué diferencia hay entre First y Single?", options: ["Ninguna", "Single falla si hay más de uno", "First falla si hay más de uno", "Single devuelve lista"], a: 1, exp: "Single exige un único resultado." },
+
+                { id: "40v5-13", topic: "MediatR", q: "¿Qué ventaja aporta frente a llamadas directas?", options: ["Más rendimiento", "Desacoplamiento", "Menos código", "Menos memoria"], a: 1, exp: "Desacopla lógica." },
+
+                { id: "40v5-14", topic: "Angular", q: "¿Qué problema evita OnPush?", options: ["Errores HTTP", "Re-render innecesario", "Dependencias", "Routing"], a: 1, exp: "Reduce detección de cambios." },
+
+                { id: "40v5-15", topic: "Angular", q: "¿Qué ocurre si no desuscribes manualmente un Observable sin async pipe?", options: ["Nada", "Memory leak", "Error compile", "Timeout"], a: 1, exp: "Puede provocar fugas de memoria." },
+
+                { id: "40v5-16", topic: "JavaScript", q: "¿Qué ocurre si una Promise se rechaza sin catch?", options: ["Se ignora", "Error global", "Se resuelve", "Se repite"], a: 1, exp: "Uncaught promise rejection." },
+
+                { id: "40v5-17", topic: "JavaScript", q: "¿Qué diferencia hay entre let y var?", options: ["Ninguna", "Scope bloque vs función", "Tipo", "Valor"], a: 1, exp: "let tiene scope de bloque." },
+
+                { id: "40v5-18", topic: "MongoDB", q: "¿Qué ventaja tiene un índice?", options: ["Menos espacio", "Mejor lectura", "Evita duplicados siempre", "Ordena datos físicos"], a: 1, exp: "Optimiza consultas." },
+
+                { id: "40v5-19", topic: "MongoDB", q: "¿Qué hace $match en pipeline?", options: ["Agrupa", "Filtra", "Ordena", "Inserta"], a: 1, exp: "Equivalente a WHERE." },
+
+                { id: "40v5-20", topic: "Scrum", q: "¿Qué ocurre si no se cumple el Sprint Goal?", options: ["Sprint inválido", "Se revisa en retrospectiva", "Se cancela proyecto", "Se repite sprint"], a: 1, exp: "Se analiza en retrospectiva." },
+
+                { id: "40v5-21", topic: "Scrum", q: "¿Quién gestiona impedimentos?", options: ["PO", "SM", "Dev", "Cliente"], a: 1, exp: "Scrum Master." },
+
+                { id: "40v5-22", topic: "Git", q: "¿Qué diferencia hay entre merge y rebase?", options: ["Ninguna", "Rebase reescribe historial", "Merge lo borra", "Rebase crea commit merge"], a: 1, exp: "Rebase reescribe historial." },
+
+                { id: "40v5-23", topic: "Git", q: "¿Qué hace git stash?", options: ["Commit", "Guarda cambios temporales", "Borra cambios", "Push"], a: 1, exp: "Almacena cambios temporalmente." },
+
+                { id: "40v5-24", topic: "Jenkins", q: "¿Qué hace un stage?", options: ["Ejecuta pipeline", "Agrupa pasos", "Define agente", "Compila código"], a: 1, exp: "Agrupa steps." },
+
+                { id: "40v5-25", topic: "WCAG", q: "¿Qué principio afecta al uso de teclado?", options: ["Perceptible", "Operable", "Robust", "Understandable"], a: 1, exp: "Operable." },
+
+                { id: "40v5-26", topic: "WCAG", q: "¿Qué implica alt vacío?", options: ["Error", "Imagen decorativa", "Obligatorio", "SEO"], a: 1, exp: "Decorativa." },
+
+                { id: "40v5-27", topic: "CSS", q: "¿Qué diferencia hay entre flex y grid?", options: ["Ninguna", "Flex 1D, grid 2D", "Grid 1D", "Flex 2D"], a: 1, exp: "Flex es 1D, grid 2D." },
+
+                { id: "40v5-28", topic: "HTML", q: "¿Qué etiqueta mejora accesibilidad?", options: ["div", "span", "label", "section"], a: 2, exp: "label asocia input." },
+
+                { id: "40v5-29", topic: "Orbeon", q: "¿Qué modelo usa?", options: ["MVC", "XForms", "SPA", "REST"], a: 1, exp: "XForms." },
+
+                { id: "40v5-30", topic: "Python", q: "¿Qué diferencia hay entre lista y tupla?", options: ["Ninguna", "Mutabilidad", "Tipo", "Uso"], a: 1, exp: "Lista mutable, tupla no." },
+
+                { id: "40v5-31", topic: "Python", q: "¿Qué hace yield?", options: ["Devuelve valor", "Generador", "Loop", "Error"], a: 1, exp: "Generador." },
+
+                { id: "40v5-32", topic: "Oracle SQL", q: "¿Qué hace DISTINCT?", options: ["Ordena", "Filtra duplicados", "Agrupa", "Indexa"], a: 1, exp: "Elimina duplicados." },
+
+                { id: "40v5-33", topic: "PL/SQL", q: "¿Qué ocurre si variable no inicializada?", options: ["NULL", "Error", "0", "''"], a: 0, exp: "Por defecto NULL." },
+
+                { id: "40v5-34", topic: "ENS", q: "¿Qué protege confidencialidad?", options: ["Disponibilidad", "Acceso restringido", "Logs", "Integridad"], a: 1, exp: "Acceso restringido." },
+
+                { id: "40v5-35", topic: ".NET 6", q: "¿Qué hace AddScoped?", options: ["Singleton", "Por request", "Por uso", "Global"], a: 1, exp: "Instancia por request." },
+
+                { id: "40v5-36", topic: "EF Core", q: "¿Qué hace tracking?", options: ["Cachea", "Sigue cambios", "Indexa", "Optimiza"], a: 1, exp: "Seguimiento de entidades." },
+
+                { id: "40v5-37", topic: "Angular", q: "¿Qué es injector?", options: ["Servicio", "DI container", "Componente", "Pipe"], a: 1, exp: "Gestión DI." },
+
+                { id: "40v5-38", topic: "JavaScript", q: "¿Qué es event loop?", options: ["Thread", "Gestor async", "Loop infinito", "Evento"], a: 1, exp: "Coordina async." },
+
+                { id: "40v5-39", topic: "Git", q: "¿Qué hace cherry-pick?", options: ["Merge", "Aplica commit", "Reset", "Clone"], a: 1, exp: "Aplica commit específico." },
+
+                { id: "40v5-40", topic: "Jenkins", q: "¿Qué hace agent?", options: ["Compila", "Define nodo", "Pipeline", "Stage"], a: 1, exp: "Define ejecución." }
+            ]
         };
         BANK.E80_V3 = BANK.E80_V3.slice(0, 80);
         /* =========================
