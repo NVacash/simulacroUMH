@@ -377,6 +377,7 @@
                     <option value="E40_V6">Parte 2 V6 — 40 preguntas</option>
                     <option value="E80_V7">Parte 1 V7 — 80 preguntas</option>
                     <option value="E40_V7">Parte 2 V7 — 40 preguntas</option>
+                    <option value="E40_V8">Parte 2 V8 — 40 preguntas</option>
                 </select>
 
 
@@ -1917,6 +1918,86 @@
 { id:"40v7-39", topic:"Scrum", q:"¿Qué ocurre si el equipo no tiene incrementos entregables cada sprint?", options:["Nada","Se pierde valor incremental","Error","Se cancela"], a:1, exp:"Scrum se basa en incrementos entregables." },
 
 { id:"40v7-40", topic:"Git", q:"¿Qué problema puede causar hacer force push en repositorio compartido?", options:["Optimiza","Reescribe historial y rompe trabajo de otros","Evita conflictos","No afecta"], a:1, exp:"Puede destruir historial compartido." }
+],E40_V8: [
+    { id: "40v8-01", topic: "Oracle SQL", q: "¿Qué diferencia hay entre UNION y INTERSECT respecto a duplicados?", options: ["Ambos eliminan duplicados", "INTERSECT no elimina duplicados", "UNION los mantiene", "INTERSECT los duplica"], a: 0, exp: "Tanto UNION como INTERSECT eliminan duplicados por defecto." },
+
+    { id: "40v8-02", topic: "ENS", q: "¿Qué describe mejor la diferencia entre autenticación y trazabilidad?", options: ["Trazabilidad solo aplica a redes", "Autenticación verifica identidad; trazabilidad permite reconstruir acciones", "Autenticación registra acciones y trazabilidad verifica identidad", "Son sinónimos dentro del ENS"], a: 1, exp: "La autenticación verifica la identidad; la trazabilidad permite reconstruir quién hizo qué y cuándo." },
+
+    { id: "40v8-03", topic: "Oracle SQL", q: "¿Qué diferencia hay entre DISTINCT y GROUP BY sin agregación?", options: ["GROUP BY es más rápido siempre", "Son equivalentes en resultado", "DISTINCT agrupa más", "GROUP BY elimina duplicados parcialmente"], a: 1, exp: "Sin funciones de agregación, DISTINCT y GROUP BY devuelven el mismo resultado lógico." },
+
+    { id: "40v8-04", topic: "Oracle SQL", q: "¿Qué diferencia hay entre COUNT(*) y COUNT(columna) cuando existen NULL?", options: ["COUNT(*) cuenta columnas y COUNT(columna) filas", "COUNT(columna) ignora NULL y COUNT(*) cuenta filas", "COUNT(*) ignora NULL y COUNT(columna) no", "Ambos ignoran NULL por igual"], a: 1, exp: "COUNT(*) cuenta todas las filas; COUNT(columna) no cuenta las filas donde esa columna es NULL." },
+
+    { id: "40v8-05", topic: "JavaScript", q: "¿Qué ocurre si accedes a una variable antes de declararla con var?", options: ["Undefined por hoisting", "Error", "0", "Null"], a: 0, exp: "Las declaraciones con var se elevan y la variable existe con valor undefined hasta su asignación." },
+
+    { id: "40v8-06", topic: "Angular", q: "¿Qué ocurre si cambias una propiedad primitiva en OnPush?", options: ["Sí detecta cambio", "Error", "Recarga", "No detecta cambio"], a: 0, exp: "Con OnPush, un cambio en una referencia o valor primitivo enlazado sí puede disparar detección." },
+
+    { id: "40v8-07", topic: "Oracle SQL", q: "TRUNCATE TABLE en Oracle es:", options: ["DCL, requiere GRANT", "Solo válido si hay FK siempre", "DML, registra undo completo", "DDL, hace commit implícito"], a: 3, exp: "TRUNCATE es una sentencia DDL y provoca commit implícito." },
+
+    { id: "40v8-08", topic: "Scrum", q: "Evento Scrum para inspeccionar incremento y adaptar Product Backlog:", options: ["Backlog Refinement (no es evento formal)", "Daily Scrum", "Sprint Retrospective", "Sprint Review"], a: 3, exp: "La Sprint Review sirve para inspeccionar el incremento y adaptar el Product Backlog si procede." },
+
+    { id: "40v8-09", topic: "Scrum", q: "¿Qué artefacto representa el trabajo seleccionado para el Sprint?", options: ["Definition of Done", "Burndown chart", "Product Backlog", "Sprint Backlog"], a: 3, exp: "El Sprint Backlog contiene el objetivo del sprint, los elementos seleccionados y el plan para entregarlos." },
+
+    { id: "40v8-10", topic: "Git", q: "¿Qué comando crea una rama y cambia a ella en Git (con sintaxis moderna)?", options: ["git branch -c nombre", "git merge nombre", "git switch -c nombre", "git checkout -b nombre"], a: 2, exp: "La sintaxis moderna es git switch -c nombre; checkout -b también funciona, pero es la antigua." },
+
+    { id: "40v8-11", topic: "PL/SQL", q: "¿Qué trigger se ejecuta una vez por sentencia DML, no por fila?", options: ["INSTEAD OF", "AFTER EACH ROW", "BEFORE EACH ROW", "BEFORE STATEMENT"], a: 3, exp: "Los triggers de nivel sentencia son BEFORE STATEMENT o AFTER STATEMENT." },
+
+    { id: "40v8-12", topic: "PL/SQL", q: "¿Qué tipo de cursor se crea por defecto con 'FOR r IN (SELECT...) LOOP'?", options: ["Cursor estático inválido", "Implícito gestionado por el motor", "Explícito con OPEN/FETCH/CLOSE manual", "Ref cursor"], a: 1, exp: "Ese bucle crea y gestiona un cursor implícito automáticamente." },
+
+    { id: "40v8-13", topic: "PL/SQL", q: "¿Qué sentencia lanza explícitamente una excepción definida por el usuario?", options: ["THROW;", "RAISE EXCEPTION;", "RAISE;", "SIGNAL;"], a: 2, exp: "En PL/SQL se usa RAISE o RAISE nombre_excepcion para lanzar una excepción." },
+
+    { id: "40v8-14", topic: "Angular", q: "¿Qué ocurre si usas ChangeDetectionStrategy.OnPush y mutas un objeto?", options: ["Detecta cambio", "Recarga app", "No detecta automáticamente", "Error"], a: 2, exp: "Si mutas el mismo objeto sin cambiar su referencia, OnPush puede no detectar el cambio automáticamente." },
+
+    { id: "40v8-15", topic: "ENS", q: "¿Qué implica la dimensión de integridad?", options: ["Identidad", "Datos no alterados", "Acceso continuo", "Auditoría"], a: 1, exp: "Integridad significa que la información no ha sido modificada de forma no autorizada." },
+
+    { id: "40v8-16", topic: "EF Core", q: "¿Qué diferencia hay entre eager loading y lazy loading?", options: ["Eager carga explícitamente relaciones", "Lazy carga automáticamente relaciones", "Eager carga bajo demanda", "No hay diferencia"], a: 0, exp: "Eager loading carga las relaciones desde el inicio; lazy loading las carga cuando se acceden." },
+
+    { id: "40v8-17", topic: "MongoDB", q: "¿Qué diferencia hay entre find() y aggregate()?", options: ["Ninguna", "aggregate inserta", "aggregate permite pipeline", "find agrupa"], a: 2, exp: "aggregate permite construir pipelines de transformación y agrupación; find se usa para consulta simple." },
+
+    { id: "40v8-18", topic: "PL/SQL", q: "¿Qué ocurre si se produce una excepción en una transacción autónoma?", options: ["Se maneja independientemente", "Afecta a la transacción principal", "Hace rollback global", "Se propaga siempre"], a: 0, exp: "Una transacción autónoma tiene su propio contexto y se gestiona de forma independiente de la principal." },
+
+    { id: "40v8-19", topic: ".NET 6", q: "¿Qué diferencia hay entre IConfiguration y IOptions?", options: ["Ninguna", "IConfiguration no lee archivos", "IOptions encapsula configuración tipada", "IOptions reemplaza DI"], a: 2, exp: "IConfiguration permite acceso genérico a configuración; IOptions aporta enlace tipado a clases." },
+
+    { id: "40v8-20", topic: "JavaScript", q: "¿Qué ocurre si llamas a una función antes de declararla con let?", options: ["Null", "Undefined", "Error", "Funciona"], a: 2, exp: "Las variables declaradas con let están en temporal dead zone hasta su declaración." },
+
+    { id: "40v8-21", topic: "Oracle SQL", q: "¿Qué diferencia clave hay entre HAVING y WHERE?", options: ["WHERE filtra grupos después del GROUP BY", "HAVING filtra filas antes de agrupar", "No hay diferencia real", "HAVING filtra resultados agregados"], a: 3, exp: "WHERE filtra filas antes de agrupar; HAVING filtra grupos o resultados agregados." },
+
+    { id: "40v8-22", topic: "Angular", q: "¿Qué ventaja tiene trackBy en ngFor?", options: ["Evita errores", "Ordena lista", "Evita render", "Optimiza DOM"], a: 3, exp: "trackBy ayuda a reutilizar elementos del DOM y mejora el rendimiento en listas." },
+
+    { id: "40v8-23", topic: "JavaScript", q: "¿Qué ocurre con this en funciones flecha?", options: ["Apunta a window siempre", "Es undefined", "Mantiene contexto léxico", "Se redefine dinámicamente"], a: 2, exp: "Las funciones flecha no crean su propio this; heredan el del contexto léxico." },
+
+    { id: "40v8-24", topic: "ENS", q: "¿Qué diferencia hay entre impacto y riesgo en ENS?", options: ["Impacto incluye probabilidad", "Riesgo es vulnerabilidad", "Impacto es amenaza", "Riesgo combina impacto y probabilidad"], a: 3, exp: "El riesgo se valora combinando impacto y probabilidad." },
+
+    { id: "40v8-25", topic: ".NET 6", q: "¿Qué ocurre si un servicio Scoped se usa fuera del contexto HTTP?", options: ["Puede fallar o comportarse mal", "Se convierte en singleton", "Funciona siempre", "Error de compilación"], a: 0, exp: "Un servicio Scoped depende de un ámbito; fuera de él puede fallar o comportarse de forma inesperada." },
+
+    { id: "40v8-26", topic: "Oracle SQL", q: "¿Qué diferencia hay entre DELETE y TRUNCATE respecto a undo?", options: ["DELETE no genera undo", "TRUNCATE genera más undo", "TRUNCATE no genera undo completo", "Ambos igual"], a: 2, exp: "DELETE genera undo fila a fila; TRUNCATE minimiza undo al ser DDL." },
+
+    { id: "40v8-27", topic: "JavaScript", q: "¿Qué problema evita usar Promise.allSettled frente a Promise.all?", options: ["Errores", "Bloqueo", "Timeout", "Fallo completo del conjunto"], a: 3, exp: "Promise.all falla al primer rechazo; allSettled permite obtener el resultado de todas las promesas." },
+
+    { id: "40v8-28", topic: "EF Core", q: "¿Qué diferencia hay entre tracking y no tracking en concurrencia?", options: ["Tracking bloquea BD", "Ninguna", "No tracking evita conflictos", "Tracking permite detectar conflictos"], a: 3, exp: "El seguimiento del contexto permite detectar cambios y participar en escenarios de concurrencia." },
+
+    { id: "40v8-29", topic: ".NET 6", q: "¿Qué problema puede causar no usar await en llamadas async?", options: ["Optimiza", "Bloquea", "Ejecución no controlada y posibles bugs", "Error"], a: 2, exp: "No esperar una tarea puede provocar ejecución descontrolada, excepciones perdidas y errores difíciles de rastrear." },
+
+    { id: "40v8-30", topic: "Oracle SQL", q: "¿Qué operador devuelve filas comunes entre dos consultas?", options: ["INTERSECT", "UNION", "MINUS", "JOIN"], a: 0, exp: "INTERSECT devuelve las filas presentes en ambos resultados." },
+
+    { id: "40v8-31", topic: "Python", q: "¿Qué hace dict.get(k, default)?", options: ["Ordena claves", "Convierte a lista", "Devuelve valor o default si no existe", "Borra clave"], a: 2, exp: "dict.get devuelve el valor asociado a la clave o el valor por defecto si no existe." },
+
+    { id: "40v8-32", topic: "Oracle SQL", q: "¿Qué función devuelve el último día del mes de una fecha?", options: ["END_OF_MONTH", "LAST_DAY", "TO_DATE_END", "MONTH_END"], a: 1, exp: "LAST_DAY devuelve el último día del mes de una fecha dada." },
+
+    { id: "40v8-33", topic: "ENS", q: "Una 'medida de detección' se orienta a:", options: ["Firmar contratos", "Recuperar tras desastre", "Evitar que ocurra el incidente", "Identificar incidentes/actividades anómalas"], a: 3, exp: "Las medidas de detección buscan descubrir incidentes o comportamientos anómalos." },
+
+    { id: "40v8-34", topic: "Oracle SQL", q: "¿Qué función devuelve meses entre dos fechas?", options: ["MONTH_DIFF", "DATEDIFF", "ADD_MONTHS", "MONTHS_BETWEEN"], a: 3, exp: "MONTHS_BETWEEN calcula la diferencia en meses entre dos fechas." },
+
+    { id: "40v8-35", topic: "JavaScript", q: "¿Qué hace JSON.stringify(obj)?", options: ["Compara objetos", "Convierte a string JSON", "Parsea JSON", "Ordena claves"], a: 1, exp: "JSON.stringify serializa un objeto JavaScript a texto en formato JSON." },
+
+    { id: "40v8-36", topic: "WCAG 2.1", q: "Subtítulos para vídeos benefician principalmente a:", options: ["Understandable", "Robust", "Perceptible", "Operable"], a: 2, exp: "Los subtítulos mejoran la percepción del contenido audiovisual, especialmente para personas con discapacidad auditiva." },
+
+    { id: "40v8-37", topic: "Bootstrap 5", q: "¿Qué clase centra texto en Bootstrap 5?", options: ["align-center", "text-center", "txt-mid", "center-text"], a: 1, exp: "La utilidad correcta en Bootstrap 5 para centrar texto es text-center." },
+
+    { id: "40v8-38", topic: "ENS", q: "¿Qué protege frente a modificación no autorizada?", options: ["Integridad", "Autenticidad", "Trazabilidad", "Disponibilidad"], a: 0, exp: "La integridad garantiza que la información no sea modificada sin autorización." },
+
+    { id: "40v8-39", topic: "PL/SQL", q: "¿Qué instrucción sale de un bucle?", options: ["BREAK", "RETURN", "STOP", "EXIT"], a: 3, exp: "En PL/SQL se usa EXIT para salir de un bucle." },
+
+    { id: "40v8-40", topic: "Oracle SQL", q: "¿Qué cláusula limita filas?", options: ["FETCH FIRST", "TOP", "LIMIT", "ROWNUM ONLY"], a: 0, exp: "En Oracle moderno se usa FETCH FIRST ... ROWS ONLY para limitar filas." }
 ]
         };
         BANK.E80_V3 = BANK.E80_V3.slice(0, 80);
