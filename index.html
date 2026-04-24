@@ -378,6 +378,7 @@
                     <option value="E80_V7">Parte 1 V7 — 80 preguntas</option>
                     <option value="E40_V7">Parte 2 V7 — 40 preguntas</option>
                     <option value="E40_V8">Parte 2 V8 — 40 preguntas</option>
+                    <option value="E40_V9">Parte 2 V9 — 40 preguntas</option>
                 </select>
 
 
@@ -1998,6 +1999,86 @@
     { id: "40v8-39", topic: "PL/SQL", q: "¿Qué instrucción sale de un bucle?", options: ["BREAK", "RETURN", "STOP", "EXIT"], a: 3, exp: "En PL/SQL se usa EXIT para salir de un bucle." },
 
     { id: "40v8-40", topic: "Oracle SQL", q: "¿Qué cláusula limita filas?", options: ["FETCH FIRST", "TOP", "LIMIT", "ROWNUM ONLY"], a: 0, exp: "En Oracle moderno se usa FETCH FIRST ... ROWS ONLY para limitar filas." }
+],E40_V9: [
+    { id: "40v9-01", topic: "MongoDB", q: "¿Qué operador ordena resultados?", options: ["$limit", "$project", "$group", "$sort"], a: 3, exp: "$sort ordena los documentos del resultado según uno o varios campos." },
+
+    { id: "40v9-02", topic: "CSS", q: "¿Qué propiedad define columnas en grid?", options: ["flex-direction", "grid-template-columns", "grid-auto-flow", "column-gap"], a: 1, exp: "grid-template-columns define el número y tamaño de las columnas en un contenedor grid." },
+
+    { id: "40v9-03", topic: "ENS", q: "¿Qué rol ENS vela por la correcta aplicación de controles?", options: ["Proveedor", "Usuario", "Responsable de seguridad", "Responsable del sistema"], a: 2, exp: "El responsable de seguridad vela por la implantación y correcta aplicación de las medidas de seguridad." },
+
+    { id: "40v9-04", topic: "Oracle SQL", q: "¿Qué cláusula filtra filas antes de agrupar?", options: ["HAVING", "WHERE", "GROUP BY", "ORDER BY"], a: 1, exp: "WHERE filtra filas antes del GROUP BY; HAVING filtra grupos o resultados agregados." },
+
+    { id: "40v9-05", topic: "Jenkins", q: "¿Qué bloque ejecuta comandos?", options: ["pipeline", "steps", "agent", "stages"], a: 1, exp: "Dentro de steps se ejecutan los comandos o acciones de cada stage." },
+
+    { id: "40v9-06", topic: "Python", q: "¿Qué palabra define una función?", options: ["lambda", "method", "def", "func"], a: 2, exp: "En Python las funciones se definen con la palabra clave def." },
+
+    { id: "40v9-07", topic: "MongoDB", q: "¿Qué método elimina un documento?", options: ["drop", "erase", "deleteOne", "removeAll"], a: 2, exp: "deleteOne elimina un único documento que cumpla el filtro indicado." },
+
+    { id: "40v9-08", topic: "Python", q: "¿Qué estructura mantiene orden e inmutabilidad?", options: ["tuple", "list", "dict", "set"], a: 0, exp: "tuple es una secuencia ordenada e inmutable." },
+
+    { id: "40v9-09", topic: "Angular", q: "¿Qué es Observable?", options: ["Clase", "Stream", "Array", "Promesa"], a: 1, exp: "Un Observable representa un flujo de valores en el tiempo." },
+
+    { id: "40v9-10", topic: "ENS", q: "¿Qué criterio determina la categoría final del sistema?", options: ["Más alta", "Usuarios", "Media", "Más baja"], a: 0, exp: "La categoría final del sistema viene determinada por la dimensión con nivel más alto." },
+
+    { id: "40v9-11", topic: "JavaScript", q: "¿Qué hace == frente a ===?", options: ["Coerción", "Solo referencia", "Iguales", "Comparación estricta"], a: 0, exp: "== permite conversión implícita de tipos; === compara tipo y valor sin coerción." },
+
+    { id: "40v9-12", topic: "JavaScript", q: "¿Qué se ejecuta antes?", options: ["Depende", "setTimeout", "Promise", "Igual"], a: 2, exp: "Las microtareas de Promise se ejecutan antes que los callbacks de setTimeout." },
+
+    { id: "40v9-13", topic: "ENS", q: "¿Qué rol autoriza el uso del sistema?", options: ["Usuario", "Información", "Sistema", "Seguridad"], a: 2, exp: "El responsable del sistema autoriza el uso del sistema." },
+
+    { id: "40v9-14", topic: "JavaScript", q: "¿Qué describe mejor una closure?", options: ["Una función que pierde acceso a variables externas al salir del bloque", "Una promesa resuelta automáticamente", "Un método estático de una clase", "Una función que conserva acceso a su entorno léxico"], a: 3, exp: "Una closure mantiene acceso a las variables del entorno donde fue creada." },
+
+    { id: "40v9-15", topic: "JavaScript", q: "¿Qué es hoisting?", options: ["Scope", "Closure", "Error", "Elevación variables"], a: 3, exp: "Hoisting es la elevación de declaraciones al inicio de su ámbito durante la fase de compilación." },
+
+    { id: "40v9-16", topic: "ENS", q: "¿Qué protege disponibilidad?", options: ["Servicio activo", "Usuarios", "Logs", "Acceso"], a: 0, exp: "La disponibilidad garantiza que los servicios estén accesibles cuando se necesiten." },
+
+    { id: "40v9-17", topic: "Angular", q: "¿Por qué un Observable no es exactamente equivalente a una Promise?", options: ["Porque Promise admite cancelación nativa y Observable no", "Porque Promise solo funciona en Angular", "Porque Observable siempre es síncrono", "Porque Observable puede emitir múltiples valores en el tiempo y Promise solo uno"], a: 3, exp: "Observable puede emitir cero, uno o varios valores; Promise solo resuelve o rechaza una vez." },
+
+    { id: "40v9-18", topic: "MongoDB", q: "¿Qué diferencia conceptual hay entre una collection de MongoDB y una tabla relacional?", options: ["La collection obliga a todas las filas a tener idéntico esquema", "La collection no admite índices", "La tabla relacional siempre soporta arrays anidados nativamente", "La collection admite documentos con estructura flexible"], a: 3, exp: "En MongoDB los documentos de una collection pueden tener estructura flexible." },
+
+    { id: "40v9-19", topic: "Jenkins", q: "¿Qué hace agent?", options: ["Define nodo", "Pipeline", "Compila", "Stage"], a: 0, exp: "agent indica dónde se ejecutará el pipeline o un stage, por ejemplo un nodo o entorno." },
+
+    { id: "40v9-20", topic: "Oracle SQL", q: "¿Qué ocurre si se utiliza una función de agregación sin GROUP BY junto a columnas no agregadas?", options: ["Error de sintaxis", "Devuelve la primera fila", "Ignora columnas no agregadas", "Agrupa implícitamente"], a: 0, exp: "Oracle exige que las columnas no agregadas estén en el GROUP BY; en caso contrario produce error." },
+
+    { id: "40v9-21", topic: "PL/SQL", q: "¿Qué problema resuelve un compound trigger?", options: ["Evita mutating table", "Optimiza índices", "Evita deadlocks", "Evita excepciones"], a: 0, exp: "Un compound trigger ayuda a resolver escenarios típicos de mutating table al separar lógica por momentos del trigger." },
+
+    { id: "40v9-22", topic: "ENS", q: "¿Qué principio ENS exige minimizar exposición?", options: ["Trazabilidad", "Seguridad por defecto", "Defensa profundidad", "Mínimo privilegio"], a: 3, exp: "El principio de mínimo privilegio exige conceder solo los permisos imprescindibles." },
+
+    { id: "40v9-23", topic: ".NET 6", q: "¿Qué hace AddScoped?", options: ["Global", "Por uso", "Por request", "Singleton"], a: 2, exp: "AddScoped registra un servicio con una instancia por ámbito, normalmente por request HTTP." },
+
+    { id: "40v9-24", topic: "Python", q: "¿Qué hace yield?", options: ["Devuelve valor", "Generador", "Error", "Loop"], a: 1, exp: "yield convierte la función en generador y devuelve valores de forma perezosa." },
+
+    { id: "40v9-25", topic: "Git", q: "¿Qué ocurre si haces push a una rama protegida?", options: ["Se elimina rama", "Se sobrescribe", "Error", "Se ignora"], a: 2, exp: "Una rama protegida suele rechazar pushes directos si la política lo impide." },
+
+    { id: "40v9-26", topic: "PL/SQL", q: "¿Qué ocurre si una excepción se captura pero no se maneja correctamente ni se relanza?", options: ["Hace rollback automático", "Se propaga igual", "Se convierte en warning", "Se ignora silenciosamente"], a: 3, exp: "Si se captura y no se relanza ni se trata adecuadamente, la excepción puede quedar silenciada." },
+
+    { id: "40v9-27", topic: "MongoDB", q: "¿Qué ventaja tiene usar índices compuestos?", options: ["Optimiza consultas multi-campo", "Evita duplicados", "Menos memoria", "Ordena datos"], a: 0, exp: "Los índices compuestos mejoran consultas y ordenaciones que usan varios campos." },
+
+    { id: "40v9-28", topic: "Oracle SQL", q: "¿Qué ocurre si se usa HAVING sin GROUP BY?", options: ["Ignora la condición", "Filtra sobre resultado agregado global", "Error siempre", "Se comporta como WHERE"], a: 1, exp: "HAVING puede aplicarse sobre el único grupo implícito del resultado agregado global." },
+
+    { id: "40v9-29", topic: "ENS", q: "¿Qué implica la dimensión de disponibilidad?", options: ["Acceso restringido", "Integridad datos", "Identidad", "Acceso continuo a servicios"], a: 3, exp: "Disponibilidad implica que la información o los servicios estén accesibles cuando se necesiten." },
+
+    { id: "40v9-30", topic: "MediatR", q: "¿Qué patrón se rompe si handlers acceden directamente a DbContext sin abstracción?", options: ["Factory", "Repository", "Mediator", "Singleton"], a: 1, exp: "Al acceder directamente a DbContext se evita la capa de abstracción propia del patrón Repository." },
+
+    { id: "40v9-31", topic: ".NET 6", q: "¿Qué ocurre si un servicio Singleton depende de uno Transient?", options: ["No se ejecuta", "Error", "Funciona pero crea instancias múltiples del dependency", "Se convierte en Scoped"], a: 2, exp: "Puede funcionar, pero el transient se resuelve dentro del singleton y su ciclo de vida deja de ser el esperado." },
+
+    { id: "40v9-32", topic: "Oracle SQL", q: "¿Qué función analítica asigna ranking con huecos (1,1,3...)?", options: ["RANK()", "NTILE()", "DENSE_RANK()", "ROW_NUMBER()"], a: 0, exp: "RANK asigna la misma posición a empates y deja huecos en la numeración posterior." },
+
+    { id: "40v9-33", topic: "Scrum", q: "¿Qué artefacto representa el trabajo seleccionado para el Sprint?", options: ["Burndown chart", "Sprint Backlog", "Product Backlog", "Definition of Done"], a: 1, exp: "El Sprint Backlog contiene el trabajo seleccionado para el Sprint y el plan para entregarlo." },
+
+    { id: "40v9-34", topic: "MongoDB", q: "En MongoDB, una 'collection' es equivalente aproximado a:", options: ["Un procedimiento almacenado", "Un tablespace", "Un índice", "Una tabla"], a: 3, exp: "Una collection en MongoDB equivale aproximadamente a una tabla en un sistema relacional." },
+
+    { id: "40v9-35", topic: "Python", q: "¿Qué significa que un objeto es 'iterable' en Python?", options: ["Es siempre una lista", "Tiene método __iter__", "Tiene método __next__", "Es inmutable"], a: 1, exp: "Un objeto iterable implementa el protocolo de iteración, normalmente mediante __iter__." },
+
+    { id: "40v9-36", topic: "PL/SQL", q: "¿Qué trigger se usa típicamente sobre una VIEW no actualizable para gestionar DML?", options: ["AFTER ROW", "BEFORE STATEMENT", "DATABASE trigger", "INSTEAD OF"], a: 3, exp: "Los triggers INSTEAD OF permiten gestionar operaciones DML sobre vistas no actualizables." },
+
+    { id: "40v9-37", topic: "PL/SQL", q: "¿Cuál es la diferencia principal entre PROCEDURE y FUNCTION?", options: ["Function puede usarse en SQL y devuelve valor", "Procedure siempre devuelve valor con RETURN", "Function no admite parámetros", "Procedure solo puede tener OUT"], a: 0, exp: "La FUNCTION devuelve un valor y puede usarse en expresiones SQL en ciertos casos; PROCEDURE no." },
+
+    { id: "40v9-38", topic: "PL/SQL", q: "¿Qué ocurre si haces COMMIT dentro de un trigger en Oracle (trigger DML)?", options: ["Se ejecuta pero es recomendable", "Es obligatorio", "Suele estar prohibido y produce error", "Convierte el trigger en autónomo automáticamente"], a: 2, exp: "No se permite hacer COMMIT dentro de un trigger DML normal; Oracle produce error." },
+
+    { id: "40v9-39", topic: "PL/SQL", q: "¿Qué delimitador cierra un bloque anónimo PL/SQL?", options: ["END;", "END/", "/", "CLOSE;"], a: 2, exp: "El bloque termina con END; y se envía/ejecuta con la barra / en herramientas como SQL*Plus o SQL Developer." },
+
+    { id: "40v9-40", topic: "JavaScript", q: "¿Qué método convierte un JSON en objeto JS?", options: ["Object.json", "JSON.stringify", "JSON.parse", "Parse.JSON"], a: 2, exp: "JSON.parse convierte una cadena en formato JSON a un objeto JavaScript." }
 ]
         };
         BANK.E80_V3 = BANK.E80_V3.slice(0, 80);
